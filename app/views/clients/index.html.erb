@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Case Number</th>
       <th>Petitioner</th>
       <th>Respondent</th>
       <th>Garnishee</th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @clients.each do |client| %>
       <tr>
+        <td><%= client.case_number %></td>
         <td><%= client.petitioner %></td>
         <td><%= client.respondent %></td>
         <td><%= client.garnishee %></td>

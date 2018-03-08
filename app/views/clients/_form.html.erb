@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :case_number %>
+    <%= form.text_field :case_number, id: :client_case_number %>
+  </div>
+
+  <div class="field">
     <%= form.label :petitioner %>
     <%= form.text_field :petitioner, id: :client_petitioner %>
   </div>
@@ -45,6 +50,7 @@
     <%= form.label :bank_address %>
     <%= form.text_field :bank_address, id: :client_bank_address %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

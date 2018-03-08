@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
   root 'clients#index'
   resources :clients do
     resources :pdfs
-    post '/clients/:client_id/pdfs/:id', to:'pdfs#create', as: "create_pdf"
+    post '/pdfs/:id', to:'pdfs#create', as: "create_pdf"
   end
+
+  get '/settings', to:'settings#edit', as: "edit_settings"
+  patch '/settings', to:'settings#update', as: "update_settings"
 
   #For creating all pdfs for user at once
   # post '/pdfs/:id', to:'pdfs#create_pdfs', as: "create_pdfs"

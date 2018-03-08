@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Jc number:</strong>
+  <%= @setting.jc_number %>
+</p>
+
+<p>
+  <strong>County name:</strong>
+  <%= @setting.county_name %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

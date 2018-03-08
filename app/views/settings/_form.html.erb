@@ -1,0 +1,33 @@
+<%= form_for(@settings, url: update_settings_path) do |form| %>
+  <% if @settings.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% @settings.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if !notice.nil? %>
+    <% flash.each do |key, value| %>
+      <p><%=value%></p>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :jc_number %>
+    <%= form.text_field :jc_number, id: :setting_jc_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :county_name %>
+    <%= form.text_field :county_name, id: :setting_county_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

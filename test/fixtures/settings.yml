@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jc_number: MyString
+  county_name: MyString
+  : MyString
+
+two:
+  jc_number: MyString
+  county_name: MyString
+  : MyString

@@ -3,5 +3,6 @@
 #
 # Examples:
 #
+    Setting.create(jc_number: "100", county_name: "Palm Beach")
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)

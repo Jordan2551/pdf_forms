@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:new, :create, :application_created]
 
   # GET /clients
   # GET /clients.json
@@ -28,11 +29,9 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
-        format.json { render :show, status: :created, location: @client }
+        format.html { redirect_to application_created_path, notice: 'Client was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +42,8 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to @client, notice: 'Client was successfully updated.' }
-        format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,8 +54,11 @@ class ClientsController < ApplicationController
     @client.destroy
     respond_to do |format|
       format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
-      format.json { head :no_content }
     end
+  end
+
+  def application_created
+
   end
 
   private

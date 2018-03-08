@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'clients#index'
   resources :clients do
     resources :pdfs
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/settings', to:'settings#edit', as: "edit_settings"
   patch '/settings', to:'settings#update', as: "update_settings"
+
+  get '/application_created', to:'clients#application_created', as: "application_created"
 
   #For creating all pdfs for user at once
   # post '/pdfs/:id', to:'pdfs#create_pdfs', as: "create_pdfs"

@@ -1,0 +1,23 @@
+
+<h1><%= @client.name %>'s PDFs'</h1>
+<table>
+  <th>
+    <tr>
+      PDF Title
+    </tr>
+    <tr>
+      Open in Window
+    </tr>
+    <tr>
+      Download
+    </tr>
+  </th>
+  <tbody>
+    <% @pdfs.each do |key ,value| %>
+      <tr>
+        <td><%= key %></td>
+        <td><%= link_to "Open in Window", client_create_pdf_path(client_id:@client.id, id:value, format: "pdf"), method: :post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

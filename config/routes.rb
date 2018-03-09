@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'clients#index'
+  root 'clients#home'
   resources :clients do
     resources :pdfs
-    post '/pdfs/:id', to:'pdfs#create', as: "create_pdf"
+    post '/pdfs/:pdf_id/:inline', to:'pdfs#create', as: "create_pdf"
   end
+
+  get '/clients/home', to:'clients#home', as: "home"
+
+  patch '/clients/ua/:user_id', to:'clients#update_admin', as: "update_admin"
 
   get '/settings', to:'settings#edit', as: "edit_settings"
   patch '/settings', to:'settings#update', as: "update_settings"

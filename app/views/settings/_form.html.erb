@@ -1,33 +1,52 @@
 <%= form_for(@settings, url: update_settings_path) do |form| %>
-  <% if @settings.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
 
-      <ul>
-      <% @settings.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <h2 class="fancy-title-h2">General Settings</h2>
+    <div class="jumbotron">
+
+      <div class="form-group">
+        <%= form.label "JUDICIAL CIRCUIT", class: "form-label" %>
+        <%= form.text_field :jc_number, id: :setting_jc_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :county_name, class: "form-label" %>
+        <%= form.text_field :county_name, id: :setting_county_name, class: "form-control" %>
+      </div>
+
+      <%= form.submit "Save Settings", class:"button hvr-underline-from-center header-photo-btn" %>
     </div>
-  <% end %>
 
-  <% if !notice.nil? %>
-    <% flash.each do |key, value| %>
-      <p><%=value%></p>
-    <% end %>
-  <% end %>
+<% end %>
 
-  <div class="field">
-    <%= form.label :jc_number %>
-    <%= form.text_field :jc_number, id: :setting_jc_number %>
-  </div>
+<% if current_user.admin? %>
+  <h2 class="fancy-title-h2">User Settings</h2>
+  <div class="jumbotron">
 
-  <div class="field">
-    <%= form.label :county_name %>
-    <%= form.text_field :county_name, id: :setting_county_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="container table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>User Id</th>
+            <th>User Email</th>
+            <th>Created At</th>
+            <th>Grant Privileges</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user_table| %>
+            <tr>
+              <td><%= user_table.id %></td>
+              <td><%= user_table.email %></td>
+              <td><%= user_table.created_at %></td>
+              <% if user_table.admin?%>
+                <!-- <td><input type="checkbox" name="user[is_admin]" checked="checked"></td> -->
+                <td><%= link_to "Remove", update_admin_path(user_id: user_table.id), method: :patch, style:"color:red" %></td>
+              <% else %>
+                <td><%= link_to "Grant", update_admin_path(user_id: user_table.id), method: :patch, style:"color:green" %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 <% end %>

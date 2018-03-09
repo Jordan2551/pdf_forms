@@ -1,23 +1,31 @@
 
-<h1><%= @client.name %>'s PDFs'</h1>
-<table>
-  <th>
-    <tr>
-      PDF Title
-    </tr>
-    <tr>
-      Open in Window
-    </tr>
-    <tr>
-      Download
-    </tr>
-  </th>
-  <tbody>
-    <% @pdfs.each do |key ,value| %>
+<h1 class="fancy-title"><%= @client.name %>'s Documents</h1>
+
+<div class="container table-responsive">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= key %></td>
-        <td><%= link_to "Open in Window", client_create_pdf_path(client_id:@client.id, id:value, format: "pdf"), method: :post %></td>
+        <th>Document Title</th>
+        <th>Show Document</th>
+        <th>Download PDF</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @pdfs.each do |key ,value| %>
+        <tr>
+          <td><%= key %></td>
+          <td>
+            <%= link_to client_create_pdf_path(client_id:@client.id, pdf_id:value, inline: :true, format: "pdf"), method: :post do %>
+            <i class="fa fa-2x fa-eye" aria-hidden="true" style="color:#3F51B5"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to client_create_pdf_path(client_id:@client.id, pdf_id:value, inline: :false, format: "pdf"), method: :post do %>
+              <i class="fa fa-2x fa-file-pdf-o" aria-hidden="true" style="color:#F44336"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

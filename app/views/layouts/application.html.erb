@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PdfCreator</title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>PDF Creator</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'hover' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <script src="https://use.fontawesome.com/3df3601870.js"></script>
 
-  <body>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</head>
+<body>
+    <%= render partial: 'layouts/navigation' %>
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>

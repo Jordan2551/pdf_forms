@@ -1,6 +1,9 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:new, :create, :application_created]
+  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created]
+
+  def home
+  end
 
   # GET /clients
   # GET /clients.json
@@ -26,10 +29,9 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
-
     respond_to do |format|
       if @client.save
-        format.html { redirect_to application_created_path, notice: 'Client was successfully created.' }
+        format.html { redirect_to application_created_path, notice: 'Thank you. Your application was successfully created.' }
       else
         format.html { render :new }
       end
@@ -41,7 +43,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
+        format.html { redirect_to @client, notice: 'Application was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -53,8 +55,29 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
+      format.html { redirect_to clients_url, notice: 'Application was successfully deleted.' }
     end
+  end
+
+  def home
+
+  end
+
+  def update_admin
+
+    @user = User.find(params[:user_id])
+    if @user.admin?
+      @user.admin = false
+    else
+      @user.admin = true
+    end
+
+    if @user.save
+      redirect_to edit_settings_url, notice: "Admin privileges have been changed for #{@user.email}"
+    else
+      render edit_settings_url, notice: "There was an error updating user privileges for #{@user.email}"
+    end
+
   end
 
   def application_created
@@ -71,4 +94,5 @@ class ClientsController < ApplicationController
     def client_params
       params.require(:client).permit(:case_number, :petitioner, :respondent, :garnishee, :name, :address, :bank_name, :bank_address)
     end
+
 end

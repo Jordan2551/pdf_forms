@@ -1,43 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Clients</h1>
+<h1 class="fancy-title">Clients</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Case Number</th>
-      <th>Petitioner</th>
-      <th>Respondent</th>
-      <th>Garnishee</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Bank name</th>
-      <th>Bank address</th>
-      <th colspan="3"></th>
-      <th>PDFS</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @clients.each do |client| %>
+<div class="container table-responsive">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= client.case_number %></td>
-        <td><%= client.petitioner %></td>
-        <td><%= client.respondent %></td>
-        <td><%= client.garnishee %></td>
-        <td><%= client.name %></td>
-        <td><%= client.address %></td>
-        <td><%= client.bank_name %></td>
-        <td><%= client.bank_address %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "PDFs", client_pdfs_path(client_id: client.id)%></td>
+        <th>Case Number</th>
+        <th>Petitioner</th>
+        <th>Respondent</th>
+        <th>Garnishee</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Bank name</th>
+        <th>Bank address</th>
+        <th>Edit Application</th>
+        <th>Delete Application</th>
+        <th>Documents</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= client.case_number %></td>
+          <td><%= client.petitioner %></td>
+          <td><%= client.respondent %></td>
+          <td><%= client.garnishee %></td>
+          <td><%= client.name %></td>
+          <td><%= client.address %></td>
+          <td><%= client.bank_name %></td>
+          <td><%= client.bank_address %></td>
+          <td><a href="<%= edit_client_path(client) %>"><i class="fa fa-2x fa-edit" style="color:#2196F3"></i></a></td>
+          <td>
+            <%= link_to client, method: :delete, data: { confirm: 'Are you sure you want to delete the application?' }, remote: true do %>
+              <i class="fa fa-2x fa-trash" style="color:#F44336"></i>
+            <% end %>
+          </td>
+          <td><a href="<%= client_pdfs_path(client_id: client.id) %>"><i class="fa fa-2x fa-file" style="color:#3F51B5"></i></a></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
-
-<%= link_to 'New Client', new_client_path %>

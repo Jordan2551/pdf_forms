@@ -74,10 +74,14 @@
     -webkit-user-select: none;
   }
 
+  .button .button2, a:hover{
+    color:black !important;
+    text-decoration:none !important;
+  }
 
   a:hover{
-    color: indigo;
-    background-color:white;
+    color: indigo !important;
+    background-color:white !important;
   }
 
   a:active{

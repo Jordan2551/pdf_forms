@@ -39,9 +39,9 @@
               <td><%= user_table.created_at %></td>
               <% if user_table.admin?%>
                 <!-- <td><input type="checkbox" name="user[is_admin]" checked="checked"></td> -->
-                <td><%= link_to "Remove", update_admin_path(user_id: user_table.id), method: :patch, style:"color:red" %></td>
+                <td><%= link_to "Remove", update_admin_path(user_id: user_table.id), method: :patch, style:"color:red !important" %></td>
               <% else %>
-                <td><%= link_to "Grant", update_admin_path(user_id: user_table.id), method: :patch, style:"color:green" %></td>
+                <td><%= link_to "Grant", update_admin_path(user_id: user_table.id), method: :patch, style:"color:green !important" %></td>
               <% end %>
             </tr>
           <% end %>

@@ -1,0 +1,31 @@
+<h2>Step 2:</h2>
+
+<!-- FIX ERROR DISPLAY WITH REMOTE: true -->
+<%= form_with(model: client, url: register_step_2_path, remote: true) do |form| %>
+  <% if client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% client.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+
+    <div class="jumbotron">
+
+      <div class="form-group">
+        <%= form.label :bank_name, class: "form-label" %>
+        <%= form.text_field :bank_name, id: :client_bank_name, class: "form-control" %>
+      </div>
+
+      <%= form.submit "Complete Step 2", class:"button hvr-underline-from-center header-photo-btn" %>
+
+    </div>
+  </div>
+
+<% end %>

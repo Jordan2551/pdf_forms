@@ -1,0 +1,28 @@
+$(document).on('turbolinks:load', function(){
+  $("step_1_submit").on("click", step_1_submit());
+});
+
+function step_1_submit(){
+  alert("hello");
+
+      $this = $(this);
+      $.ajax({
+        url: '/clients/register_step_1',
+        type: 'POST',
+        dataType: 'json',
+      })
+      .done(function(json, textStatus) {
+        alert("hello");
+        if(json.status === "liked"){
+          // console.log( $this.html() );
+          $this.html("<i class='fa fa-thumbs-up' aria-hidden='true'>Unlike</i>");
+        }
+
+        else
+          $this.html("<i class='fa fa-thumbs-o-up' aria-hidden='true'>Like</i>");
+
+        $this.parent().siblings('.stat_labels').find('.like_label').html("<i class='fa fa-thumbs-up field-margin-xs' aria-hidden='true'></i>   Likes: "+json.like_count+"");
+
+      })
+
+}

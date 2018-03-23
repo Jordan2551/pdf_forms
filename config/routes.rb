@@ -5,6 +5,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  #Register
+  get '/clients/register', to:'clients#register', as: "register_client"
+  post '/clients/register_step_1', to:'clients#register_step_1', as: "register_step_1"
+  post '/clients/register_step_2', to:'clients#register_step_2', as: "register_step_2"
+  post '/clients/register_step_3', to:'clients#register_step_3', as: "register_step_3"
+
   resources :clients do
     resources :pdfs
     post '/pdfs/:pdf_id/:inline', to:'pdfs#create', as: "create_pdf"

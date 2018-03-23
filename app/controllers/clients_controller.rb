@@ -38,6 +38,28 @@ class ClientsController < ApplicationController
     end
   end
 
+  #Client registration
+
+  def register
+    @client = Client.new
+  end
+
+  def register_step_1
+    byebug
+      @client = Client.new(register_step_1_params)
+      respond_to do |format|
+        if @client.save
+          format.json {render json: "good", status: :ok}
+          format.html{redirect_to register_client_path, notice: 'Thank you. Step one has been completed'}
+        else
+          format.json {render json: "bad", status: :ok}
+          format.html {render register_client_path, notice: 'There was an error with the info!'}
+        end
+    end
+  end
+
+  #Client registration
+
   # PATCH/PUT /clients/1
   # PATCH/PUT /clients/1.json
   def update
@@ -93,6 +115,10 @@ class ClientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
       params.require(:client).permit(:case_number, :petitioner, :respondent, :garnishee, :name, :address, :bank_name, :bank_address)
+    end
+
+    def register_step_1_params
+      params.require(:client).permit(:first_name, :middle_name, :last_name, :phone_number, :email)
     end
 
 end

@@ -1,0 +1,17 @@
+
+var errors = $("#errors");
+errors.html('');
+var success = $("#success");
+success.html('');
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |message| %>
+    errors.append("*<%= j message %>");
+  <% end %>
+
+  <% else %>
+    success.html('<%= j flash[:success] %>')
+    $("#step_1_container").html("");//Hide step 1
+    $("#step_2_container").html("<%= j render 'step_2' %>");
+
+<% end %>

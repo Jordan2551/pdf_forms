@@ -45,15 +45,20 @@ class ClientsController < ApplicationController
   end
 
   def register_step_1
-    byebug
       @client = Client.new(register_step_1_params)
       respond_to do |format|
         if @client.save
-          format.json {render json: "good", status: :ok}
-          format.html{redirect_to register_client_path, notice: 'Thank you. Step one has been completed'}
+          # format.js{render 'step_2', notice: 'Thank you. Step one has been completed'}
+          format.js{
+            flash[:errors] = nil #reset error messages from previous requests
+            flash[:success] = "You have successfully completed step 1. Good job!"
+            render 'register_step_1'
+          }
         else
-          format.json {render json: "bad", status: :ok}
-          format.html {render register_client_path, notice: 'There was an error with the info!'}
+          format.js{
+            flash[:errors] = @client.errors.full_messages
+            render 'register_step_1'
+          }
         end
     end
   end

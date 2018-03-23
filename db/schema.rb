@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322212721) do
+ActiveRecord::Schema.define(version: 20180323185844) do
 
   create_table "clients", force: :cascade do |t|
     t.string "address"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20180322212721) do
     t.string "last_name"
     t.string "phone_number"
     t.string "email"
+    t.string "mailing_address"
+    t.string "work_phone_number"
+    t.string "county_name"
+    t.boolean "alimony_child_support_required"
+    t.string "alimony_child_support_state"
+    t.integer "what_to_collect"
+    t.decimal "how_much_money_owed"
+    t.boolean "receiving_payments"
+    t.boolean "receiving_public_assistance"
+    t.string "receiving_public_assistance_description"
   end
 
   create_table "settings", force: :cascade do |t|

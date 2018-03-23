@@ -1,31 +1,81 @@
+
 <h2>Step 2:</h2>
 
-<!-- FIX ERROR DISPLAY WITH REMOTE: true -->
-<%= form_with(model: client, url: register_step_2_path, remote: true) do |form| %>
-  <% if client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+<div id="validations">
+  <div id="errors" class="btn-danger"></div>
+  <div id="success" class="btn-success"></div>
+</div>
 
-      <ul>
-      <% client.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: @client, url: register_step_1_path, remote: true) do |form| %>
 
   <div class="container">
-
     <div class="jumbotron">
 
       <div class="form-group">
-        <%= form.label :bank_name, class: "form-label" %>
-        <%= form.text_field :bank_name, id: :client_bank_name, class: "form-control" %>
+        <%= form.label :mailing_address, class: "form-label" %>
+        <%= form.text_field :mailing_address, id: :client_mailing_address, class: "form-control" %>
       </div>
 
-      <%= form.submit "Complete Step 2", class:"button hvr-underline-from-center header-photo-btn" %>
+      <div class="form-group">
+        <%= form.label :county_name, class: "form-label" %>
+        <%= form.text_field :county_name, id: :client_county_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :alimony_child_support_required, value: "Do you have a final judgment or court order requiring someone to pay you alimony and / or child support?", class: "form-label" %>
+        <%= form.check_box :alimony_child_support_required, id: :client_alimony_child_support_required, class: "form-control" %>
+      </div>
+
+      <div id="alimony_fields" hidden="true">
+
+      <div class="form-group">
+        <%= form.label :alimony_child_support_required, class: "form-label" %>
+        <%= form.text_field :alimony_child_support_required, id: :client_alimony_child_support_required, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :work_phone_number, value: "Work phone number (optional)", class: "form-label" %>
+        <%= form.text_field :work_phone_number, id: :client_work_phone_number, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :what_to_collect, value: "What would you like us to collect for you?*", class: "form-label" %>
+        <select name="client[what_to_collect]" class="form-control">
+          <option value="Alimony">Alimony</option>
+          <option value="Child Support">Child Support</option>
+          <option value="Alimony &amp; Child Support">Alimony &amp; Child Support</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :how_much_money_owed, value: "Approximately how much money are you owed?", class: "form-label" %>
+        <%= form.text_field :how_much_money_owed, id: :client_how_much_money_owed, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :alimony_child_support_state, value: "In which state was your child support or alimony order entered?*", class: "form-label" %>
+        <%= form.text_field :alimony_child_support_state, id: :client_alimony_child_support_state, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :receiving_payments, value:"Are you currently receiving payments?*", class: "form-label" %>
+        <%= form.check_box :receiving_payments, id: :client_receiving_payments, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :receiving_public_assistance, value:"Are you receiving any form of public assistance?*", class: "form-label" %>
+        <%= form.check_box :receiving_public_assistance, id: :client_receiving_public_assistance, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :receiving_public_assistance_description, value:"Please describe what type of public assisting you are receiving", class: "form-label" %>
+        <%= form.text_field :receiving_public_assistance_description, id: :client_receiving_public_assistance_description, class: "form-control" %>
+      </div>
+
+      <%= form.submit "Complete Step 2", class:"button hvr-underline-from-center header-photo-btn", id: "step_1_submit" %>
 
     </div>
   </div>
+</div>
 
 <% end %>

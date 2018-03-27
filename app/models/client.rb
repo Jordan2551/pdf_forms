@@ -12,7 +12,7 @@ class Client < ApplicationRecord
   validates :alimony_child_support_required, presence: true, on: :register_step_2
   validates :home_phone_number, presence: true, on: :register_step_2
   validates :what_to_collect, presence: true, on: :register_step_2
-  validates :how_much_money_owed, presence: true, on: :register_step_2
+  validates :how_much_money_owed, presence: true, numericality: {greater_than_or_equal_to: 5000, message: "You must be owed at least $5,000.00 to proceed to the next step."}, on: :register_step_2
   validates :alimony_child_support_state, presence: true, on: :register_step_2
 
 end

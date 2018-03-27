@@ -12,7 +12,7 @@ success.html('');
 
   <% else %>
     success.html('<%= j flash[:success] %>')
-    $("#step_1_container").html("");//Erase step 1 content
-    $("#step_2_container").html("<%= j render 'step_2' %>");//Show step 2 content
+    $("#step_2_container").html("");//Erase step 2 content
+    $("#step_3_container").html("<%= j render 'step_3' %>");//Show step 3 content
 
 <% end %>

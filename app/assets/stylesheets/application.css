@@ -104,3 +104,9 @@
   input[type=checkbox]{
     transform: scale(1.5);
   }
+
+  .error{
+    color:red;
+    font-weight:bold;
+    font-size:15px !important;
+  }

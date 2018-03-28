@@ -14,7 +14,7 @@
   <div id="success" class="btn-success"></div>
 </div>
 
-<%= form_with(model: @client, url: register_step_3_path(client_id: @client.id), remote: true, method: :post) do |form| %>
+<%= form_with(model: @client, url: register_step_3_path, remote: true, method: :post) do |form| %>
 
   <div class="container">
     <div class="jumbotron">
@@ -38,7 +38,7 @@
         <p>Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
       </div>
 
-        <%= form.submit "Complete Step 2", class:"button hvr-underline-from-center header-photo-btn", id: "step_2_submit" %>
+        <%= form.submit "Complete Step 3", class:"button hvr-underline-from-center header-photo-btn", id: "step_3_submit" %>
 
     </div>
   </div>

@@ -4,7 +4,7 @@ class Client < ApplicationRecord
   validates :middle_name, presence: true, on: :register_step_1
   validates :last_name, presence: true, on: :register_step_1
   validates :phone_number, presence: true, on: :register_step_1
-  validates :email, presence: true, on: :register_step_1
+  validates :email, presence: true, format: { with: Devise.email_regexp, message: "Invalid email format"}, on: :register_step_1
 
   #Step 2
   validates :mailing_address, presence: true, on: :register_step_2

@@ -1,9 +1,0 @@
-Validate emails, phone numbers correctly by using: 
-https://stackoverflow.com/questions/38611405/how-to-do-email-validation-in-ruby-on-rails
-
-SECURITY:
-
-*cache the user id between registration steps.
-
-
-

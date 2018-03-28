@@ -49,7 +49,8 @@ class ClientsController < ApplicationController
       respond_to do |format|
         if @client.save(context: :register_step_1)
           format.js{
-            flash[:errors] = nil #reset error messages from previous requests
+            session[:client_id] = @client.id# We need the client id to persist through multiple registration actions
+            flash[:errors] = nil # Reset error messages from previous requests
             flash[:success] = "You have successfully completed step 1. Good job!"
             render 'register_step_1'
           }
@@ -64,33 +65,39 @@ class ClientsController < ApplicationController
 
   def register_step_2
 
-      #How to achieve a similar look to register_step_1 where .new sets all the params for us
-      @client = Client.find(params[:client_id])
-      @client.mailing_address = params[:client][:mailing_address]
-      @client.county_name = params[:client][:county_name]
-      @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
-      @client.home_phone_number = params[:client][:home_phone_number]
-      @client.what_to_collect = params[:client][:what_to_collect]
-      @client.how_much_money_owed = params[:client][:how_much_money_owed]
-      @client.alimony_child_support_state = params[:client][:alimony_child_support_state]
-      @client.receiving_payments = params[:client][:receiving_payments]
-      @client.receiving_public_assistance = params[:client][:receiving_public_assistance]
-      @client.receiving_public_assistance_description = params[:client][:receiving_public_assistance_description]
+      if session[:client_id]
+              #How to achieve a similar look to register_step_1 where .new sets all the params for us
+              @client = Client.find(session[:client_id])
+              @client.mailing_address = params[:client][:mailing_address]
+              @client.county_name = params[:client][:county_name]
+              @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
+              @client.home_phone_number = params[:client][:home_phone_number]
+              @client.what_to_collect = params[:client][:what_to_collect]
+              @client.how_much_money_owed = params[:client][:how_much_money_owed]
+              @client.alimony_child_support_state = params[:client][:alimony_child_support_state]
+              @client.receiving_payments = params[:client][:receiving_payments]
+              @client.receiving_public_assistance = params[:client][:receiving_public_assistance]
+              @client.receiving_public_assistance_description = params[:client][:receiving_public_assistance_description]
 
-      respond_to do |format|
-        if @client.save(context: :register_step_2)
-          format.js{
-            flash[:errors] = nil #reset error messages from previous requests
-            flash[:success] = "You have successfully completed step 2. Good job!"
-            render 'register_step_2'
-          }
-        else
-          format.js{
-            flash[:errors] = @client.errors.full_messages
-            render 'register_step_2'
-          }
-        end
-    end
+              respond_to do |format|
+                if @client.save(context: :register_step_2)
+                  format.js{
+                    flash[:errors] = nil #reset error messages from previous requests
+                    flash[:success] = "You have successfully completed step 2. Good job!"
+                    render 'register_step_2'
+                  }
+                else
+                  format.js{
+                    flash[:errors] = @client.errors.full_messages
+                    render 'register_step_2'
+                  }
+                end
+            end
+          else
+            flash[:errors] = "Unfortunately, your session has expired due to inactivity. Please re-create the application."
+            redirect_to home_path
+      end
+
   end
 
   def register_step_3

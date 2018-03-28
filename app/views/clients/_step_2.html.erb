@@ -7,7 +7,7 @@
   <div id="success" class="btn-success"></div>
 </div>
 
-<%= form_with(model: @client, url: register_step_2_path(client_id: @client.id), remote: true, method: :post) do |form| %>
+<%= form_with(model: @client, url: register_step_2_path, remote: true, method: :post) do |form| %>
 
   <div class="container">
     <div class="jumbotron">

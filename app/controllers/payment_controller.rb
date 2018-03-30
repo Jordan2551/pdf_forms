@@ -3,14 +3,14 @@ class PaymentController < ActionController::API
 
   include ActionController::Flash
 
-  # TODO: add secrets to env
-  # TODO: test additional errors and handle their messages in the step_3 view
-
   def pay
 
-    gateway = ChargeIO::Gateway.new(:secret_key => "xzw7tjxtS3egdUwMveTbeAjnuQvJNF7RrxMBYuCqqWfdrzUoGgixmd2lquOw7RNj")
+    ap_key = Rails.application.secrets.ap_key
+    ap_account_id = Rails.application.secrets.ap_account_id
+
+    gateway = ChargeIO::Gateway.new(:secret_key => ap_key)
     amount = 75000
-    charge = gateway.charge(amount, :method => params[:token_id], :account_id => "iRDOjvNfQEeusMLBWqQJLQ", :type => 'card')
+    charge = gateway.charge(amount, :method => params[:token_id], :account_id => ap_account_id, :type => 'card')
 
     if !charge.errors.empty?
       flash[:errors] = charge.errors

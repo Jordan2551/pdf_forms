@@ -15,11 +15,27 @@ class PaymentController < ActionController::API
     if !charge.errors.empty?
       flash[:errors] = charge.errors
       redirect_to home_path
+      #We need to make this render. The resource is not found if we do render.
     else
       #ADD REDIRECT TO THE FINAL REGISTRATION STEP WITH A MESSAGE
       flash[:success] = "Payment successful!"
       redirect_to home_path
     end
+
+    # respond_to do |format|
+    #   if !charge.errors.empty?
+    #     format.js{
+    #       flash[:errors] = charge.errors
+    #       render 'home'
+    #     }
+    #   else
+    #     format.js{
+    #       #ADD REDIRECT TO THE FINAL REGISTRATION STEP WITH A MESSAGE
+    #       flash[:success] = "Payment successful!"
+    #       redirect_to home_path
+    #     }
+    #   end
+    # end
 
   end
 

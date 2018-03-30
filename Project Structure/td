@@ -1,0 +1,9 @@
+ADD SECRETS.yml to GITIGNORE!!!
+
+dev:
+  ap_key: xzw7tjxtS3egdUwMveTbeAjnuQvJNF7RrxMBYuCqqWfdrzUoGgixmd2lquOw7RNj
+  ap_account_id: iRDOjvNfQEeusMLBWqQJLQ
+
+prod:
+  ap_key: b97Mv-8xT7iVKdOiYx_ggAOyb6NCmugp63EVUr4EKFonLr2g7WADrwM0Z3wPD89J
+  ap_account_id: zjpgsNBZQRW-snzsT-1F_w

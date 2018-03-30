@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post '/clients/register_step_2', to:'clients#register_step_2', as: "register_step_2"
   post '/clients/register_step_3', to:'clients#register_step_3', as: "register_step_3"
 
+  #Payments
+  post '/payment/pay', to:'payment#pay', as: "pay"
+
   resources :clients do
     resources :pdfs
     post '/pdfs/:pdf_id/:inline', to:'pdfs#create', as: "create_pdf"

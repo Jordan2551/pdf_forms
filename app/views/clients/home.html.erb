@@ -1,8 +1,4 @@
 
-<% flash.each do |key, value| %>
-  <%= content_tag :div, value, class: "flash #{key}" %>
-<% end %>
-
 <div class="jumbotron" style="height:700px">
   <h1 class="fancy-title" style="margin-top:200px">Welcome to PDF Creator!</h1>
   <div class="container">
@@ -14,3 +10,121 @@
     </div>
   </div>
 </div>
+
+
+<div class="row">
+
+  <ul>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |key, value| %>
+        <li><%= value %></li>
+      <% end %>
+    <% elsif flash[:success] %>
+      <li><%= flash[:success] %></li>
+    <% end %>
+  </ul>
+
+  <h2>Enter your payment information:</h2>
+
+  <div id="messages" class="alert alert-danger" style="display: none">
+    <ul></ul>
+  </div>
+
+  <form>
+
+    <h3>Billing Information</h3>
+
+    <div class="form-group">
+      <label>Name on Card</label>
+      <input type="text" name="name" placeholder="Name on card" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" name="email" placeholder="Email" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Billing Address</label>
+      <input type="text" name="billingAddress1" placeholder="Billing Address" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="billingAddress2" placeholder="Billing Address 2" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="billingCity" placeholder="City" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <%= select_tag "billingState", options_for_select(us_states), { class:"form-control"} %>
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="billingZip" placeholder="Zip / Postal Code" class="form-control">
+    </div>
+
+    <h3>Card Information</h3>
+
+    <div class="form-group">
+      <label>Card Number</label>
+      <input type="text" name="number" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>CVV</label>
+      <input type="text" name="cvv" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Exp Month</label>
+      <input type="text" name="exp_month" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Exp Year</label>
+      <input type="text" name="exp_year" class="form-control">
+    </div>
+
+    <button type="submit" id="pay" class="button" disabled>Submit</button>
+  </form>
+</div>
+
+ <script type="text/javascript" src="https://api.chargeio.com/assets/api/v1/chargeio.min.js"></script>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script type="text/javascript">
+  ChargeIO.init({ public_key: 'm_17BURrtKStm9PEzYWU7YSg' });
+
+   function processErrorMessages(messages) {
+     var msgList = $('#messages ul');
+     $(msgList).empty();
+     $.each(messages, function(index, item) {
+       $(msgList).append("<li>" + item.message + "</li>");
+     });
+
+    //  $('#messages').show();
+     $('#pay').prop("disabled", false);
+   }
+
+   ChargeIO.ready(function() {
+     $('#pay').prop("disabled", false);
+     $('#pay').click(function(event) {
+       event.preventDefault();
+       $('#pay').prop("disabled", true);
+       var amount = parseInt($('#total').text().replace(/\D/g,''));
+       var paymentJson = ChargeIO.payment_params($('form'));
+       ChargeIO.create_token(paymentJson, function(token) {
+         $.post('http://localhost:3000/payment/pay', { 'amount': amount, 'token_id': token.id }).done(function(data) {
+           if (data.messages) {
+             processErrorMessages(data.messages);
+           }
+           else {
+             window.location = 'http://localhost:3000/clients/home';
+           }
+         }).fail(function(xhr) {
+           processErrorMessages([ { "message": "An unexpected error occurred" } ]);
+         });
+       });
+     });
+   });
+
+ </script>

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_admin!, except: [:home]
 
   helper_method :us_states
+  helper_method :countries
   # helper_method :authenticate_admin!
 
     def authenticate_admin!
@@ -14,6 +15,7 @@ class ApplicationController < ActionController::Base
 
     def us_states
     [
+      ['Florida', 'FL'],
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
       ['Arizona', 'AZ'],
@@ -23,7 +25,6 @@ class ApplicationController < ActionController::Base
       ['Connecticut', 'CT'],
       ['Delaware', 'DE'],
       ['District of Columbia', 'DC'],
-      ['Florida', 'FL'],
       ['Georgia', 'GA'],
       ['Hawaii', 'HI'],
       ['Idaho', 'ID'],
@@ -67,7 +68,7 @@ class ApplicationController < ActionController::Base
       ['Wisconsin', 'WI'],
       ['Wyoming', 'WY']
     ]
-end
+  end
 
 
 end

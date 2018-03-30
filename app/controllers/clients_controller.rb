@@ -1,6 +1,7 @@
+
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :register, :register_step_1, :register_step_2, :register_step_3 ]
+  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :register, :register_step_1, :register_step_2, :register_step_3]
 
   def home
   end
@@ -49,7 +50,7 @@ class ClientsController < ApplicationController
       respond_to do |format|
         if @client.save(context: :register_step_1)
           format.js{
-            session[:client_id] = @client.id# We need the client id to persist through multiple registration actions
+            session[:client_id] = @client.id # We need the client id to persist through multiple registration actions
             flash[:errors] = nil # Reset error messages from previous requests
             flash[:success] = "You have successfully completed step 1. Good job!"
             render 'register_step_1'

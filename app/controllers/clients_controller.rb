@@ -1,7 +1,8 @@
 
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :register, :register_step_1, :register_step_2, :register_step_3]
+  before_action :in_session?, only: [:register_step_2, :register_step_4]
+  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :register, :register_step_1, :register_step_2, :register_step_3, :payment]
 
   def home
   end
@@ -66,44 +67,42 @@ class ClientsController < ApplicationController
 
   def register_step_2
 
-      if session[:client_id]
-              #How to achieve a similar look to register_step_1 where .new sets all the params for us
-              @client = Client.find(session[:client_id])
-              @client.mailing_address = params[:client][:mailing_address]
-              @client.county_name = params[:client][:county_name]
-              @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
-              @client.home_phone_number = params[:client][:home_phone_number]
-              @client.what_to_collect = params[:client][:what_to_collect]
-              @client.how_much_money_owed = params[:client][:how_much_money_owed]
-              @client.alimony_child_support_state = params[:client][:alimony_child_support_state]
-              @client.receiving_payments = params[:client][:receiving_payments]
-              @client.receiving_public_assistance = params[:client][:receiving_public_assistance]
-              @client.receiving_public_assistance_description = params[:client][:receiving_public_assistance_description]
+      #How to achieve a similar look to register_step_1 where .new sets all the params for us
+      @client = Client.find(session[:client_id])
+      @client.mailing_address = params[:client][:mailing_address]
+      @client.county_name = params[:client][:county_name]
+      @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
+      @client.home_phone_number = params[:client][:home_phone_number]
+      @client.what_to_collect = params[:client][:what_to_collect]
+      @client.how_much_money_owed = params[:client][:how_much_money_owed]
+      @client.alimony_child_support_state = params[:client][:alimony_child_support_state]
+      @client.receiving_payments = params[:client][:receiving_payments]
+      @client.receiving_public_assistance = params[:client][:receiving_public_assistance]
+      @client.receiving_public_assistance_description = params[:client][:receiving_public_assistance_description]
 
-              respond_to do |format|
-                if @client.save(context: :register_step_2)
-                  format.js{
-                    flash[:errors] = nil #reset error messages from previous requests
-                    flash[:success] = "You have successfully completed step 2. Good job!"
-                    render 'register_step_2'
-                  }
-                else
-                  format.js{
-                    flash[:errors] = @client.errors.full_messages
-                    render 'register_step_2'
-                  }
-                end
-            end
-          else
-            flash[:errors] = "Unfortunately, your session has expired due to inactivity. Please re-create the application."
-            redirect_to home_path
+      respond_to do |format|
+        if @client.save(context: :register_step_2)
+          format.js{
+            flash[:errors] = nil #reset error messages from previous requests
+            flash[:success] = "You have successfully completed step 2. Good job!"
+            redirect_to payment_path
+          }
+        else
+          format.js{
+            flash[:errors] = @client.errors.full_messages
+            render 'register_step_2'
+          }
       end
+    end
 
   end
 
-  #This is done in payments controller pay action
-  # def register_step_3
-  # end
+  #This is step 3
+  def payment
+  end
+
+  def step_4
+  end
 
   def register_step_4
 

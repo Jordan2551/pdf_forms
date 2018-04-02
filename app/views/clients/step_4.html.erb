@@ -1,0 +1,35 @@
+
+<h2>Step 4:</h2>
+
+<div id="validations">
+  <div id="errors" class="error"></div>
+  <div id="success" class="btn-success"></div>
+</div>
+
+<ul>
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |key, value| %>
+          <li><%= value %></li>
+        <% end %>
+      <% elsif flash[:success] %>
+        <li><%= flash[:success] %></li>
+      <% end %>
+ </ul>
+
+<%= form_with(model: Client.first, url: register_step_1_path, remote: true, method: :post) do |form| %>
+
+  <div class="container">
+
+    <div class="jumbotron">
+
+      <div class="form-group">
+        <%= form.label :first_name, class: "form-label" %>
+        <%= form.text_field :first_name, id: :client_first_name, required: true,  class: "form-control" %>
+      </div>
+
+      <%= form.submit "Complete Step 1", class:"button hvr-underline-from-center header-photo-btn", id: "step_1_submit" %>
+
+    </div>
+  </div>
+
+<% end %>

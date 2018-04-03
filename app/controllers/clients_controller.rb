@@ -1,8 +1,8 @@
 
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  before_action :in_session?, only: [:step_2, :step_4, :register_step_2, :register_step_4, :validate_registration_stage]
-  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :step_1, :step_2, :payment, :register_step_1, :register_step_2, :register_step_3]
+  before_action :in_session?, only: [:validate_registration_stage]
+  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :step_1, :step_2, :step_4, :payment, :register_step_1, :register_step_2, :register_step_4]
 
   def home
   end
@@ -69,7 +69,7 @@ class ClientsController < ApplicationController
   end
 
   def register_step_2
-
+      validate_registration_stage(1)
       #How to achieve a similar look to register_step_1 where .new sets all the params for us
       @client = Client.find(session[:client_id])
       @client.mailing_address = params[:client][:mailing_address]
@@ -85,25 +85,23 @@ class ClientsController < ApplicationController
       @client.registration_step = 2
 
       if @client.save(context: :register_step_2)
-          flash[:step_2_success] = "You have successfully completed step 2. Good job!"
+          flash[:step_2_success] = "You made it this far! Keep up the great work!"
           redirect_to payment_path
-
       else
           flash[:step_2_errors] = @client.errors.full_messages
           render step_2_path
       end
-
-
   end
 
   #This is step 3
 
-
   def step_4
+    validate_registration_stage(3)
+    @client = Client.find(session[:client_id])
   end
 
   def register_step_4
-
+    validate_registration_stage(3)
   end
 
   #Client registration

@@ -9,8 +9,7 @@ module Helpers
   end
 
   def in_session?
-    if session[:client_id]
-    else
+    if session[:client_id] == nil
       flash[:errors] = "Unfortunately, your session has expired due to inactivity. Please re-create the application."
       redirect_to home_path
     end

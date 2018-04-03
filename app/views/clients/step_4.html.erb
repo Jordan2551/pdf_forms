@@ -11,21 +11,90 @@
   <% end %>
 </ul>
 
-<h2>Step 4 - Post Payment</h2>
+<h2>Step 4 - Post Payment (Final Step)</h2>
 
 
-<%= form_with(model: Client.first, url: register_step_1_path, remote: true, method: :post) do |form| %>
+<%= form_with(model: @client, url: register_step_4_path, local: true, method: :post) do |form| %>
 
   <div class="container">
 
     <div class="jumbotron">
 
       <div class="form-group">
-        <%= form.label :first_name, class: "form-label" %>
-        <%= form.text_field :first_name, id: :client_first_name, required: true,  class: "form-control" %>
+        <%= form.label :alternate_contact_name, class: "form-label" %>
+        <%= form.text_field :alternate_contact_name, id: :client_alternate_contact_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :alternate_contact_phone_number, class: "form-label" %>
+        <%= form.text_field :alternate_contact_phone_number, id: :client_alternate_contact_phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :birth_date, class: "form-label" %>
+        <%= form.text_field :birth_date, id: :client_birth_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :social_security_number, class: "form-label" %>
+        <%= form.text_field :social_security_number, id: :client_social_security_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :gender, class: "form-label" %>
+        <%= form.text_field :gender, id: :client_gender, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_race, class: "form-label" %>
+        <%= form.text_field :owes_money_race, id: :client_owes_money_race, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_first_name, class: "form-label" %>
+        <%= form.text_field :owes_money_first_name, id: :client_owes_money_first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_last_name, class: "form-label" %>
+        <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_street, class: "form-label" %>
+        <%= form.text_field :owes_money_street, id: :client_owes_money_street, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_apt, class: "form-label" %>
+        <%= form.text_field :owes_money_apt, id: :client_owes_money_apt, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_city, class: "form-label" %>
+        <%= form.text_field :owes_money_city, id: :client_owes_money_city, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_county, class: "form-label" %>
+        <%= form.text_field :owes_money_county, id: :client_owes_money_county, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_state, class: "form-label" %>
+        <%= form.text_field :owes_money_state, id: :client_owes_money_state, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_zip, class: "form-label" %>
+        <%= form.text_field :owes_money_zip, id: :client_owes_money_zip, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_work_address, class: "form-label" %>
+        <%= form.text_field :owes_money_work_address, id: :client_owes_money_work_address, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_phone_number, class: "form-label" %>
+        <%= form.text_field :owes_money_phone_number, id: :client_owes_money_phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_email, class: "form-label" %>
+        <%= form.text_field :owes_money_email, id: :client_owes_money_email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_is_in_jail, class: "form-label" %>
+        <%= form.text_field :owes_money_is_in_jail, id: :client_owes_money_is_in_jail, class: "form-control" %>
       </div>
 
-      <%= form.submit "Complete Step 1", class:"button hvr-underline-from-center header-photo-btn", id: "step_1_submit" %>
+
+      <%= form.submit "Complete Step 4", class:"button hvr-underline-from-center header-photo-btn" %>
 
     </div>
   </div>

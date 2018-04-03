@@ -1,11 +1,72 @@
-
 <script type="text/javascript"  src="https://api.chargeio.com/assets/api/v1/chargeio.min.js"></script>
 
 <h1 class="fancy-title">New Client Application</h1>
+
+<ul>
+  <% if flash[:step_2_success] %>a
+    <li class="success"><%= flash[:step_2_success] %></li>
+  <% end %>
+</ul>
+
 <h2>Step 3 - Payment Stage</h2>
 
 <form>
   <div class="container">
+
+    <!-- DISCLAIMERS -->
+    <div class="jumbotron disclaimer-bg">
+        <p class="p-big">Agree to Hire Support Solutions</p>
+        <p class="p-smaller">In order to continue any further, a cost retainer will need to be paid to secure your representation and begin an immediate investigation.</p>
+        <p class="p-big margin-md">Please read below... This is very important!</p>
+        <p class="p-smaller">Support Solutions handles the collection of alimony and unpaid child support on a contingency fee. That means if Support Solutions does not recover money for you, you are not required to pay any legal fees.</p>
+        <p class="p-smaller-b">The sum is $750 and is applied as follows:</p>
+        <p class="p-smaller">$400 is the initial cost to perform a comprehensive background and investigative search on the person that owes the support.</p>
+        <p class="p-smaller">The remaining $350 dollars is held in a trust account for anticipated court costs.</p>
+        <p class="p-smaller">Support Solutions <b>does not</b> receive or keep any portion of these costs. If support solutions determines based on its investigation that there are no realistic ways to recover your unpaid support, Support Solutions will notify you immediately and return to you $350 from the $750 initially paid. You will only be charged for the background investigation and provided with a full report of the findings for your records and review.</p>
+    </div>
+
+    <div class="row margin-md">
+      <div class="col-xs-12">
+        <div class="agreement-bg">
+          <h3>Contingency Fee Agreement</h3>
+          <p>AUTHORITY TO REPRESENT AND FEE AND COST AGREEMENT The undersigned client does hereby retain and employ YOUR SUPPORT SOLUTION, P.A. d/b/a SUPPORT SOLUTIONS, as my attorneys to represent me in the prosecution of claims against who is responsible for payment of unpaid child support and / or unpaid alimony. My attorneys may associate such other co-counsel as they deem necessary in the handling of this claim. The undersigned client has, before signing this contract, received and readthe  Statement of Client's Rights and understands each of the rights set forth therein. The undersigned client has signed the statement and received a signed copy to keep to refer to while being represented by the undersigned attorneys. This contract may be canceled by written notification to the attorneys at any time within three (3) business days of the date the contract was signed, as shown below. PLEASE NOTE THAT THE INITIAL “COSTS” IN THE SUM OF SEVEN HUNDRED FIFTY AND 00/100DOLLARS  ($750.00) PAID IN CONNECTION WITH RETAINING AND EMPLOYING OUR SERVICES WILL NOT BE FULLY REFUNDABLE. HOWEVER, A PORTION OF SUCH COSTS MAY BE REFUNDABLE TO THE EXTENT NOT USED. PLEASE REFER TO THE “PAYMENT OF COSTS AND REFUND POLICY” PROVIDED TO YOU ON OUR WEBSITE (www.owedsupport.com). As compensation for their services, I agree to pay to my said attorneys, from the proceeds of any amount recovered, the greater of the following fee schedule (in accordance with and not toexceed the  Florida Supreme Court guidelines), or court awarded fee: 331/3% of any recovery up to One Million and 00/100 Dollars ($ 1,000,000.00); 20% of any recovery in excess of One Million and 00/100 Dollars ($ 1,000,000.00); The term recovery as used in this contract means the total recovery of sums owed for past due child support and/or alimony and/or attorneys’ fees and costs, without any deduction for outstanding costs of litigation incurred by the attorneys in this case. Ialso agree to pay   the expenses incurred in the preparation, handling, investigation, prosecution, and the court costs incurred in pursuing collection and/or enforcement of any judgment or court order awarding child support and/or alimony and/or attorneys’ fees and costs. This is also known as a “post judgment proceeding.” All funds for the collection and/or enforcement of any judgment or post judgment proceedings or other legal process, and for investigation and service of processwill be received by the   attorneys in advance as a result of your payment of the cost retainer in the sum of Seven Hundred Fifty and 00/100 Dollars ($750.00). Accordingly, I agree to pay my attorneys a Seven Hundred Fifty and 00/100 Dollars ( $750.00) cost retainer upon execution hereof. This retainer shall only be used towards the costs of these matters and may not be used as fees. I further acknowledge, understand and agree that no appeals shall be undertaken unless a separatewritten contract is executed   therefore. I fully understand that my attorneys have not predicted the success in any cause or the amount of costs which will be incurred on my behalf. DATED AT , Florida, this day of , 2015. CLIENT The above employment is hereby accepted upon the terms stated herein. YOUR SUPPORT SOLUTION, P.A. d/b/a SUPPORT SOLUTIONS BY: David Bonham, Esq., Florida Bar No.:0128813 Lawrence J. Shapiro, Esq., Florida Bar No.: 0796085
+          </p>
+        </div>
+      </div>
+      <label for="agreement1" class="margin-sm"><input type="checkbox" id="agreement1" value="">By checking this box, I acknowledge that I have read and understand all the terms and provisions of the Support Solutions' Contingency Fee Agreement.</label>
+    </div>
+
+    <div class="row margin-md">
+      <div class="col-xs-12">
+        <div class="agreement-bg">
+          <h3>Your Rights</h3>
+          <h3>Statement of Client Rights</h3>
+          <p>TATEMENT OF CLIENT'S RIGHTS Before you, the prospective client, arrange a contingency fee agreement with a lawyer, you should understand this Statement of your rights as a client. This statement is not a part of the actual contract between you and your lawyer, but as a prospective client, you should be aware of these rights: 1. There is no legal requirement that a lawyer charge a client a set fee or a percentage of money recovered in a case. You, the client, have a right to talkwith   your lawyer about the proposed fee and to bargain about the rate or percentage as in any other contract. If you do not reach an agreement with one lawyer you may talk with other lawyers. 2. Any contingency fee contract must be in writing and you have three (3) business days to reconsider the contract. You may cancel the contract without any reason if you notify your lawyer in writing within three (3) business days of signing the contract. If you withdraw from the contractwithin the   first three (3) business days you do not owe the lawyer a fee although you may be responsible for the lawyer's actual costs during that time. If your lawyer begins to represent you, your lawyer may not withdraw from the case without giving you notice, delivering necessary papers to you, and allowing you to employ another lawyer. Often, your lawyer must obtain court approval before withdrawing from a case. If you discharge your lawyer without good cause after thethree-day period, you  may have to pay a fee for work the lawyer has done. 3. Before hiring a lawyer, you, the client, have the right to know about the lawyer's education, training and experience. If you ask, the lawyer should tell you specifically about his or her actual experience dealing with cases similar to yours. If you ask, the lawyer should provide information about special training or knowledge and give you this information in writing if you request it. 4. Before signing acontingency fee contract  with you, a lawyer must advise you whether he or she intends to handle your case alone or whether other lawyers will be helping with the case. If your lawyer intends to refer the case to other lawyers he or she should tell you what kind of fee sharing arrangement will be made with other lawyers. If lawyers from different law firms will represent you, at least at least on lawyer from each firm must sign the contingency fee contract. 5. If your lawyer intendsto refer your case to another   lawyer or counsel with other lawyers. your lawyer should tell you about that at the beginning. If your lawyer takes the case and later decided to refer it to another lawyer or to associate with other lawyers, you should sign a new contract which includes the new lawyers. You, the client, also have the right to consult with each lawyer working on your case and each lawyer is legally responsible to represent your interests and is legally responsible forthe acts of the other lawyers   involved in the case. 6. You, the client, have the right to know in advance how you will need to pay the expenses and the legal fees at the end of the case. If you pay a deposit in advance for costs, you may ask reasonable questions about how the money will be or has been spent and how much of it remains unspent. Your lawyer should give a reasonable estimate about future necessary costs. If your lawyer agrees to lend or advance you money to prepare orresearch this case, you have the  right to know periodically how much money your lawyer has spent on your behalf. You also have the right to decide, after consulting with your lawyer, how much money is to be spent to prepare a case. If you pay the expenses, you have the right to decide how much to spend. Your lawyers should also inform you whether the fee will be based on the gross amount recovered or on the amount recovered minus the costs. 7. You, the client, have the right to betold by your lawyer possible adverse   consequences if you lose the case. Those adverse consequences might include money which you might have to pay to your lawyer for costs and liability you might have for attorney’s fees to the other side. 8. You, the client, have the right to receive and approve a closing statement at the end of the case before you pay any money. The statement must list all of the financial details of the entire case, including the amount recovered, all expenses,and a precise statement of your lawyer's   fee. Until you approve the closing statement you need not pay any money to anyone, including your lawyer. You also have the right to have every lawyer or law firm working on your case sign this closing statement. 9. You, the client, have the right to ask your lawyer at reasonable intervals how the case is progressing and to have these questions be answered to the best of your lawyer's ability. 10. You, the client, have the right to make thefinal decision regarding settlement of a case.   Your lawyer must notify you of all offers of settlement before and after the trial. Offers during the trial must be immediately communicated and you should consult with your lawyer regarding whether to accept a settlement. However, you must make the final decision to accept or reject a settlement. 11. If at any time, the client, believe that lawyer has charged an excessive or illegal fee, you the client, have the right to report thematter to the Florida Bar, the agency that oversees  the practice and behavior of all lawyers in Florida. For information on how to reach the Florida Bar, call 800-342-8060, or contact the local bar association. Any disagreement between you and your lawyer about a fee can be taken to court and you may wish to hire another lawyer to help you resolve this disagreement. Usually fee disputes must be handled in a separate lawsuit. Client's Signature Your Support Solution, P.A. d/b/aSupport Solutions Date Date.
+          </p>
+        </div>
+      </div>
+      <label for="agreement2" class="margin-sm"><input type="checkbox" id="agreement2" value="">By checking this box, I acknowledge that I have read and understand all the terms and provisions of the Support Solutions' Clients Rights Agreement.</label>
+    </div>
+
+    <div class="row margin-md">
+      <div class="col-xs-12">
+        <div class="agreement-bg">
+          <h3>Our Service Agreement</h3>
+          <h3>Terms of Service Agreement</h3>
+          <p>TERM AND CONDITIONS Last Updated: April 10, 2015 Please read these Terms and Conditions (here in referred to alternatively as "Terms", "Terms and Conditions") carefully before using the www.owedsupport.com website (here in referred to alternatively as the "Service") operated by Your Support Solution P.A. d/b/a Support Solutions (here in referred to alternatively as “Support Solutions”). Your access to and use of the Service is conditioned on your acceptance of and compliancewith   these Terms. These Terms apply to all visitors, users and others who access or use the Service. By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. Termination We may terminate or suspend access to Support Solutions’ Service immediately, without prior notice or liability, for any violation of State, Federal, or International law, negligences, gross negligence or illegalimproper attempts  or actual use of this service provided by Support Solutions including without limitation if you breach these Terms. All provisions of the Terms, which by their nature should survive termination, shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability. Links To Other Web Sites Support Solutions’ Service contains links to third ¬party web sites through Support Solutions’ affiliateprogram and payment  gateway that are not owned or controlled by Support Solutions. Support Solutions has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Support Solutions shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goodsor services available on   or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third¬ party web sites or services that you visit. Payment When you make a payment for the asset and financial investigation and the court costs/ filing fees you will be redirected to LawPay’s website. Lawpay is a reputable credit card processor that will keep your information confidential using TLS version 1.0 or greater forsecuring data communication and 256  bit AES encryption for securing sensitive data at rest. Governing Law These Terms shall be governed and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions. Support Solutions’ failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisionsof these Terms will remain in effect.   These Terms constitute the entire agreement between Support Solutions regarding Support Solutions’ Service, and supersede and replace any prior agreements we might have between Support Solutions regarding the Service. Changes We reserve the right, at Support Solutions’ sole discretion, to modify or replace these Terms at any time. Changes and clarifications will take effect immediately upon their posting on the website. If we make materialchanges to this policy, we will notify you here   that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it. What constitutes a material change will be determined at Support Solutions’ sole discretion. By continuing to access or use Support Solutions’ Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms,please stop using the Service. Contact Us If you have any  questions about these Terms, please contact us.
+          </p>
+        </div>
+      </div>
+      <label for="agreement3" class="margin-sm"><input type="checkbox" id="agreement3" value="">By checking this box, I acknowledge that I have read and understand all the terms and provisions of the Support Solutions' Terms of Service Agreement.</label>
+    </div>
+
+    <div class="jumbotron disclaimer-bg margin-md">
+        <p class="p-big">Cost Breakdown</p>
+        <p class="cost-breakdown-p-smaller">Comprehensive Asset and Financial Investigation as detailed above Price: <b>$400.00</b></p>
+        <p class="cost-breakdown-p-smaller">Court Costs as detailed above: <b>$350.00</b></p>
+        <p class="cost-breakdown-b">Total Initial Costs: <b>$750.00</b></p>
+    </div>
+    <!-- DISCLAIMERS -->
 
     <!-- BILLING INFORMATION -->
     <div class="row">
@@ -152,17 +213,37 @@
 
          $('#pay').click(function(event) {
            event.preventDefault();
-           var amount = parseInt($('#total').text().replace(/\D/g,''));
-           var paymentJson = ChargeIO.payment_params($('form'));
-           ChargeIO.create_token(paymentJson, function(token) {
-             $.post('http://localhost:3000/payment/pay', { 'amount': amount, 'token_id': token.id }).done(function(data) {
-               if (data.messages) {
-               }
-               else {
-               }
-             }).fail(function(xhr) {
+
+           var messages = $("#messages");
+           var payment_error_ul = $("#payment_error_ul");
+           messages.hide();
+           payment_error_ul.html('');
+
+           //Check for agreements
+           if(!$("#agreement1").prop('checked') || !$("#agreement2").prop('checked') || !$("#agreement3").prop('checked')){
+             messages.show();
+             if(!$("#agreement1").prop('checked'))
+              payment_error_ul.append('<b>You must agree to the Contingency Fee Agreement in order to continue.</b><br><br>');
+             if(!$("#agreement2").prop('checked'))
+              payment_error_ul.append('<b>You must agree to the Statement of Client Rights in order to continue.</b><br><br>');
+             if(!$("#agreement3").prop('checked'))
+              payment_error_ul.append('<b>You must agree to the Terms of Service Agreement in order to continue</b>.<br><br>');
+           }
+
+          //Clients checked all agreements
+          else{
+             var amount = parseInt($('#total').text().replace(/\D/g,''));
+             var paymentJson = ChargeIO.payment_params($('form'));
+             ChargeIO.create_token(paymentJson, function(token) {
+               $.post('http://localhost:3000/payment/pay', { 'amount': amount, 'token_id': token.id }).done(function(data) {
+                 if (data.messages) {
+                 }
+                 else {
+                 }
+               }).fail(function(xhr) {
+               });
              });
-           });
+           }
          });
        });
 

@@ -1,8 +1,8 @@
-<% if flash[:errors] %>
+<% if flash[:step_3_errors] %>
   $("#messages").show();
   var payment_error_ul = $("#payment_error_ul");
   payment_error_ul.html('');
-  <% flash[:errors].each do |key, value| %>
+  <% flash[:step_3_errors].each do |key, value| %>
       message = "<%= value %>";
       message = message.replace("[", '');
       message = message.replace("]", '');

@@ -2,5 +2,4 @@
 prod:
 keyyaml
 
-rendering the payment form thorugh ajax might be causing problems.
-Possible solution: make step 2 redirect to payment step without js erb
+Can i redirect all invalid pages when backtracking registration?

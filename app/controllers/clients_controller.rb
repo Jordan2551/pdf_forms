@@ -1,8 +1,8 @@
 
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  before_action :in_session?, only: [:register_step_2, :register_step_4]
-  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :register, :register_step_1, :register_step_2, :register_step_3, :payment]
+  before_action :in_session?, only: [:step_2, :step_4, :register_step_2, :register_step_4, :validate_registration_stage]
+  skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :step_1, :step_2, :payment, :register_step_1, :register_step_2, :register_step_3]
 
   def home
   end
@@ -42,27 +42,30 @@ class ClientsController < ApplicationController
 
   #Client registration
 
-  def register
+  def step_1
     @client = Client.new
+  end
+
+  def step_2
+    validate_registration_stage(1)
+    @client = Client.find(session[:client_id])
+  end
+
+  def payment
+    validate_registration_stage(2)
   end
 
   def register_step_1
       @client = Client.new(register_step_1_params)
-      respond_to do |format|
-        if @client.save(context: :register_step_1)
-          format.js{
-            session[:client_id] = @client.id # We need the client id to persist through multiple registration actions
-            flash[:errors] = nil # Reset error messages from previous requests
-            flash[:success] = "You have successfully completed step 1. Good job!"
-            render 'register_step_1'
-          }
-        else
-          format.js{
-            flash[:errors] = @client.errors.full_messages
-            render 'register_step_1'
-          }
-        end
-    end
+      if @client.save(context: :register_step_1)
+        session[:client_id] = @client.id # We need the client id to persist through multiple registration actions
+        # flash[:errors] = nil # Reset error messages from previous requests
+        flash[:step_1_success] = "You have successfully completed step 1. Good job!"
+        render step_2_path
+      else
+        flash[:step_1_errors] = @client.errors.full_messages
+        render step_1_path
+      end
   end
 
   def register_step_2
@@ -79,27 +82,22 @@ class ClientsController < ApplicationController
       @client.receiving_payments = params[:client][:receiving_payments]
       @client.receiving_public_assistance = params[:client][:receiving_public_assistance]
       @client.receiving_public_assistance_description = params[:client][:receiving_public_assistance_description]
+      @client.registration_step = 2
 
-      respond_to do |format|
-        if @client.save(context: :register_step_2)
-          format.js{
-            flash[:errors] = nil #reset error messages from previous requests
-            flash[:success] = "You have successfully completed step 2. Good job!"
-            redirect_to payment_path
-          }
-        else
-          format.js{
-            flash[:errors] = @client.errors.full_messages
-            render 'register_step_2'
-          }
+      if @client.save(context: :register_step_2)
+          flash[:step_2_success] = "You have successfully completed step 2. Good job!"
+          redirect_to payment_path
+
+      else
+          flash[:step_2_errors] = @client.errors.full_messages
+          render step_2_path
       end
-    end
+
 
   end
 
   #This is step 3
-  def payment
-  end
+
 
   def step_4
   end

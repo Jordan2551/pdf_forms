@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402192807) do
+ActiveRecord::Schema.define(version: 20180402223006) do
 
   create_table "clients", force: :cascade do |t|
     t.string "address"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20180402192807) do
     t.boolean "receiving_public_assistance"
     t.string "receiving_public_assistance_description"
     t.string "home_phone_number"
-    t.boolean "is_paid", default: false
+    t.integer "registration_step", default: 1
   end
 
   create_table "settings", force: :cascade do |t|

@@ -1,41 +1,48 @@
 <script src="/assets/client_applications/step_2.js" charset="utf-8"></script>
 
-<h2>Step 2:</h2>
+<h1 class="fancy-title">New Client Application</h1>
 
-<div id="validations">
-  <div id="errors" class="error"></div>
-  <div id="success" class="btn-success"></div>
-</div>
+<ul>
+  <% if flash[:step_2_errors] %>
+    <% flash[:step_2_errors].each do |message| %>
+      <li class="error"><%= message %></li>
+    <% end %>
+  <% elsif flash[:step_1_success] %>
+    <li class="success"><%= flash[:step_1_success] %></li>
+  <% end %>
+</ul>
 
-<%= form_with(model: @client, url: register_step_2_path, remote: true, method: :post) do |form| %>
+<h2>Step 2 - Additional Information</h2>
+
+<%= form_with(model: @client, url: register_step_2_path, local: true, method: :post) do |form| %>
 
   <div class="container">
     <div class="jumbotron">
 
       <div class="form-group">
         <%= form.label :mailing_address, class: "form-label" %>
-        <%= form.text_field :mailing_address, id: :client_mailing_address, class: "form-control" %>
+        <%= form.text_field :mailing_address, id: :client_mailing_address, required: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= form.label :county_name, class: "form-label" %>
-        <%= form.text_field :county_name, id: :client_county_name, class: "form-control" %>
+        <%= form.text_field :county_name, id: :client_county_name, required: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= form.label :alimony_child_support_required, value: "Do you have a final judgment or court order requiring someone to pay you alimony and / or child support?", class: "form-label" %>
-        <%= form.check_box :alimony_child_support_required, id: :client_alimony_child_support_required, class: "form-control" %>
+        <%= form.check_box :alimony_child_support_required, id: :client_alimony_child_support_required, required: true, checked: true, class: "form-control" %>
       </div>
 
       <div id="cannot_assist_msg_div" class="error" hidden="true">
         <p>Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
       </div>
 
-      <div id="alimony_fields" hidden="true">
+      <div id="alimony_fields">
 
         <div class="form-group">
           <%= form.label :home_phone_number, class: "form-label" %>
-          <%= form.text_field :home_phone_number, id: :client_home_phone_number, class: "form-control" %>
+          <%= form.text_field :home_phone_number, id: :client_home_phone_number, required: true, class: "form-control" %>
         </div>
 
         <div class="form-group">
@@ -54,7 +61,7 @@
 
         <div class="form-group">
           <%= form.label :how_much_money_owed, value: "Approximately how much money are you owed? (Example: 10000)", class: "form-label" %>
-          <%= form.text_field :how_much_money_owed, id: :client_how_much_money_owed, class: "form-control" %>
+          <%= form.text_field :how_much_money_owed, id: :client_how_much_money_owed, required: true, class: "form-control" %>
         </div>
         <div id="min_amount_msg_div" class="error" hidden="true">
           <p id="min_amount_msg"></p>

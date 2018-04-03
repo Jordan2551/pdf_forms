@@ -1,20 +1,18 @@
 
-<h2>Step 4:</h2>
-
-<div id="validations">
-  <div id="errors" class="error"></div>
-  <div id="success" class="btn-success"></div>
-</div>
+<h1 class="fancy-title">New Client Application</h1>
 
 <ul>
-      <% if flash[:errors] %>
-        <% flash[:errors].each do |key, value| %>
-          <li><%= value %></li>
-        <% end %>
-      <% elsif flash[:success] %>
-        <li><%= flash[:success] %></li>
-      <% end %>
- </ul>
+  <% if flash[:step_2_errors] %>
+    <% flash[:step_2_errors].each do |message| %>
+      <li class="error"><%= message %></li>
+    <% end %>
+  <% elsif flash[:step_1_success] %>
+    <li class="success"><%= flash[:step_1_success] %></li>
+  <% end %>
+</ul>
+
+<h2>Step 4 - Post Payment</h2>
+
 
 <%= form_with(model: Client.first, url: register_step_1_path, remote: true, method: :post) do |form| %>
 

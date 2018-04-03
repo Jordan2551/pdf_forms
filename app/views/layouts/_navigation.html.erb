@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
         <li><%= link_to "Client Applications", clients_path %></li>
       <% end %>
-      <li><%= link_to "Create Application", register_client_path %> </li>
+      <li><%= link_to "Create Application", step_1_path %> </li>
     </ul>
     <ul class="nav navbar-nav pull-right">
       <% if user_signed_in? %><i class="fas fa-cog"></i>

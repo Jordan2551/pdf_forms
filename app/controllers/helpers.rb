@@ -3,7 +3,7 @@ module Helpers
 
   def authenticate_admin!
     if authenticate_user! && !current_user.admin?
-      flash[:forbidden => "Only accounts with the appropriate privileges are allowed access to this page"]
+      flash[:errors] = "Only accounts with the appropriate privileges are allowed access to this page"
       render home_path
     end
   end
@@ -13,6 +13,19 @@ module Helpers
     else
       flash[:errors] = "Unfortunately, your session has expired due to inactivity. Please re-create the application."
       redirect_to home_path
+    end
+  end
+
+  def validate_registration_stage(registration_step)
+    client = Client.find(session[:client_id])
+    if client.registration_step != registration_step
+      if client.registration_step == 1
+        redirect_to step_2_path
+      elsif client.registration_step == 2
+        redirect_to payment_path
+      elsif client.registration_step == 3
+        redirect_to step_4_path
+      end
     end
   end
 

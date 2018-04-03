@@ -6,15 +6,23 @@ Rails.application.routes.draw do
   devise_for :users
 
   #Register
-  get '/clients/register', to:'clients#register', as: "register_client"
-  get '/clients/step_4', to:'clients#step_4', as: "step_4"
-  post '/clients/register_step_1', to:'clients#register_step_1', as: "register_step_1"
-  post '/clients/register_step_2', to:'clients#register_step_2', as: "register_step_2"
-  post '/clients/register_step_4', to:'clients#register_step_4', as: "register_step_4"
 
-  #Payments
+  #Step 1
+  get '/clients/step_1', to:'clients#step_1', as: "step_1"
+  post '/clients/register_step_1', to:'clients#register_step_1', as: "register_step_1"
+
+  #Step 2
+  get '/clients/step_2', to:'clients#step_2', as: "step_2"
+  post '/clients/register_step_2', to:'clients#register_step_2', as: "register_step_2"
+
+  #Payments (Step 3)
   get '/clients/payment', to:'clients#payment', as: "payment"
   post '/payment/pay', to:'payment#pay', as: "pay"
+
+  #Step 4
+  get '/clients/step_4', to:'clients#step_4', as: "step_4"
+  post '/clients/register_step_4', to:'clients#register_step_4', as: "register_step_4"
+
 
   resources :clients do
     resources :pdfs

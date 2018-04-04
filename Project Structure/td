@@ -6,3 +6,12 @@ keyyaml
 *logging in while in client app causes error page?
 *playing with different browsers with sessions
 *logging in while in client app causes error page?
+
+--Minor--
+Why step 4 male always gets selected
+
+Fields:
+* is client middle name required?
+
+Future:
+*prompt a client with a message when the client who already has the session tries to create a new application.

@@ -22,9 +22,7 @@
     <%= render partial: 'layouts/navigation' %>
     <ul>
       <% if flash[:errors] %>
-        <% flash[:errors].each do |message| %>
-          <li class="error"><%= message %></li>
-        <% end %>
+        <li class="error"><%= flash[:errors] %></li>
       <% elsif flash[:success] %>
         <li class="success"><%= flash[:success] %></li>
       <% end %>

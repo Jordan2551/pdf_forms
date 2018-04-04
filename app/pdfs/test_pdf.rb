@@ -38,6 +38,7 @@ class TestPdf < Prawn::Document
 
   end
 
+  #TODO: make a pdf module with these functions
   def get_file_name()
     return "#{PDF_NAME}#{@client.id}.pdf"
   end

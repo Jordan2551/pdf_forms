@@ -17,10 +17,10 @@ class Client < ApplicationRecord
 
   #Step 4
   validates :birth_date, presence: true, on: :register_step_4
-  validates :social_security_number, presence: true, on: :register_step_4
   validates :gender, presence: true, on: :register_step_4
   validates :owes_money_race, presence: true, on: :register_step_4
   validates :owes_money_first_name, presence: true, on: :register_step_4
+  validates :owes_money_middle_name, presence: true, on: :register_step_4
   validates :owes_money_last_name, presence: true, on: :register_step_4
   validates :owes_money_street, presence: true, on: :register_step_4
   validates :owes_money_apt, presence: true, on: :register_step_4

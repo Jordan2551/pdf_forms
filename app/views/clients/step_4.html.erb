@@ -1,13 +1,15 @@
 
+<script src="/assets/client_applications/step_4.js" charset="utf-8"></script>
+
 <h1 class="fancy-title">New Client Application</h1>
 
 <ul>
-  <% if flash[:step_2_errors] %>
-    <% flash[:step_2_errors].each do |message| %>
+  <% if flash[:step_4_errors] %>
+    <% flash[:step_4_errors].each do |message| %>
       <li class="error"><%= message %></li>
     <% end %>
-  <% elsif flash[:step_1_success] %>
-    <li class="success"><%= flash[:step_1_success] %></li>
+  <% elsif flash[:step_3_success] %>
+    <li class="success"><%= flash[:step_3_success] %></li>
   <% end %>
 </ul>
 
@@ -21,78 +23,97 @@
     <div class="jumbotron">
 
       <div class="form-group">
-        <%= form.label :alternate_contact_name, class: "form-label" %>
+        <p>In case we are not able to reach you is there someone else we can contact?</p>
+        <%= form.label :alternate_contact_name, value: "Alternate contact name (optional)", class: "form-label margin-md" %>
         <%= form.text_field :alternate_contact_name, id: :client_alternate_contact_name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :alternate_contact_phone_number, class: "form-label" %>
+        <%= form.label :alternate_contact_phone_number, value: "Alternate contact phone number (optional)", class: "form-label" %>
         <%= form.text_field :alternate_contact_phone_number, id: :client_alternate_contact_phone_number, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :birth_date, class: "form-label" %>
-        <%= form.text_field :birth_date, id: :client_birth_date, class: "form-control" %>
+        <%= form.label :birth_date, value: "Date of birth (--who?--)", class: "form-label margin-md" %>
+        <%= form.date_field :birth_date, id: :client_birth_date, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :social_security_number, class: "form-label" %>
-        <%= form.text_field :social_security_number, id: :client_social_security_number, class: "form-control" %>
+        <%= form.label :gender, "Gender", class: "form-label" %>
+        <label class="radio-inline" for="client_gender">
+          <%= form.radio_button :gender, "male", id: :client_gender %> Male
+        </label>
+        <label class="radio-inline" for="client_gender">
+          <%= form.radio_button :gender, "female", id: :client_gender %> Female
+        </label>
       </div>
       <div class="form-group">
-        <%= form.label :gender, class: "form-label" %>
-        <%= form.text_field :gender, id: :client_gender, class: "form-control" %>
+        <%= form.label :owes_money_race, value: "Race of other party who owes you money?", class: "form-label margin-sm" %>
+        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "white", id: :client_owes_money_race %>    White/Caucasian</label>
+        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "black", id: :client_owes_money_race %>    Black/African-American</label>
+        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "hispanic", id: :client_owes_money_race %>    Hispanic</label>
+        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
+        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "indian", id: :client_owes_money_race %>    American Indian/Alaskan</label>
+        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
+        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "other", id: :client_owes_money_race_other %>    Other</label>
+        <input type="text" class="form-control" id="client_owes_money_race_other_text" placeholder="Other (race not specified above)">
       </div>
-      <div class="form-group">
-        <%= form.label :owes_money_race, class: "form-label" %>
-        <%= form.text_field :owes_money_race, id: :client_owes_money_race, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_first_name, class: "form-label" %>
+      <div class="form-group margin-sm">
+        <p>What is the FULL NAME of the person who owes you money?</p>
+        <%= form.label :owes_money_first_name, value: "First name", class: "form-label" %>
         <%= form.text_field :owes_money_first_name, id: :client_owes_money_first_name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_last_name, class: "form-label" %>
+        <%= form.label :owes_money_middle_name, value: "Middle name (optional)", class: "form-label" %>
+        <%= form.text_field :owes_money_middle_name, id: :client_owes_money_middle_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_last_name, value: "Last name", class: "form-label" %>
         <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_street, class: "form-label" %>
+        <p>What is their home address?</p>
+        <%= form.label :owes_money_street, value: "Street", class: "form-label" %>
         <%= form.text_field :owes_money_street, id: :client_owes_money_street, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_apt, class: "form-label" %>
+        <%= form.label :owes_money_apt, value: "Apartment", class: "form-label" %>
         <%= form.text_field :owes_money_apt, id: :client_owes_money_apt, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_city, class: "form-label" %>
+        <%= form.label :owes_money_city, value: "City", class: "form-label" %>
         <%= form.text_field :owes_money_city, id: :client_owes_money_city, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_county, class: "form-label" %>
+        <%= form.label :owes_money_county, value: "County (optional)", class: "form-label" %>
         <%= form.text_field :owes_money_county, id: :client_owes_money_county, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_state, class: "form-label" %>
-        <%= form.text_field :owes_money_state, id: :client_owes_money_state, class: "form-control" %>
+        <%= form.label :owes_money_state, value: "State", class: "form-label" %>
+        <%= form.select :owes_money_state, options_for_select(us_states), {}, { class:"form-control"} %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_zip, class: "form-label" %>
+        <%= form.label :owes_money_zip, value: "Zip (optional)", class: "form-label" %>
         <%= form.text_field :owes_money_zip, id: :client_owes_money_zip, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_work_address, class: "form-label" %>
+        <%= form.label :owes_money_work_address, value: "What is their work address? (optional)", class: "form-label" %>
         <%= form.text_field :owes_money_work_address, id: :client_owes_money_work_address, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_phone_number, class: "form-label" %>
+        <%= form.label :owes_money_phone_number, value: "What is their phone number? (optional)", class: "form-label" %>
         <%= form.text_field :owes_money_phone_number, id: :client_owes_money_phone_number, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_email, class: "form-label" %>
+        <%= form.label :owes_money_email, value: "What is their email address? (optional)" , class: "form-label" %>
         <%= form.text_field :owes_money_email, id: :client_owes_money_email, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_is_in_jail, class: "form-label" %>
-        <%= form.text_field :owes_money_is_in_jail, id: :client_owes_money_is_in_jail, class: "form-control" %>
+        <%= form.label :owes_money_is_in_jail, value: "To your knowledge, is the person who owes presently in jail or prison?", class: "form-label" %>
+        <label class="radio-inline" for="client_owes_money_is_in_jail">
+          <%= form.radio_button :owes_money_is_in_jail, true, id: :client_owes_money_is_in_jail %> Yes
+        </label>
+        <label class="radio-inline" for="client_owes_money_is_in_jail">
+          <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail %> No
+        </label>
       </div>
-
 
       <%= form.submit "Complete Step 4", class:"button hvr-underline-from-center header-photo-btn" %>
 

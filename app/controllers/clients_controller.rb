@@ -1,7 +1,7 @@
 
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  before_action :in_session?, only: [:validate_registration_stage]
+  before_action :in_session?, only: [:step_2, :payment, :step_4, :register_step_2, :register_step_4]
   skip_before_action :authenticate_admin!, only: [:home, :new, :create, :application_created, :step_1, :step_2, :step_4, :payment, :register_step_1, :register_step_2, :register_step_4]
 
   def home

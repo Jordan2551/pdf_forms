@@ -7,6 +7,7 @@ class PdfsController < ApplicationController
     pdf_id = params[:pdf_id]
     inline = params[:inline]
     settings = Setting.find(1)
+    #TODO: add the line above in helpers.rb
 
     #Creates the appropriate pdf according to the pdf_id supplied
     pdf = Pdf.create_pdf(pdf_id, client, settings)
@@ -24,11 +25,6 @@ class PdfsController < ApplicationController
           disposition: disposition
         end
       end
-  end
-
-  #Creates all possible pdf files for the client
-  def create_pdfs
-
   end
 
   def index

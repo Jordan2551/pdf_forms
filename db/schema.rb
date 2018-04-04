@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403183737) do
+ActiveRecord::Schema.define(version: 20180404200250) do
 
   create_table "clients", force: :cascade do |t|
     t.string "address"
@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 20180403183737) do
     t.string "alternate_contact_name"
     t.string "alternate_contact_phone_number"
     t.date "birth_date"
-    t.string "social_security_number"
-    t.boolean "gender"
     t.string "owes_money_race"
     t.string "owes_money_first_name"
     t.string "owes_money_last_name"
@@ -54,6 +52,8 @@ ActiveRecord::Schema.define(version: 20180403183737) do
     t.string "owes_money_phone_number"
     t.string "owes_money_email"
     t.boolean "owes_money_is_in_jail"
+    t.string "gender"
+    t.string "owes_money_middle_name"
   end
 
   create_table "settings", force: :cascade do |t|

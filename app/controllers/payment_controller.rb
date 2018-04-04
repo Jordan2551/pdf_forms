@@ -8,7 +8,6 @@ class PaymentController < ActionController::API
   include Helpers
 
   before_action :in_session?, only: [:pay]
-
   helper_method :us_states
 
   def pay

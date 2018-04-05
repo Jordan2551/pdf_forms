@@ -28,6 +28,14 @@ class Client < ApplicationRecord
   validates :owes_money_state, presence: true, on: :register_step_4
   validates :owes_money_email, format: { with: Devise.email_regexp, message: "Invalid email format"}, on: :register_step_4
   validates :owes_money_is_in_jail, presence: true, on: :register_step_4
+  validates :mother_full_name, presence: true, on: :register_step_4
+  validates :mother_maiden_name, presence: true, on: :register_step_4
+  validates :court_order_state, presence: true, on: :register_step_4
+  validates :court_order_county, presence: true, on: :register_step_4
+  validates :final_judgment_obtained_date, presence: true, on: :register_step_4
+  validates :court_case_filed_name, presence: true, on: :register_step_4
+  validates :alternate_contact_email, format: { with: Devise.email_regexp, message: "Invalid email format"}, on: :register_step_4
+  validates :send_court_order_method, presence: true, on: :register_step_4
 
 
 end

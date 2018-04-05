@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404200250) do
+ActiveRecord::Schema.define(version: 20180404231130) do
 
   create_table "clients", force: :cascade do |t|
     t.string "address"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20180404200250) do
     t.boolean "owes_money_is_in_jail"
     t.string "gender"
     t.string "owes_money_middle_name"
+    t.string "mother_full_name"
+    t.string "mother_maiden_name"
+    t.string "court_order_state"
+    t.string "court_order_county"
+    t.date "final_judgment_obtained_date"
+    t.string "court_case_filed_name"
+    t.string "alternate_contact_email"
+    t.string "alternate_contact_best_method"
+    t.string "send_court_order_method"
   end
 
   create_table "settings", force: :cascade do |t|

@@ -15,23 +15,39 @@
 
 <h2>Step 4 - Post Payment (Final Step)</h2>
 
-
 <%= form_with(model: @client, url: register_step_4_path, local: true, method: :post) do |form| %>
 
   <div class="container">
 
-    <div class="jumbotron">
+    <div class="jumbotron margin-sm">
 
       <div class="form-group">
-        <p>In case we are not able to reach you is there someone else we can contact?</p>
-        <%= form.label :alternate_contact_name, value: "Alternate contact name (optional)", class: "form-label margin-md" %>
+        <h3>In case we are not able to reach you is there someone else we can contact? (optional)</h3>
+        <%= form.label :alternate_contact_name, value: "Full name", class: "form-label margin-md" %>
         <%= form.text_field :alternate_contact_name, id: :client_alternate_contact_name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :alternate_contact_phone_number, value: "Alternate contact phone number (optional)", class: "form-label" %>
+        <%= form.label :alternate_contact_phone_number, value: "Phone number", class: "form-label" %>
         <%= form.text_field :alternate_contact_phone_number, id: :client_alternate_contact_phone_number, class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= form.label :alternate_contact_phone_number, value: "Email", class: "form-label" %>
+        <%= form.text_field :alternate_contact_email, id: :client_alternate_contact_phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <p>Best Method to Contact This Person</p>
+        <label class="radio-inline" for="client_alternate_contact_best_method">
+          <%= form.radio_button :alternate_contact_best_method, "phone", id: :client_alternate_contact_best_method %> Phone
+        </label>
+        <label class="radio-inline" for="client_alternate_contact_best_method">
+          <%= form.radio_button :alternate_contact_best_method, "email", id: :client_alternate_contact_best_method %> Email
+        </label>
+        <label class="radio-inline" for="client_alternate_contact_best_method">
+          <%= form.radio_button :alternate_contact_best_method, "both", id: :client_alternate_contact_best_method %> Both
+        </label>
+      </div>
+
+      <div class="form-group margin-md">
         <%= form.label :birth_date, value: "Date of birth (--who?--)", class: "form-label margin-md" %>
         <%= form.date_field :birth_date, id: :client_birth_date, class: "form-control" %>
       </div>
@@ -55,8 +71,9 @@
         <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "other", id: :client_owes_money_race_other %>    Other</label>
         <input type="text" class="form-control" id="client_owes_money_race_other_text" placeholder="Other (race not specified above)">
       </div>
-      <div class="form-group margin-sm">
-        <p>What is the FULL NAME of the person who owes you money?</p>
+
+      <div class="form-group margin-md">
+        <h3>What is the FULL NAME of the person who owes you money?</h3>
         <%= form.label :owes_money_first_name, value: "First name", class: "form-label" %>
         <%= form.text_field :owes_money_first_name, id: :client_owes_money_first_name, class: "form-control" %>
       </div>
@@ -68,8 +85,9 @@
         <%= form.label :owes_money_last_name, value: "Last name", class: "form-label" %>
         <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, class: "form-control" %>
       </div>
-      <div class="form-group">
-        <p>What is their home address?</p>
+
+      <div class="form-group margin-md">
+        <h3>What is their home address?</h3>
         <%= form.label :owes_money_street, value: "Street", class: "form-label" %>
         <%= form.text_field :owes_money_street, id: :client_owes_money_street, class: "form-control" %>
       </div>
@@ -114,10 +132,45 @@
           <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail %> No
         </label>
       </div>
-
-      <%= form.submit "Complete Step 4", class:"button hvr-underline-from-center header-photo-btn" %>
-
     </div>
+
+
+    <h2>Security Section</h2>
+
+    <div class="jumbotron margin-md">
+      <div class="form-group">
+        <%= form.label :mother_full_name, value: "Enter your mother's full name (First & Last) for added security", class: "form-label" %>
+        <%= form.text_field :mother_full_name, id: :client_mother_full_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :mother_maiden_name, value: "Mother's maiden name", class: "form-label" %>
+        <%= form.text_field :mother_maiden_name, id: :client_mother_maiden_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :case_number, value: "Case number", class: "form-label" %>
+        <%= form.text_field :case_number, id: :client_case_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :court_order_state, value: "Court order state", class: "form-label" %>
+        <%= form.select :court_order_state, options_for_select(us_states), {}, { class:"form-control"} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :court_order_county, value: "Court order county", class: "form-label" %>
+        <%= form.text_field :court_order_county, id: :client_court_order_county, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :final_judgment_obtained_date, value: "Date final judgment was obtained", class: "form-label" %>
+        <%= form.date_field :final_judgment_obtained_date, id: :client_final_judgment_obtained_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :court_case_filed_name, value: "Name of court where the case was filed (example: Circuit Court, Miami)", class: "form-label" %>
+        <%= form.text_field :court_case_filed_name, id: :client_court_case_filed_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <%= form.submit "Complete Step 4", class:"button hvr-underline-from-center header-photo-btn" %>
+
+
   </div>
 
 <% end %>

@@ -1,6 +1,4 @@
 
-<script src="/assets/client_applications/step_4.js" charset="utf-8"></script>
-
 <h1 class="fancy-title">New Client Application</h1>
 
 <ul>
@@ -60,16 +58,18 @@
           <%= form.radio_button :gender, "female", id: :client_gender %> Female
         </label>
       </div>
-      <div class="form-group">
+      <div id="owes_money_race_div" class="form-group">
         <%= form.label :owes_money_race, value: "Race of other party who owes you money?", class: "form-label margin-sm" %>
-        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "white", id: :client_owes_money_race %>    White/Caucasian</label>
-        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "black", id: :client_owes_money_race %>    Black/African-American</label>
-        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "hispanic", id: :client_owes_money_race %>    Hispanic</label>
-        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
-        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "indian", id: :client_owes_money_race %>    American Indian/Alaskan</label>
-        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
-        <label class="form-check-label" for="client_gender"><%= form.radio_button :owes_money_race, "other", id: :client_owes_money_race_other %>    Other</label>
-        <input type="text" class="form-control" id="client_owes_money_race_other_text" placeholder="Other (race not specified above)">
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "white", id: :client_owes_money_race %>    White/Caucasian</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "black", id: :client_owes_money_race %>    Black/African-American</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "hispanic", id: :client_owes_money_race %>    Hispanic</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "indian", id: :client_owes_money_race %>    American Indian/Alaskan</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "other", id: :client_owes_money_race_other %>    Other</label>
+        <div id="other_race_div" hidden="true">
+          <input type="text" class="form-control" id="client_owes_money_race_other_text" placeholder="Other (race not specified above)">
+        </div>
       </div>
 
       <div class="form-group margin-md">
@@ -113,11 +113,11 @@
       </div>
       <div class="form-group">
         <%= form.label :owes_money_country, value: "Country ADD JS", class: "form-label" %>
-        <%= form.select :owes_money_country, options_for_select(us_states), {}, { class:"form-control"} %>
+        <%= form.select :owes_money_country, options_for_select(countries), {}, { class:"form-control", id: "countries"} %>
       </div>
       <div class="form-group">
         <%= form.label :owes_money_state, value: "State", class: "form-label" %>
-        <%= form.select :owes_money_state, options_for_select(us_states), {}, { class:"form-control"} %>
+        <%= form.select :owes_money_state, options_for_select(us_states), {}, { class:"form-control", id: "states"} %>
       </div>
       <div class="form-group">
         <%= form.label :owes_money_zip, value: "Zip (optional)", class: "form-label" %>
@@ -157,6 +157,7 @@
           <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail %> No
         </label>
       </div>
+
       <div class="form-group margin-md">
         <h3>Work Company Address</h3>
         <h3>The address where the person that owes you money is employed</h3>
@@ -217,6 +218,54 @@
         <%= form.label :court_case_filed_name, value: "Name of court where the case was filed (example: Circuit Court, Miami)", class: "form-label" %>
         <%= form.text_field :court_case_filed_name, id: :client_court_case_filed_name, class: "form-control" %>
       </div>
+
+      <div class="form-group">
+        <h3>Children involved in case</h3>
+        <p>Child 1</p>
+        <%= form.label :child_1_first_name, value: "First", class: "form-label" %>
+        <%= form.text_field :child_1_first_name, id: :client_child_1_first_name, class: "form-control" %>
+        <%= form.label :child_1_last_name, value: "Last", class: "form-label margin-sm" %>
+        <%= form.text_field :child_1_last_name, id: :client_child_1_last_name, class: "form-control" %>
+        <%= form.label :child_1_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
+        <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <p>Child 2</p>
+        <%= form.label :child_2_first_name, value: "First", class: "form-label" %>
+        <%= form.text_field :child_2_first_name, id: :client_child_2_first_name, class: "form-control" %>
+        <%= form.label :child_2_last_name, value: "Last", class: "form-label margin-sm" %>
+        <%= form.text_field :child_2_last_name, id: :client_child_2_last_name, class: "form-control" %>
+        <%= form.label :child_2_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
+        <%= form.date_field :child_2_birth_date, id: :client_child_2_birth_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <p>Child 3</p>
+        <%= form.label :child_3_first_name, value: "First", class: "form-label" %>
+        <%= form.text_field :child_3_first_name, id: :client_child_3_first_name, class: "form-control" %>
+        <%= form.label :child_3_last_name, value: "Last", class: "form-label margin-sm" %>
+        <%= form.text_field :child_3_last_name, id: :client_child_3_last_name, class: "form-control" %>
+        <%= form.label :child_3_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
+        <%= form.date_field :child_3_birth_date, id: :client_child_3_birth_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <p>Child 4</p>
+        <%= form.label :child_4_first_name, value: "First", class: "form-label" %>
+        <%= form.text_field :child_4_first_name, id: :client_child_4_first_name, class: "form-control" %>
+        <%= form.label :child_4_last_name, value: "Last", class: "form-label margin-sm" %>
+        <%= form.text_field :child_4_last_name, id: :client_child_4_last_name, class: "form-control" %>
+        <%= form.label :child_4_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
+        <%= form.date_field :child_4_birth_date, id: :client_child_4_birth_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <p>Child 5</p>
+        <%= form.label :child_5_first_name, value: "First", class: "form-label" %>
+        <%= form.text_field :child_5_first_name, id: :client_child_5_first_name, class: "form-control" %>
+        <%= form.label :child_5_last_name, value: "Last", class: "form-label margin-sm" %>
+        <%= form.text_field :child_5_last_name, id: :client_child_5_last_name, class: "form-control" %>
+        <%= form.label :child_5_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
+        <%= form.date_field :child_5_birth_date, id: :client_child_5_birth_date, class: "form-control" %>
+      </div>
+
     </div>
 
     <%= form.submit "Complete Step 4", class:"button hvr-underline-from-center header-photo-btn" %>

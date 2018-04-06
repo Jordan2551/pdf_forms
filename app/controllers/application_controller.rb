@@ -7,5 +7,8 @@ class ApplicationController < ActionController::Base
   helper_method :in_session?
   helper_method :us_states
   helper_method :countries
+  helper_method :suffixes
+  helper_method :provinces
+
 
 end

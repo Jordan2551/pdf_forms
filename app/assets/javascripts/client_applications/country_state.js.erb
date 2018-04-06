@@ -1,0 +1,20 @@
+$(document).ready(function() {
+  var countries = $("#countries");
+  var states = $("#states");
+
+  countries.on('change', function(){
+
+    if(countries.val() == "United States"){
+      //STATES
+      states.html('<option>US_STATES</option>');
+    }
+    else if(countries.val() == "Canada"){
+      //PROVINCES
+      states.html('<option>PROVINCES</option>');
+    }
+    else{
+      states.html('');
+    }
+
+  });
+});

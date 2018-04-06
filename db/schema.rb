@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404231130) do
+ActiveRecord::Schema.define(version: 20180406050217) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "clients", force: :cascade do |t|
     t.string "address"
@@ -63,6 +67,32 @@ ActiveRecord::Schema.define(version: 20180404231130) do
     t.string "alternate_contact_email"
     t.string "alternate_contact_best_method"
     t.string "send_court_order_method"
+    t.string "owes_money_first_nickname"
+    t.string "owes_money_last_nickname"
+    t.string "owes_money_country"
+    t.string "owes_money_occupation"
+    t.date "owes_money_birth_date"
+    t.string "owes_money_ssn"
+    t.string "owes_money_work_phone_number"
+    t.string "owes_money_work_street"
+    t.string "owes_money_work_city"
+    t.string "owes_money_work_state"
+    t.string "owes_money_work_zip"
+    t.string "interested_services_details"
+    t.integer "liquidated_damages_amount"
+    t.integer "prejudgment_interest_amount"
+    t.integer "taxable_court_costs_amount"
+    t.string "first_class_mailing_receipt_number"
+    t.string "certified_mailing_receipt_number"
+    t.date "mailing_date"
+    t.string "account_number"
+    t.date "filing_date"
+    t.hstore "owes_money_papers"
+    t.hstore "interested_services"
+    t.hstore "interested_documents_to_generate"
+    t.index ["interested_documents_to_generate"], name: "index_clients_on_interested_documents_to_generate", using: :gin
+    t.index ["interested_services"], name: "index_clients_on_interested_services", using: :gin
+    t.index ["owes_money_papers"], name: "index_clients_on_owes_money_papers", using: :gin
   end
 
   create_table "settings", force: :cascade do |t|

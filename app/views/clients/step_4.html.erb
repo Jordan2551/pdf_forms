@@ -85,7 +85,15 @@
         <%= form.label :owes_money_last_name, value: "Last name", class: "form-label" %>
         <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, class: "form-control" %>
       </div>
-
+      <div class="form-group">
+        <h3>Does the person who owes you money have any aliases / nicknames?</h3>
+        <%= form.label :owes_money_first_nickname, value: "First", class: "form-label" %>
+        <%= form.text_field :owes_money_first_nickname, id: :client_owes_money_first_nickname, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_last_nickname, value: "Last", class: "form-label" %>
+        <%= form.text_field :owes_money_last_nickname, id: :client_owes_money_last_nickname, class: "form-control" %>
+      </div>
       <div class="form-group margin-md">
         <h3>What is their home address?</h3>
         <%= form.label :owes_money_street, value: "Street", class: "form-label" %>
@@ -102,6 +110,10 @@
       <div class="form-group">
         <%= form.label :owes_money_county, value: "County (optional)", class: "form-label" %>
         <%= form.text_field :owes_money_county, id: :client_owes_money_county, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_country, value: "Country ADD JS", class: "form-label" %>
+        <%= form.select :owes_money_country, options_for_select(us_states), {}, { class:"form-control"} %>
       </div>
       <div class="form-group">
         <%= form.label :owes_money_state, value: "State", class: "form-label" %>
@@ -124,6 +136,19 @@
         <%= form.text_field :owes_money_email, id: :client_owes_money_email, class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= form.label :owes_money_occupation, value: "Occupation of the person who owes you money" , class: "form-label" %>
+        <%= form.text_field :owes_money_occupation, id: :client_owes_money_occupation, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_birth_date, value: "Birth date" , class: "form-label" %>
+        <%= form.date_field :owes_money_birth_date, id: :client_owes_money_birth_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_ssn, value: "Social security number" , class: "form-label" %>
+        <p class="margin-sm">Please enter the SSN of the person who owes you money. If you cannot locate the SSN of the person that owes you money, try to locate old joint tax returns or other documents where that information could be found.</p>
+        <%= form.text_field :owes_money_ssn, id: :client_owes_money_ssn, class: "form-control" %>
+      </div>
+      <div class="form-group margin-sm">
         <%= form.label :owes_money_is_in_jail, value: "To your knowledge, is the person who owes presently in jail or prison?", class: "form-label" %>
         <label class="radio-inline" for="client_owes_money_is_in_jail">
           <%= form.radio_button :owes_money_is_in_jail, true, id: :client_owes_money_is_in_jail %> Yes
@@ -132,13 +157,39 @@
           <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail %> No
         </label>
       </div>
+      <div class="form-group margin-md">
+        <h3>Work Company Address</h3>
+        <h3>The address where the person that owes you money is employed</h3>
+        <%= form.label :owes_money_work_street, value: "Street", class: "form-label margin-md" %>
+        <%= form.text_field :owes_money_work_street, id: :client_owes_money_work_street, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_street, value: "Address", class: "form-label" %>
+        <%= form.text_field :owes_money_street, id: :client_owes_money_street, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_work_city, value: "City", class: "form-label" %>
+        <%= form.text_field :owes_money_work_city, id: :client_owes_money_work_city, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_work_state, value: "State / Province / Region", class: "form-label" %>
+        <%= form.text_field :owes_money_work_state, id: :client_owes_money_work_state, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_work_zip, value: "Zip / Postal Code", class: "form-label" %>
+        <%= form.text_field :owes_money_work_zip, id: :client_owes_money_work_zip, class: "form-control" %>
+      </div>
     </div>
-
 
     <h2>Security Section</h2>
 
     <div class="jumbotron margin-md">
       <div class="form-group">
+        <%= form.label :ssn, value: "Social securtiy number", class: "form-label" %>
+        <p class="margin-sm">Enter your social security number. Your social security number is necessary because Support Solutions will be legally representing you in this child support case. We take the utmost precautions to protect your personal information and only ask for information that is necessary for us to conduct our business. We understand this information is sensitive and we are legally responsible to protect your privacy. Please read our privacy-link policy.</p>
+        <%= form.text_field :ssn, id: :client_ssn, class: "form-control" %>
+      </div>
+      <div class="form-group margin-sm">
         <%= form.label :mother_full_name, value: "Enter your mother's full name (First & Last) for added security", class: "form-label" %>
         <%= form.text_field :mother_full_name, id: :client_mother_full_name, class: "form-control" %>
       </div>

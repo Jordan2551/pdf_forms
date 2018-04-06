@@ -36,6 +36,6 @@ class Client < ApplicationRecord
   validates :court_case_filed_name, presence: true, on: :register_step_4
   validates :alternate_contact_email, format: { with: Devise.email_regexp, message: "Invalid email format"}, on: :register_step_4
   validates :send_court_order_method, presence: true, on: :register_step_4
-
+  validates :ssn, presence: true, on: :register_step_4
 
 end

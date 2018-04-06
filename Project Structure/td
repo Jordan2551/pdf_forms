@@ -13,7 +13,7 @@ Why step 4 male always gets selected
 Fields:
 * is client middle name required?
 * does involved children need to be dynamic?
-* ss last 4 is ok
+
 
 Future:
 *prompt a client with a message when the client who already has the session tries to create a new application.

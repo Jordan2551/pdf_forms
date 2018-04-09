@@ -69,28 +69,16 @@ class ClientsController < ApplicationController
   end
 
   def register_step_2
-      validate_registration_stage(1)
-      #How to achieve a similar look to register_step_1 where .new sets all the params for us
-      @client = Client.find(session[:client_id])
-      @client.mailing_address = params[:client][:mailing_address]
-      @client.county_name = params[:client][:county_name]
-      @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
-      @client.home_phone_number = params[:client][:home_phone_number]
-      @client.what_to_collect = params[:client][:what_to_collect]
-      @client.how_much_money_owed = params[:client][:how_much_money_owed]
-      @client.alimony_child_support_state = params[:client][:alimony_child_support_state]
-      @client.receiving_payments = params[:client][:receiving_payments]
-      @client.receiving_public_assistance = params[:client][:receiving_public_assistance]
-      @client.receiving_public_assistance_description = params[:client][:receiving_public_assistance_description]
-      @client.registration_step = 2
-
-      if @client.save(context: :register_step_2)
-          flash[:step_2_success] = "You made it this far! Keep up the great work!"
-          redirect_to payment_path
-      else
-          flash[:step_2_errors] = @client.errors.full_messages
-          render step_2_path
-      end
+    validate_registration_stage(1)
+    @client = Client.find(session[:client_id])
+    set_register_step_2
+    if @client.save(context: :register_step_2)
+        flash[:step_2_success] = "You made it this far! Keep up the great work!"
+        redirect_to payment_path
+    else
+        flash[:step_2_errors] = @client.errors.full_messages
+        render step_2_path
+    end
   end
 
   #This is step 3
@@ -167,8 +155,24 @@ class ClientsController < ApplicationController
       params.require(:client).permit(:first_name, :middle_name, :last_name, :phone_number, :email)
     end
 
+    def set_register_step_2
+      @client.mailing_address = params[:client][:mailing_address]
+      @client.mailing_city = params[:client][:mailing_city]
+      @client.mailing_country = params[:client][:mailing_country]
+      @client.mailing_county = params[:client][:mailing_county]
+      @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
+      @client.home_phone_number = params[:client][:home_phone_number]
+      @client.what_to_collect = params[:client][:what_to_collect]
+      @client.how_much_money_owed = params[:client][:how_much_money_owed]
+      @client.alimony_child_support_state = params[:client][:alimony_child_support_state]
+      @client.receiving_payments = params[:client][:receiving_payments]
+      @client.receiving_public_assistance = params[:client][:receiving_public_assistance]
+      @client.receiving_public_assistance_description = params[:client][:receiving_public_assistance_description]
+      @client.registration_step = 2
+    end
+
     def register_step_2_params
-      params.require(:client).permit(:mailing_address, :county_name, :alimony_child_support_required, :home_phone_number, :work_phone_number, :what_to_collect, :how_much_money_owed, :alimony_child_support_state, :receiving_payments, :receiving_public_assistance, :receiving_public_assistance_description)
+      params.require(:client).permit(:mailing_address, :mailing_city, :mailing_country,  :mailing_county, :alimony_child_support_required, :home_phone_number, :work_phone_number, :what_to_collect, :how_much_money_owed, :alimony_child_support_state, :receiving_payments, :receiving_public_assistance, :receiving_public_assistance_description)
     end
 
     def register_step_3_params

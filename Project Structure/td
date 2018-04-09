@@ -12,7 +12,7 @@ Why step 4 male always gets selected
 
 Fields:
 * is client middle name required?
-* involved children 5
+* Is client side reuqired enough or let it fall through nil exception controller?
 
 
 Future:

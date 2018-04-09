@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406173206) do
+ActiveRecord::Schema.define(version: 20180409205804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20180406173206) do
     t.string "email"
     t.string "mailing_address"
     t.string "work_phone_number"
-    t.string "county_name"
     t.boolean "alimony_child_support_required"
     t.string "alimony_child_support_state"
     t.integer "what_to_collect"
@@ -46,7 +45,6 @@ ActiveRecord::Schema.define(version: 20180406173206) do
     t.string "owes_money_race"
     t.string "owes_money_first_name"
     t.string "owes_money_last_name"
-    t.string "owes_money_street"
     t.integer "owes_money_apt"
     t.string "owes_money_city"
     t.string "owes_money_county"
@@ -74,7 +72,6 @@ ActiveRecord::Schema.define(version: 20180406173206) do
     t.date "owes_money_birth_date"
     t.string "owes_money_ssn"
     t.string "owes_money_work_phone_number"
-    t.string "owes_money_work_street"
     t.string "owes_money_work_city"
     t.string "owes_money_work_state"
     t.string "owes_money_work_zip"
@@ -106,6 +103,19 @@ ActiveRecord::Schema.define(version: 20180406173206) do
     t.string "child_5_first_name"
     t.string "child_5_last_name"
     t.date "child_5_birth_date"
+    t.string "mailing_city"
+    t.string "mailing_state"
+    t.string "mailing_zip"
+    t.string "mailing_country"
+    t.string "mailing_county"
+    t.string "owes_money_bank_name"
+    t.string "owes_money_account_number"
+    t.string "court_order_modified"
+    t.boolean "children_living_with_you"
+    t.string "children_not_living_with_you_explanation"
+    t.string "documentation_send_method"
+    t.string "owes_money_gender"
+    t.string "owes_money_address"
     t.index ["interested_documents_to_generate"], name: "index_clients_on_interested_documents_to_generate", using: :gin
     t.index ["interested_services"], name: "index_clients_on_interested_services", using: :gin
     t.index ["owes_money_papers"], name: "index_clients_on_owes_money_papers", using: :gin

@@ -20,15 +20,27 @@
     <div class="jumbotron">
 
       <div class="form-group">
-        <%= form.label :mailing_address, class: "form-label" %>
+        <h3>Your Mailing Address</h3>
+        <p>Enter the street address of your current mailing address. This is the location to which we will send any child support payments we collect for you. Enter the Apartment / Building / Floor / Suite of your current mailing address. This is the location to which we will send any child support payments we collect for you. Enter the / locality of your current mailing address. This is the location to which we will send any child support payments we collect for you. Select the state / region of your current mailing address. This is the location to which we will send any child support payments we collect for you.</p>
+        <%= form.label :mailing_address, "Street Address", class: "form-label" %>
         <%= form.text_field :mailing_address, id: :client_mailing_address, required: true, class: "form-control" %>
       </div>
-
       <div class="form-group">
-        <%= form.label :county_name, class: "form-label" %>
-        <%= form.text_field :county_name, id: :client_county_name, required: true, class: "form-control" %>
+        <%= form.label :mailing_city, "City", class: "form-label" %>
+        <%= form.text_field :mailing_city, id: :client_mailing_city, required: true, class: "form-control" %>
       </div>
-
+      <div class="form-group">
+        <%= form.label :mailing_country, value: "Country", class: "form-label" %>
+        <%= form.select :mailing_country, options_for_select(countries), {}, { class:"form-control", id: "countries"} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :mailing_state, value: "State / Province / Region", class: "form-label" %>
+        <%= form.select :mailing_state, options_for_select(us_states), {}, { class:"form-control", id: "states"} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :mailing_county, "County", class: "form-label" %>
+        <%= form.text_field :mailing_county, id: :client_mailing_county, class: "form-control" %>
+      </div>
       <div class="form-group">
         <%= form.label :alimony_child_support_required, value: "Do you have a final judgment or court order requiring someone to pay you alimony and / or child support?", class: "form-label" %>
         <%= form.check_box :alimony_child_support_required, id: :client_alimony_child_support_required, required: true, checked: true, class: "form-control" %>

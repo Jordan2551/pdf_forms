@@ -28,6 +28,39 @@ module Helpers
     end
   end
 
+  def owes_money_papers
+    [
+      ['Financial Affidavit', "financial_affidavit"],
+      ['Loan Application', "loan_application"],
+      ['Tax Returns', "tax_returns"],
+      ['Bank Statements or Records', "bank_statements"],
+      ['Investment Account Statements or Records', "investment_account_statements_or_records"],
+      ['Business related documents', "business_related_documents"],
+      ['Documents for cars, boats, motorcycles, or other titled assets', "documents_for_cars_boats_motorcycles"],
+      ['All other documents related to income, money, or assetss', "all_other_documents"],
+    ]
+  end
+
+  def interested_services
+    [
+      ['Un-reimbursed medical, dental, or healthcare expense', "un-reimbursed_medical_expenses"],
+      ['Un-reimbursed extracurricular child expenses', "un-reimbursed_child_expenses"],
+      ['Enforcement of settlement agreement or final judgment', "enforcement_of_settlement"],
+      ['Child Custody / Visitation', "child_custody"],
+      ['Modification of child support', "modification_of_child_support"]
+    ]
+  end
+
+  def interested_documents_to_generate
+    [
+      ['Motion for Writ of Garnishment', "motion_for_writ_of_garnishment"],
+      ['Notice of filing answer of the garnishee', "notice_of_filing"],
+      ['Notice of right against garnishment', "notice_of_right_against_granishment"],
+      ['Notice to individual def for claim of exemption from garnishment', "notice_to_individual_def"],
+      ['Writ of Garnishment', "writ_of_garnishment"]
+    ]
+  end
+
   def provinces
     [
       ['British Columbia', 'BC'],
@@ -47,58 +80,58 @@ module Helpers
 
   def us_states
     [
-      ['Florida', 'FL'],
-      ['Alabama', 'AL'],
-      ['Alaska', 'AK'],
-      ['Arizona', 'AZ'],
-      ['Arkansas', 'AR'],
-      ['California', 'CA'],
-      ['Colorado', 'CO'],
-      ['Connecticut', 'CT'],
-      ['Delaware', 'DE'],
-      ['District of Columbia', 'DC'],
-      ['Georgia', 'GA'],
-      ['Hawaii', 'HI'],
-      ['Idaho', 'ID'],
-      ['Illinois', 'IL'],
-      ['Indiana', 'IN'],
-      ['Iowa', 'IA'],
-      ['Kansas', 'KS'],
-      ['Kentucky', 'KY'],
-      ['Louisiana', 'LA'],
-      ['Maine', 'ME'],
-      ['Maryland', 'MD'],
-      ['Massachusetts', 'MA'],
-      ['Michigan', 'MI'],
-      ['Minnesota', 'MN'],
-      ['Mississippi', 'MS'],
-      ['Missouri', 'MO'],
-      ['Montana', 'MT'],
-      ['Nebraska', 'NE'],
-      ['Nevada', 'NV'],
-      ['New Hampshire', 'NH'],
-      ['New Jersey', 'NJ'],
-      ['New Mexico', 'NM'],
-      ['New York', 'NY'],
-      ['North Carolina', 'NC'],
-      ['North Dakota', 'ND'],
-      ['Ohio', 'OH'],
-      ['Oklahoma', 'OK'],
-      ['Oregon', 'OR'],
-      ['Pennsylvania', 'PA'],
-      ['Puerto Rico', 'PR'],
-      ['Rhode Island', 'RI'],
-      ['South Carolina', 'SC'],
-      ['South Dakota', 'SD'],
-      ['Tennessee', 'TN'],
-      ['Texas', 'TX'],
-      ['Utah', 'UT'],
-      ['Vermont', 'VT'],
-      ['Virginia', 'VA'],
-      ['Washington', 'WA'],
-      ['West Virginia', 'WV'],
-      ['Wisconsin', 'WI'],
-      ['Wyoming', 'WY']
+    ['FLORIDA', 'FL'],
+    ['ALABAMA', 'AL'],
+    ['ALASKA', 'AK'],
+    ['ARIZONA', 'AZ'],
+    ['ARKANSAS', 'AR'],
+    ['CALIFORNIA', 'CA'],
+    ['COLORADO', 'CO'],
+    ['CONNECTICUT', 'CT'],
+    ['DELAWARE', 'DE'],
+    ['DISTRICT OF COLUMBIA', 'DC'],
+    ['GEORGIA', 'GA'],
+    ['HAWAII', 'HI'],
+    ['IDAHO', 'ID'],
+    ['ILLINOIS', 'IL'],
+    ['INDIANA', 'IN'],
+    ['IOWA', 'IA'],
+    ['KANSAS', 'KS'],
+    ['KENTUCKY', 'KY'],
+    ['LOUISIANA', 'LA'],
+    ['MAINE', 'ME'],
+    ['MARYLAND', 'MD'],
+    ['MASSACHUSETTS', 'MA'],
+    ['MICHIGAN', 'MI'],
+    ['MINNESOTA', 'MN'],
+    ['MISSISSIPPI', 'MS'],
+    ['MISSOURI', 'MO'],
+    ['MONTANA', 'MT'],
+    ['NEBRASKA', 'NE'],
+    ['NEVADA', 'NV'],
+    ['NEW HAMPSHIRE', 'NH'],
+    ['NEW JERSEY', 'NJ'],
+    ['NEW MEXICO', 'NM'],
+    ['NEW YORK', 'NY'],
+    ['NORTH CAROLINA', 'NC'],
+    ['NORTH DAKOTA', 'ND'],
+    ['OHIO', 'OH'],
+    ['OKLAHOMA', 'OK'],
+    ['OREGON', 'OR'],
+    ['PENNSYLVANIA', 'PA'],
+    ['PUERTO RICO', 'PR'],
+    ['RHODE ISLAND', 'RI'],
+    ['SOUTH CAROLINA', 'SC'],
+    ['SOUTH DAKOTA', 'SD'],
+    ['TENNESSEE', 'TN'],
+    ['TEXAS', 'TX'],
+    ['UTAH', 'UT'],
+    ['VERMONT', 'VT'],
+    ['VIRGINIA', 'VA'],
+    ['WASHINGTON', 'WA'],
+    ['WEST VIRGINIA', 'WV'],
+    ['WISCONSIN', 'WI'],
+    ['WYOMING', 'WY']
     ]
   end
 

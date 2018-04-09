@@ -15,9 +15,10 @@
 
 <%= form_with(model: @client, url: register_step_4_path, local: true, method: :post) do |form| %>
 
-  <div class="container">
+  <div class="container margin-md">
 
-    <div class="jumbotron margin-sm">
+    <h2>Alternate Contact</h2>
+    <div class="jumbotron">
 
       <div class="form-group">
         <h3>In case we are not able to reach you is there someone else we can contact? (optional)</h3>
@@ -44,15 +45,18 @@
           <%= form.radio_button :alternate_contact_best_method, "both", id: :client_alternate_contact_best_method %> Both
         </label>
       </div>
+    </div>
 
-      <div class="form-group margin-md">
-        <%= form.label :birth_date, value: "Date of birth (--who?--)", class: "form-label margin-md" %>
-        <%= form.date_field :birth_date, id: :client_birth_date, class: "form-control" %>
+    <h2>The Person who Owes you Money</h2>
+    <div class="jumbotron margin-md">
+      <div class="form-group">
+        <%= form.label :owes_money_birth_date, value: "Date of birth", class: "form-label" %>
+        <%= form.date_field :owes_money_birth_date, id: :client_owes_money_birth_date, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :gender, "Gender", class: "form-label" %>
+        <%= form.label :owes_money_gender, "Gender", class: "form-label" %>
         <label class="radio-inline" for="client_gender">
-          <%= form.radio_button :gender, "male", id: :client_gender %> Male
+          <%= form.radio_button :owes_money_gender, "male", id: :client_owes_money_gender %> Male
         </label>
         <label class="radio-inline" for="client_gender">
           <%= form.radio_button :gender, "female", id: :client_gender %> Female
@@ -112,11 +116,11 @@
         <%= form.text_field :owes_money_county, id: :client_owes_money_county, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_country, value: "Country ADD JS", class: "form-label" %>
+        <%= form.label :owes_money_country, value: "Country", class: "form-label" %>
         <%= form.select :owes_money_country, options_for_select(countries), {}, { class:"form-control", id: "countries"} %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_state, value: "State", class: "form-label" %>
+        <%= form.label :owes_money_state, value: "State / Provice / Region", class: "form-label" %>
         <%= form.select :owes_money_state, options_for_select(us_states), {}, { class:"form-control", id: "states"} %>
       </div>
       <div class="form-group">
@@ -140,10 +144,6 @@
         <%= form.text_field :owes_money_occupation, id: :client_owes_money_occupation, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_birth_date, value: "Birth date" , class: "form-label" %>
-        <%= form.date_field :owes_money_birth_date, id: :client_owes_money_birth_date, class: "form-control" %>
-      </div>
-      <div class="form-group">
         <%= form.label :owes_money_ssn, value: "Social security number" , class: "form-label" %>
         <p class="margin-sm">Please enter the SSN of the person who owes you money. If you cannot locate the SSN of the person that owes you money, try to locate old joint tax returns or other documents where that information could be found.</p>
         <%= form.text_field :owes_money_ssn, id: :client_owes_money_ssn, class: "form-control" %>
@@ -159,14 +159,27 @@
       </div>
 
       <div class="form-group margin-md">
+        <h3 class="margin-sm">If you have any of the following papers from the person who owes you money, please mark below all that apply.</h3>
+        <% owes_money_papers.each do |option, symbol| %>
+        <p><%= form.label option, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", class: "form-control" %></p>
+        <% end %>
+      </div>
+
+      <div class="form-group margin-md">
+        <%= form.label :court_order_modified, value: "Has this final judgment or court order been modified?" , class: "form-label" %>
+        <%= form.select :court_order_modified, options_for_select(["Yes", "No", "Not Sure"]), {}, { class:"form-control", id: "countries"} %>
+      </div>
+
+      <div class="form-group margin-md">
+        <%= form.label :documentation_send_method, value: "How would you like to send us a copy of documentation?" , class: "form-label" %>
+        <%= form.select :documentation_send_method, options_for_select([["US Mail", "mail"],["Fax", "fax"]]), {}, { class:"form-control", id: "countries"} %>
+      </div>
+
+      <div class="form-group margin-md">
         <h3>Work Company Address</h3>
         <h3>The address where the person that owes you money is employed</h3>
-        <%= form.label :owes_money_work_street, value: "Street", class: "form-label margin-md" %>
-        <%= form.text_field :owes_money_work_street, id: :client_owes_money_work_street, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_street, value: "Address", class: "form-label" %>
-        <%= form.text_field :owes_money_street, id: :client_owes_money_street, class: "form-control" %>
+        <%= form.label :owes_money_address, value: "Address", class: "form-label margin-md" %>
+        <%= form.text_field :owes_money_address, id: :client_owes_money_address, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= form.label :owes_money_work_city, value: "City", class: "form-label" %>
@@ -180,13 +193,22 @@
         <%= form.label :owes_money_work_zip, value: "Zip / Postal Code", class: "form-label" %>
         <%= form.text_field :owes_money_work_zip, id: :client_owes_money_work_zip, class: "form-control" %>
       </div>
+      <div class="form-group margin-md">
+        <h3>Who do they bank with? (optional)</h3>
+        <%= form.label :owes_money_bank_name, value: "Bank Name (Example: Bank Of America, Chase, Wells Fargo)", class: "form-label margin-md" %>
+        <%= form.text_field :owes_money_bank_name, id: :client_owes_money_bank_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_account_number, value: "Account Number", class: "form-label" %>
+        <%= form.text_field :owes_money_account_number, id: :client_owes_money_account_number, class: "form-control" %>
+      </div>
     </div>
 
     <h2>Security Section</h2>
 
     <div class="jumbotron margin-md">
       <div class="form-group">
-        <%= form.label :ssn, value: "Social securtiy number", class: "form-label" %>
+        <%= form.label :ssn, value: "Social securtiy number (SSN)", class: "form-label" %>
         <p class="margin-sm">Enter your social security number. Your social security number is necessary because Support Solutions will be legally representing you in this child support case. We take the utmost precautions to protect your personal information and only ask for information that is necessary for us to conduct our business. We understand this information is sensitive and we are legally responsible to protect your privacy. Please read our privacy-link policy.</p>
         <%= form.text_field :ssn, id: :client_ssn, class: "form-control" %>
       </div>
@@ -223,11 +245,11 @@
         <h3>Children involved in case</h3>
         <p>Child 1</p>
         <%= form.label :child_1_first_name, value: "First", class: "form-label" %>
-        <%= form.text_field :child_1_first_name, id: :client_child_1_first_name, class: "form-control" %>
+        <%= form.text_field :child_1_first_name, id: :client_child_1_first_name, required: true, class: "form-control" %>
         <%= form.label :child_1_last_name, value: "Last", class: "form-label margin-sm" %>
-        <%= form.text_field :child_1_last_name, id: :client_child_1_last_name, class: "form-control" %>
+        <%= form.text_field :child_1_last_name, id: :client_child_1_last_name, required: true, class: "form-control" %>
         <%= form.label :child_1_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-        <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date, class: "form-control" %>
+        <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date, required: true, class: "form-control" %>
       </div>
       <div class="form-group">
         <p>Child 2</p>
@@ -264,6 +286,53 @@
         <%= form.text_field :child_5_last_name, id: :client_child_5_last_name, class: "form-control" %>
         <%= form.label :child_5_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
         <%= form.date_field :child_5_birth_date, id: :client_child_5_birth_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :children_living_with_you, value: "Does each child above live with you?" , class: "form-label" %>
+        <%= form.select :children_living_with_you, options_for_select(["Yes", "No"]), {}, { class:"form-control", id: "countries"} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :children_not_living_with_you_explanation, value: "If not, please explain", class: "form-label" %>
+        <%= form.text_area :children_not_living_with_you_explanation, id: :client_children_not_living_with_you_explanation, rows: 5, class: "form-control" %>
+      </div>
+
+      <h3 class="margin-md">Please select any additional services that you are interested in</h3>
+      <% interested_services.each do |option, symbol| %>
+        <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", class: "form-control" %></p>
+      <% end %>
+      <div class="form-group margin-sm">
+        <%= form.label :interested_services_details, value: "Briefly explain the details of any additional service(s) you selected.", class: "form-label" %>
+        <%= form.text_area :interested_services_details, id: :client_interested_services_details, rows: 5, class: "form-control" %>
+      </div>
+      <div class="form-group margin-md">
+        <h3>Please select the document(s) you would like to generate</h3>
+        <% interested_documents_to_generate.each do |option, symbol| %>
+          <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", class: "form-control" %></p>
+        <% end %>
+      </div>
+      <div class="form-group margin-sm">
+        <%= form.label :liquidated_damages_amount, class: "form-label" %>
+        <%= form.number_field :liquidated_damages_amount, id: :client_liquidated_damages_amount, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :prejudgment_interest_amount, class: "form-label" %>
+        <%= form.number_field :prejudgment_interest_amount, id: :client_prejudgment_interest_amount, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :taxable_court_costs_amount, class: "form-label" %>
+        <%= form.number_field :taxable_court_costs_amount, id: :client_taxable_court_costs_amount, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :first_class_mailing_receipt_number, value: "First Class Mailing Receipt #", class: "form-label" %>
+        <%= form.text_field :first_class_mailing_receipt_number, id: :client_first_class_mailing_receipt_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :certified_mailing_receipt_number, value: "Certified Mailing Receipt #", class: "form-label" %>
+        <%= form.text_field :certified_mailing_receipt_number, id: :client_certified_mailing_receipt_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :mailing_date, class: "form-label" %>
+        <%= form.date_field :mailing_date, id: :client_mailing_date, class: "form-control" %>
       </div>
 
     </div>

@@ -17,14 +17,12 @@ class Client < ApplicationRecord
   validates :alimony_child_support_state, presence: true, on: :register_step_2
 
   #Step 4
-  validates :gender, presence: true, on: :register_step_4
   validates :owes_money_race, presence: true, on: :register_step_4
   validates :owes_money_birth_date, presence: true, on: :register_step_4
   validates :owes_money_first_name, presence: true, on: :register_step_4
   validates :owes_money_gender, presence: true, on: :register_step_4
   validates :owes_money_middle_name, presence: true, on: :register_step_4
   validates :owes_money_last_name, presence: true, on: :register_step_4
-  validates :owes_money_street, presence: true, on: :register_step_4
   validates :owes_money_apt, presence: true, on: :register_step_4
   validates :owes_money_city, presence: true, on: :register_step_4
   validates :owes_money_occupation, presence: true, on: :register_step_4
@@ -47,7 +45,6 @@ class Client < ApplicationRecord
   validates :court_case_filed_name, presence: true, on: :register_step_4
   validates :alternate_contact_email, format: { with: Devise.email_regexp, message: "Invalid email format"}, on: :register_step_4
   validates :send_court_order_method, presence: true, on: :register_step_4
-  validates :ssn, presence: true, on: :register_step_4
   validates :child_1_first_name, presence: true, on: :register_step_4
   validates :child_1_last_name, presence: true, on: :register_step_4
   validates :child_1_birth_date, presence: true, on: :register_step_4

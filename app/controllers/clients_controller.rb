@@ -90,6 +90,15 @@ class ClientsController < ApplicationController
 
   def register_step_4
     validate_registration_stage(3)
+    @client = Client.find(session[:client_id])
+    set_register_step_4
+    if @client.save(context: :register_step_4)
+        flash[:step_4_success] = "You have completed the application!"
+        redirect_to home_path
+    else
+        flash[:step_4_errors] = @client.errors.full_messages
+        render step_4_path
+    end
   end
 
   #Client registration
@@ -146,11 +155,6 @@ class ClientsController < ApplicationController
       @client = Client.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def client_params
-      params.require(:client).permit(:case_number, :petitioner, :respondent, :garnishee, :name, :address, :bank_name, :bank_address)
-    end
-
     def register_step_1_params
       params.require(:client).permit(:first_name, :middle_name, :last_name, :phone_number, :email)
     end
@@ -171,12 +175,88 @@ class ClientsController < ApplicationController
       @client.registration_step = 2
     end
 
-    def register_step_2_params
-      params.require(:client).permit(:mailing_address, :mailing_city, :mailing_country,  :mailing_county, :alimony_child_support_required, :home_phone_number, :work_phone_number, :what_to_collect, :how_much_money_owed, :alimony_child_support_state, :receiving_payments, :receiving_public_assistance, :receiving_public_assistance_description)
-    end
-
-    def register_step_3_params
-      params.require(:client).permit(:mailing_address, :county_name, :alimony_child_support_required, :home_phone_number, :work_phone_number, :what_to_collect, :how_much_money_owed, :alimony_child_support_state, :receiving_payments, :receiving_public_assistance, :receiving_public_assistance_description)
+    def set_register_step_4
+      debugger
+      # IMPORTANT: THIS IS HOW WE KEEP CHECKBOXES IN A SAVED STATE
+      #@client.gender = params[:client][:gender]
+      @client.alternate_contact_name = params[:client][:alternate_contact_name]
+      @client.alternate_contact_phone_number = params[:client][:alternate_contact_phone_number]
+      @client.birth_date = params[:client][:birth_date]
+      @client.owes_money_race = params[:client][:owes_money_race]
+      @client.owes_money_first_name = params[:client][:owes_money_first_name]
+      @client.owes_money_last_name = params[:client][:owes_money_last_name]
+      @client.owes_money_apt = params[:client][:owes_money_apt]
+      @client.owes_money_city = params[:client][:owes_money_city]
+      @client.owes_money_county = params[:client][:owes_money_county]
+      @client.owes_money_state = params[:client][:owes_money_state]
+      @client.owes_money_zip = params[:client][:owes_money_zip]
+      @client.owes_money_work_address = params[:client][:owes_money_work_address]
+      @client.owes_money_phone_number = params[:client][:owes_money_phone_number]
+      @client.owes_money_email = params[:client][:owes_money_email]
+      @client.owes_money_is_in_jail = params[:client][:owes_money_is_in_jail]
+      @client.owes_money_middle_name = params[:client][:owes_money_middle_name]
+      @client.mother_full_name = params[:client][:mother_full_name]
+      @client.mother_maiden_name = params[:client][:mother_maiden_name]
+      @client.court_order_state = params[:client][:court_order_state]
+      @client.court_order_county = params[:client][:court_order_county]
+      @client.final_judgment_obtained_date = params[:client][:final_judgment_obtained_date]
+      @client.court_case_filed_name = params[:client][:court_case_filed_name]
+      @client.alternate_contact_email = params[:client][:alternate_contact_email]
+      @client.alternate_contact_best_method = params[:client][:alternate_contact_best_method]
+      @client.send_court_order_method = params[:client][:send_court_order_method]
+      @client.owes_money_first_nickname = params[:client][:owes_money_first_nickname]
+      @client.owes_money_last_nickname = params[:client][:owes_money_last_nickname]
+      @client.owes_money_country = params[:client][:owes_money_country]
+      @client.owes_money_occupation = params[:client][:owes_money_occupation]
+      @client.owes_money_birth_date = params[:client][:owes_money_birth_date]
+      @client.owes_money_ssn = params[:client][:owes_money_ssn]
+      @client.owes_money_work_phone_number = params[:client][:owes_money_work_phone_number]
+      @client.owes_money_work_city = params[:client][:owes_money_work_city]
+      @client.owes_money_work_state = params[:client][:owes_money_work_state]
+      @client.owes_money_work_zip = params[:client][:owes_money_work_zip]
+      @client.interested_services_details = params[:client][:interested_services_details]
+      @client.liquidated_damages_amount = params[:client][:liquidated_damages_amount]
+      @client.prejudgment_interest_amount = params[:client][:prejudgment_interest_amount]
+      @client.taxable_court_costs_amount = params[:client][:taxable_court_costs_amount]
+      @client.first_class_mailing_receipt_number = params[:client][:first_class_mailing_receipt_number]
+      @client.certified_mailing_receipt_number = params[:client][:certified_mailing_receipt_number]
+      @client.mailing_date = params[:client][:mailing_date]
+      @client.account_number = params[:client][:account_number]
+      @client.filing_date = params[:client][:filing_date]
+      @client.suffix = params[:client][:suffix]
+      @client.child_1_first_name = params[:client][:child_1_first_name]
+      @client.child_1_last_name = params[:client][:child_1_last_name]
+      @client.child_1_birth_date = params[:client][:child_1_birth_date]
+      @client.child_2_first_name = params[:client][:child_2_first_name]
+      @client.child_2_last_name = params[:client][:child_2_last_name]
+      @client.child_2_birth_date = params[:client][:child_2_birth_date]
+      @client.child_3_last_name = params[:client][:child_3_first_name]
+      @client.child_3_last_name = params[:client][:child_3_last_name]
+      @client.child_3_last_name = params[:client][:child_3_birth_date]
+      @client.child_4_last_name = params[:client][:child_4_first_name]
+      @client.child_4_last_name = params[:client][:child_4_last_name]
+      @client.child_4_last_name = params[:client][:child_4_birth_date]
+      @client.child_5_last_name = params[:client][:child_5_first_name]
+      @client.child_5_last_name = params[:client][:child_5_last_name]
+      @client.child_5_last_name = params[:client][:child_5_birth_date]
+      @client.mailing_city = params[:client][:mailing_city]
+      @client.mailing_state = params[:client][:mailing_state]
+      @client.mailing_zip = params[:client][:mailing_zip]
+      @client.mailing_country = params[:client][:mailing_country]
+      @client.mailing_county = params[:client][:mailing_county]
+      @client.owes_money_bank_name = params[:client][:owes_money_bank_name]
+      @client.owes_money_account_number = params[:client][:owes_money_account_number]
+      @client.court_order_modified = params[:client][:court_order_modified]
+      @client.children_living_with_you = params[:client][:children_living_with_you]
+      @client.children_not_living_with_you_explanation = params[:client][:children_not_living_with_you_explanation]
+      @client.documentation_send_method = params[:client][:documentation_send_method]
+      @client.owes_money_gender = params[:client][:owes_money_gender]
+      @client.owes_money_address = params[:client][:owes_money_address]
+      # Hstores
+      @client.owes_money_papers = params[:client][:owes_money_papers]
+      @client.interested_services = params[:client][:interested_services]
+      @client.interested_documents_to_generate = params[:client][:interested_documents_to_generate]
+      @client.registration_step = 4
     end
 
 end

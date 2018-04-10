@@ -20,6 +20,10 @@
     <h2>Alternate Contact</h2>
     <div class="jumbotron">
 
+
+      <p><%= form.label "Hello", class: "form-label" %><%= form.check_box :gender, class: "form-control" %></p>
+
+
       <div class="form-group">
         <h3>In case we are not able to reach you is there someone else we can contact? (optional)</h3>
         <%= form.label :alternate_contact_name, value: "Full name", class: "form-label margin-md" %>
@@ -59,7 +63,7 @@
           <%= form.radio_button :owes_money_gender, "male", id: :client_owes_money_gender %> Male
         </label>
         <label class="radio-inline" for="client_gender">
-          <%= form.radio_button :gender, "female", id: :client_gender %> Female
+          <%= form.radio_button :owes_money_gender, "female", id: :client_gender %> Female
         </label>
       </div>
       <div id="owes_money_race_div" class="form-group">
@@ -245,11 +249,11 @@
         <h3>Children involved in case</h3>
         <p>Child 1</p>
         <%= form.label :child_1_first_name, value: "First", class: "form-label" %>
-        <%= form.text_field :child_1_first_name, id: :client_child_1_first_name, required: true, class: "form-control" %>
+        <%= form.text_field :child_1_first_name, id: :client_child_1_first_name,  class: "form-control" %>
         <%= form.label :child_1_last_name, value: "Last", class: "form-label margin-sm" %>
-        <%= form.text_field :child_1_last_name, id: :client_child_1_last_name, required: true, class: "form-control" %>
+        <%= form.text_field :child_1_last_name, id: :client_child_1_last_name,  class: "form-control" %>
         <%= form.label :child_1_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-        <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date, required: true, class: "form-control" %>
+        <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date,  class: "form-control" %>
       </div>
       <div class="form-group">
         <p>Child 2</p>

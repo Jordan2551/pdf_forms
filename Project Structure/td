@@ -17,3 +17,4 @@ Fields:
 
 Future:
 *prompt a client with a message when the client who already has the session tries to create a new application.
+*Server https

@@ -1,4 +1,12 @@
 
+<ul>
+  <!-- Temporary message -->
+  <% if flash[:msg] %>
+    <li class="success"><%= flash[:msg] %></li>
+  <% end %>
+</ul>
+
+
 <div class="jumbotron" style="height:700px">
   <h1 class="fancy-title" style="margin-top:200px">Welcome to PDF Creator!</h1>
   <div class="container">

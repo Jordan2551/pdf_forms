@@ -17,15 +17,10 @@
 
   <div class="container margin-md">
 
-    <h2>Alternate Contact</h2>
+    <h2>Alternate Contact (optional)</h2>
     <div class="jumbotron">
-
-
-      <p><%= form.label "Hello", class: "form-label" %><%= form.check_box :gender, class: "form-control" %></p>
-
-
       <div class="form-group">
-        <h3>In case we are not able to reach you is there someone else we can contact? (optional)</h3>
+        <h3>In case we are not able to reach you is there someone else we can contact?</h3>
         <%= form.label :alternate_contact_name, value: "Full name", class: "form-label margin-md" %>
         <%= form.text_field :alternate_contact_name, id: :client_alternate_contact_name, class: "form-control" %>
       </div>
@@ -35,7 +30,7 @@
       </div>
       <div class="form-group">
         <%= form.label :alternate_contact_phone_number, value: "Email", class: "form-label" %>
-        <%= form.text_field :alternate_contact_email, id: :client_alternate_contact_phone_number, class: "form-control" %>
+        <%= form.text_field :alternate_contact_email, id: :client_alternate_contact_email, class: "form-control" %>
       </div>
       <div class="form-group">
         <p>Best Method to Contact This Person</p>
@@ -68,16 +63,13 @@
       </div>
       <div id="owes_money_race_div" class="form-group">
         <%= form.label :owes_money_race, value: "Race of other party who owes you money?", class: "form-label margin-sm" %>
-        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "white", id: :client_owes_money_race %>    White/Caucasian</label>
-        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "black", id: :client_owes_money_race %>    Black/African-American</label>
-        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "hispanic", id: :client_owes_money_race %>    Hispanic</label>
-        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
-        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "indian", id: :client_owes_money_race %>    American Indian/Alaskan</label>
-        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "asian", id: :client_owes_money_race %>    Asian/Pacific Islander</label>
-        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race, "other", id: :client_owes_money_race_other %>    Other</label>
-        <div id="other_race_div" hidden="true">
-          <input type="text" class="form-control" id="client_owes_money_race_other_text" placeholder="Other (race not specified above)">
-        </div>
+        <%= form.hidden_field :owes_money_race, id: :owes_money_race  %>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "white" %>    White/Caucasian</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "black" %>    Black/African-American</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "hispanic" %>    Hispanic</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "asian" %>    Asian/Pacific Islander</label>
+        <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "indian" %>    American Indian/Alaskan</label>
+        <label class="form-check-label margin-sm" for="client_owes_money_race">Other (race not specified above)<%= form.text_field :owes_money_race_tf, id: :client_owes_money_race_other_text, class: "form-control" %></label>
       </div>
 
       <div class="form-group margin-md">
@@ -104,8 +96,8 @@
       </div>
       <div class="form-group margin-md">
         <h3>What is their home address?</h3>
-        <%= form.label :owes_money_street, value: "Street", class: "form-label" %>
-        <%= form.text_field :owes_money_street, id: :client_owes_money_street, class: "form-control" %>
+        <%= form.label :owes_money_address, value: "Address", class: "form-label" %>
+        <%= form.text_field :owes_money_address, id: :client_owes_money_address, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= form.label :owes_money_apt, value: "Apartment", class: "form-label" %>
@@ -132,18 +124,32 @@
         <%= form.text_field :owes_money_zip, id: :client_owes_money_zip, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_work_address, value: "What is their work address? (optional)", class: "form-label" %>
+        <h3>What is their work address (optional)</h3>
+        <%= form.label :owes_money_work_address, value: "Address", class: "form-label" %>
         <%= form.text_field :owes_money_work_address, id: :client_owes_money_work_address, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_phone_number, value: "What is their phone number? (optional)", class: "form-label" %>
+        <%= form.label :owes_money_work_city, value: "City", class: "form-label" %>
+        <%= form.text_field :owes_money_work_city, id: :client_owes_money_work_city, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_work_state, value: "State / Province / Region", class: "form-label" %>
+        <%= form.select :owes_money_work_state, options_for_select(us_states), {}, { class:"form-control", id: "states"} %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_work_zip, value: "Zip / Postal Code", class: "form-label" %>
+        <%= form.text_field :owes_money_work_zip, id: :client_owes_money_work_zip, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_phone_number, value: "Work Phone Number", class: "form-label" %>
         <%= form.text_field :owes_money_phone_number, id: :client_owes_money_phone_number, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= form.label :owes_money_email, value: "What is their email address? (optional)" , class: "form-label" %>
+        <%= form.label :owes_money_email, value: "Work Email Address" , class: "form-label" %>
         <%= form.text_field :owes_money_email, id: :client_owes_money_email, class: "form-control" %>
       </div>
-      <div class="form-group">
+      <div class="form-group margin-md">
+        <h3>Occupation, Social Securtiy</h3>
         <%= form.label :owes_money_occupation, value: "Occupation of the person who owes you money" , class: "form-label" %>
         <%= form.text_field :owes_money_occupation, id: :client_owes_money_occupation, class: "form-control" %>
       </div>
@@ -164,8 +170,18 @@
 
       <div class="form-group margin-md">
         <h3 class="margin-sm">If you have any of the following papers from the person who owes you money, please mark below all that apply.</h3>
-        <% owes_money_papers.each do |option, symbol| %>
-        <p><%= form.label option, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", class: "form-control" %></p>
+        <% if @client.owes_money_papers %>
+          <% @client.owes_money_papers.each do |symbol, value| %>
+            <% if value == "1" %>
+                <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", checked: true, class: "form-control" %></p>
+            <% else %>
+                <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", checked: false, class: "form-control" %></p>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% owes_money_papers.each do |option, symbol| %>
+            <p><%= form.label option, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", class: "form-control" %></p>
+          <% end %>
         <% end %>
       </div>
 
@@ -178,28 +194,9 @@
         <%= form.label :documentation_send_method, value: "How would you like to send us a copy of documentation?" , class: "form-label" %>
         <%= form.select :documentation_send_method, options_for_select([["US Mail", "mail"],["Fax", "fax"]]), {}, { class:"form-control", id: "countries"} %>
       </div>
-
-      <div class="form-group margin-md">
-        <h3>Work Company Address</h3>
-        <h3>The address where the person that owes you money is employed</h3>
-        <%= form.label :owes_money_address, value: "Address", class: "form-label margin-md" %>
-        <%= form.text_field :owes_money_address, id: :client_owes_money_address, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_work_city, value: "City", class: "form-label" %>
-        <%= form.text_field :owes_money_work_city, id: :client_owes_money_work_city, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_work_state, value: "State / Province / Region", class: "form-label" %>
-        <%= form.text_field :owes_money_work_state, id: :client_owes_money_work_state, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_work_zip, value: "Zip / Postal Code", class: "form-label" %>
-        <%= form.text_field :owes_money_work_zip, id: :client_owes_money_work_zip, class: "form-control" %>
-      </div>
       <div class="form-group margin-md">
         <h3>Who do they bank with? (optional)</h3>
-        <%= form.label :owes_money_bank_name, value: "Bank Name (Example: Bank Of America, Chase, Wells Fargo)", class: "form-label margin-md" %>
+        <%= form.label :owes_money_bank_name, value: "Bank Name (Example: Bank Of America, Chase, Wells Fargo)", class: "form-label" %>
         <%= form.text_field :owes_money_bank_name, id: :client_owes_money_bank_name, class: "form-control" %>
       </div>
       <div class="form-group">
@@ -299,19 +296,40 @@
         <%= form.label :children_not_living_with_you_explanation, value: "If not, please explain", class: "form-label" %>
         <%= form.text_area :children_not_living_with_you_explanation, id: :client_children_not_living_with_you_explanation, rows: 5, class: "form-control" %>
       </div>
-
-      <h3 class="margin-md">Please select any additional services that you are interested in</h3>
-      <% interested_services.each do |option, symbol| %>
-        <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", class: "form-control" %></p>
-      <% end %>
+      <div class="form-group margin-md">
+        <h3 class="margin-md">Please select any additional services that you are interested in</h3>
+        <% if @client.interested_services %>
+          <% @client.interested_services.each do |symbol, value| %>
+            <% if value == "1" %>
+                <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", checked: true, class: "form-control" %></p>
+            <% else %>
+                <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", checked: false, class: "form-control" %></p>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% interested_services.each do |option, symbol| %>
+            <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", class: "form-control" %></p>
+          <% end %>
+        <% end %>
+      </div>
       <div class="form-group margin-sm">
         <%= form.label :interested_services_details, value: "Briefly explain the details of any additional service(s) you selected.", class: "form-label" %>
         <%= form.text_area :interested_services_details, id: :client_interested_services_details, rows: 5, class: "form-control" %>
       </div>
       <div class="form-group margin-md">
         <h3>Please select the document(s) you would like to generate</h3>
-        <% interested_documents_to_generate.each do |option, symbol| %>
-          <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", class: "form-control" %></p>
+        <% if @client.interested_documents_to_generate %>
+          <% @client.interested_documents_to_generate.each do |symbol, value| %>
+            <% if value == "1" %>
+                <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", checked: true, class: "form-control" %></p>
+            <% else %>
+                <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", checked: false, class: "form-control" %></p>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% interested_documents_to_generate.each do |option, symbol| %>
+            <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", class: "form-control" %></p>
+          <% end %>
         <% end %>
       </div>
       <div class="form-group margin-sm">

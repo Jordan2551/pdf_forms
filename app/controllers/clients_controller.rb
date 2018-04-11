@@ -93,7 +93,7 @@ class ClientsController < ApplicationController
     @client = Client.find(session[:client_id])
     set_register_step_4
     if @client.save(context: :register_step_4)
-        flash[:step_4_success] = "You have completed the application!"
+        flash[:msg] = "You have completed the application!"
         redirect_to home_path
     else
         flash[:step_4_errors] = @client.errors.full_messages
@@ -156,7 +156,7 @@ class ClientsController < ApplicationController
     end
 
     def register_step_1_params
-      params.require(:client).permit(:first_name, :middle_name, :last_name, :phone_number, :email)
+      params.require(:client).permit(:first_name, :middle_name, :last_name, :suffix, :phone_number, :email)
     end
 
     def set_register_step_2
@@ -176,15 +176,13 @@ class ClientsController < ApplicationController
     end
 
     def set_register_step_4
-      debugger
-      # IMPORTANT: THIS IS HOW WE KEEP CHECKBOXES IN A SAVED STATE
-      #@client.gender = params[:client][:gender]
       @client.alternate_contact_name = params[:client][:alternate_contact_name]
       @client.alternate_contact_phone_number = params[:client][:alternate_contact_phone_number]
       @client.birth_date = params[:client][:birth_date]
       @client.owes_money_race = params[:client][:owes_money_race]
       @client.owes_money_first_name = params[:client][:owes_money_first_name]
       @client.owes_money_last_name = params[:client][:owes_money_last_name]
+      @client.owes_money_address = params[:client][:owes_money_address]
       @client.owes_money_apt = params[:client][:owes_money_apt]
       @client.owes_money_city = params[:client][:owes_money_city]
       @client.owes_money_county = params[:client][:owes_money_county]
@@ -203,7 +201,6 @@ class ClientsController < ApplicationController
       @client.court_case_filed_name = params[:client][:court_case_filed_name]
       @client.alternate_contact_email = params[:client][:alternate_contact_email]
       @client.alternate_contact_best_method = params[:client][:alternate_contact_best_method]
-      @client.send_court_order_method = params[:client][:send_court_order_method]
       @client.owes_money_first_nickname = params[:client][:owes_money_first_nickname]
       @client.owes_money_last_nickname = params[:client][:owes_money_last_nickname]
       @client.owes_money_country = params[:client][:owes_money_country]
@@ -214,6 +211,8 @@ class ClientsController < ApplicationController
       @client.owes_money_work_city = params[:client][:owes_money_work_city]
       @client.owes_money_work_state = params[:client][:owes_money_work_state]
       @client.owes_money_work_zip = params[:client][:owes_money_work_zip]
+      @client.ssn = params[:client][:ssn]
+      @client.case_number = params[:client][:case_number]
       @client.interested_services_details = params[:client][:interested_services_details]
       @client.liquidated_damages_amount = params[:client][:liquidated_damages_amount]
       @client.prejudgment_interest_amount = params[:client][:prejudgment_interest_amount]
@@ -251,7 +250,6 @@ class ClientsController < ApplicationController
       @client.children_not_living_with_you_explanation = params[:client][:children_not_living_with_you_explanation]
       @client.documentation_send_method = params[:client][:documentation_send_method]
       @client.owes_money_gender = params[:client][:owes_money_gender]
-      @client.owes_money_address = params[:client][:owes_money_address]
       # Hstores
       @client.owes_money_papers = params[:client][:owes_money_papers]
       @client.interested_services = params[:client][:interested_services]

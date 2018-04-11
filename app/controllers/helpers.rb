@@ -24,6 +24,9 @@ module Helpers
         redirect_to payment_path
       elsif client.registration_step == 3
         redirect_to step_4_path
+      elsif client.registration_step == 4
+        flash[:msg] = "You have already completed the application. Please be patient while we process it."
+        redirect_to home_path
       end
     end
   end
@@ -33,20 +36,20 @@ module Helpers
       ['Financial Affidavit', "financial_affidavit"],
       ['Loan Application', "loan_application"],
       ['Tax Returns', "tax_returns"],
-      ['Bank Statements or Records', "bank_statements"],
+      ['Bank Statements or Records', "bank_statements_or_records"],
       ['Investment Account Statements or Records', "investment_account_statements_or_records"],
       ['Business related documents', "business_related_documents"],
-      ['Documents for cars, boats, motorcycles, or other titled assets', "documents_for_cars_boats_motorcycles"],
-      ['All other documents related to income, money, or assetss', "all_other_documents"],
+      ['Documents for cars, boats, motorcycles, or other titled assets', "documents_for_cars,_boats,_motorcycles,_or_other_titled_assets"],
+      ['All other documents related to income, money, or assets', "all_other_documents_related_to_income,_money,_or_assets"],
     ]
   end
 
   def interested_services
     [
-      ['Un-reimbursed medical, dental, or healthcare expense', "un-reimbursed_medical_expenses"],
-      ['Un-reimbursed extracurricular child expenses', "un-reimbursed_child_expenses"],
-      ['Enforcement of settlement agreement or final judgment', "enforcement_of_settlement"],
-      ['Child Custody / Visitation', "child_custody"],
+      ['Un-reimbursed medical, dental, or healthcare expenses', "un-reimbursed_medical,_dental,_or_healthcare_expenses"],
+      ['Un-reimbursed extracurricular child expenses', "un-reimbursed_extracurricular_child_expenses"],
+      ['Enforcement of settlement agreement or final judgment', "enforcement_of_settlement_agreement_or_final_judgment"],
+      ['Child Custody / Visitation', "child_custody_/_visitation"],
       ['Modification of child support', "modification_of_child_support"]
     ]
   end
@@ -54,9 +57,9 @@ module Helpers
   def interested_documents_to_generate
     [
       ['Motion for Writ of Garnishment', "motion_for_writ_of_garnishment"],
-      ['Notice of filing answer of the garnishee', "notice_of_filing"],
+      ['Notice of filing answer of the garnishee', "notice_of_filing_answer_of_the_garnishee"],
       ['Notice of right against garnishment', "notice_of_right_against_granishment"],
-      ['Notice to individual def for claim of exemption from garnishment', "notice_to_individual_def"],
+      ['Notice to individual def for claim of exemption from garnishment', "notice_to_individual_def_for_claim_of_exemption_from_garnishment"],
       ['Writ of Garnishment', "writ_of_garnishment"]
     ]
   end

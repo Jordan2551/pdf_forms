@@ -21,30 +21,25 @@ class Client < ApplicationRecord
   validates :owes_money_birth_date, presence: true, on: :register_step_4
   validates :owes_money_first_name, presence: true, on: :register_step_4
   validates :owes_money_gender, presence: true, on: :register_step_4
-  validates :owes_money_middle_name, presence: true, on: :register_step_4
   validates :owes_money_last_name, presence: true, on: :register_step_4
+  validates :owes_money_address, presence: true, on: :register_step_4
   validates :owes_money_apt, presence: true, on: :register_step_4
   validates :owes_money_city, presence: true, on: :register_step_4
   validates :owes_money_occupation, presence: true, on: :register_step_4
   validates :owes_money_race, presence: true, on: :register_step_4
   validates :owes_money_state, presence: true, on: :register_step_4
-  validates :owes_money_work_address, presence: true, on: :register_step_4
-  validates :owes_money_work_city, presence: true, on: :register_step_4
-  validates :owes_money_work_zip, presence: true, on: :register_step_4
   validates :owes_money_ssn, presence: true, on: :register_step_4
-  validates :owes_money_email, format: { with: Devise.email_regexp, message: "Invalid email format"}, on: :register_step_4
   validates :owes_money_is_in_jail, presence: true, on: :register_step_4
   validates :mother_full_name, presence: true, on: :register_step_4
-  validates :mother_full_name, presence: true, on: :register_step_4
+  validates :mother_maiden_name, presence: true, on: :register_step_4
   validates :case_number, presence: true, on: :register_step_4
+  validates :ssn, presence: true, on: :register_step_4
   validates :court_order_modified, presence: true, on: :register_step_4
   validates :documentation_send_method, presence: true, on: :register_step_4
   validates :court_order_state, presence: true, on: :register_step_4
   validates :court_order_county, presence: true, on: :register_step_4
   validates :final_judgment_obtained_date, presence: true, on: :register_step_4
   validates :court_case_filed_name, presence: true, on: :register_step_4
-  validates :alternate_contact_email, format: { with: Devise.email_regexp, message: "Invalid email format"}, on: :register_step_4
-  validates :send_court_order_method, presence: true, on: :register_step_4
   validates :child_1_first_name, presence: true, on: :register_step_4
   validates :child_1_last_name, presence: true, on: :register_step_4
   validates :child_1_birth_date, presence: true, on: :register_step_4

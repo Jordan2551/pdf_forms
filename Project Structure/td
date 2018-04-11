@@ -13,8 +13,11 @@ Why step 4 male always gets selected
 Fields:
 * is client middle name required?
 * Is client side reuqired enough or let it fall through nil exception controller?
+*params require to make it look better?
+*The race invalid validation not checked (minor)
 
 
 Future:
 *prompt a client with a message when the client who already has the session tries to create a new application.
 *Server https
+

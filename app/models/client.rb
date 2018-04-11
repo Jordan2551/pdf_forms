@@ -43,6 +43,8 @@ class Client < ApplicationRecord
   validates :child_1_first_name, presence: true, on: :register_step_4
   validates :child_1_last_name, presence: true, on: :register_step_4
   validates :child_1_birth_date, presence: true, on: :register_step_4
+  validates :child_1_ssn, presence: true, on: :register_step_4
+  validates :child_1_emancipation_date, presence: true, on: :register_step_4
   validates :children_living_with_you, presence: true, on: :register_step_4
   validates :liquidated_damages_amount, presence: true, on: :register_step_4
   validates :prejudgment_interest_amount, presence: true, on: :register_step_4

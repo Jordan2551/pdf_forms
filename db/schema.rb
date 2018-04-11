@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411034656) do
+ActiveRecord::Schema.define(version: 20180411172034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,16 @@ ActiveRecord::Schema.define(version: 20180411034656) do
     t.string "owes_money_gender"
     t.string "owes_money_address"
     t.string "ssn"
+    t.string "child_1_ssn"
+    t.date "child_1_emancipation_date"
+    t.string "child_2_ssn"
+    t.date "child_2_emancipation_date"
+    t.string "child_3_ssn"
+    t.date "child_3_emancipation_date"
+    t.string "child_4_ssn"
+    t.date "child_4_emancipation_date"
+    t.string "child_5_ssn"
+    t.date "child_5_emancipation_date"
     t.index ["interested_documents_to_generate"], name: "index_clients_on_interested_documents_to_generate", using: :gin
     t.index ["interested_services"], name: "index_clients_on_interested_services", using: :gin
     t.index ["owes_money_papers"], name: "index_clients_on_owes_money_papers", using: :gin

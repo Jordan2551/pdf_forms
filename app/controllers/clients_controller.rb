@@ -106,8 +106,9 @@ class ClientsController < ApplicationController
   # PATCH/PUT /clients/1
   # PATCH/PUT /clients/1.json
   def update
+    debugger
     respond_to do |format|
-      if @client.update(client_params)
+      if @client.update(update_client_params)
         format.html { redirect_to clients_path, notice: 'Application was successfully updated.' }
       else
         format.html { render :edit }
@@ -129,7 +130,6 @@ class ClientsController < ApplicationController
   end
 
   def update_admin
-
     @user = User.find(params[:user_id])
     if @user.admin?
       @user.admin = false
@@ -231,23 +231,23 @@ class ClientsController < ApplicationController
       @client.child_2_first_name = params[:client][:child_2_first_name]
       @client.child_2_last_name = params[:client][:child_2_last_name]
       @client.child_2_birth_date = params[:client][:child_2_birth_date]
-      @client.child_2_ssn = params[:client][:child_1_ssn]
-      @client.child_2_emancipation_date = params[:client][:child_1_emancipation_date]
+      @client.child_2_ssn = params[:client][:child_2_ssn]
+      @client.child_2_emancipation_date = params[:client][:child_2_emancipation_date]
       @client.child_3_last_name = params[:client][:child_3_first_name]
       @client.child_3_last_name = params[:client][:child_3_last_name]
       @client.child_3_last_name = params[:client][:child_3_birth_date]
-      @client.child_3_ssn = params[:client][:child_1_ssn]
-      @client.child_3_emancipation_date = params[:client][:child_1_emancipation_date]
+      @client.child_3_ssn = params[:client][:child_3_ssn]
+      @client.child_3_emancipation_date = params[:client][:child_3_emancipation_date]
       @client.child_4_last_name = params[:client][:child_4_first_name]
       @client.child_4_last_name = params[:client][:child_4_last_name]
       @client.child_4_last_name = params[:client][:child_4_birth_date]
-      @client.child_4_ssn = params[:client][:child_1_ssn]
-      @client.child_4_emancipation_date = params[:client][:child_1_emancipation_date]
+      @client.child_4_ssn = params[:client][:child_4_ssn]
+      @client.child_4_emancipation_date = params[:client][:child_4_emancipation_date]
       @client.child_5_last_name = params[:client][:child_5_first_name]
       @client.child_5_last_name = params[:client][:child_5_last_name]
       @client.child_5_last_name = params[:client][:child_5_birth_date]
-      @client.child_5_ssn = params[:client][:child_1_ssn]
-      @client.child_5_emancipation_date = params[:client][:child_1_emancipation_date]
+      @client.child_5_ssn = params[:client][:child_5_ssn]
+      @client.child_5_emancipation_date = params[:client][:child_5_emancipation_date]
       @client.mailing_city = params[:client][:mailing_city]
       @client.mailing_state = params[:client][:mailing_state]
       @client.mailing_zip = params[:client][:mailing_zip]
@@ -265,6 +265,26 @@ class ClientsController < ApplicationController
       @client.interested_services = params[:client][:interested_services]
       @client.interested_documents_to_generate = params[:client][:interested_documents_to_generate]
       @client.registration_step = 4
+    end
+
+    def update_client_params
+      params.require(:client).permit(:first_name, :middle_name, :last_name, :suffix, :phone_number, :email, :mailing_address, :mailing_city, :mailing_country,
+      :mailing_county, :alimony_child_support_required, :home_phone_number, :what_to_collect, :how_much_money_owed, :alimony_child_support_state, :receiving_payments,
+      :receiving_public_assistance, :receiving_public_assistance_description, :alternate_contact_name, :alternate_contact_phone_number, :alternate_contact_email,
+      :alternate_contact_best_method, :birth_date, :owes_money_race, :owes_money_first_name, :owes_money_last_name, :owes_money_address, :owes_money_apt, :owes_money_city, :owes_money_bank_name, :owes_money_account_number,
+      :owes_money_country, :owes_money_county,  :owes_money_state, :owes_money_zip, :owes_money_work_address, :owes_money_phone_number, :owes_money_email, :owes_money_is_in_jail,
+      :owes_money_middle_name, :mother_full_name, :mother_maiden_name, :court_order_state, :court_order_county, :final_judgment_obtained_date, :court_case_filed_name,
+      :owes_money_first_nickname, :owes_money_last_nickname, :owes_money_occupation, :owes_money_birth_date, :owes_money_ssn, :owes_money_work_phone_number, :owes_money_work_city, :owes_money_gender,
+      :owes_money_work_state, :owes_money_work_zip, :ssn, :case_number, :interested_services_details, :liquidated_damages_amount, :prejudgment_interest_amount, :taxable_court_costs_amount,
+      :first_class_mailing_receipt_number, :certified_mailing_receipt_number, :mailind_date, :account_number, :filing_date, :suffix, :children_living_with_you, :children_not_living_with_you_explanation,
+      :child_1_first_name, :child_1_last_name, :child_1_birth_date, :child_1_ssn, :child_1_emancipation_date,
+      :child_2_first_name, :child_2_last_name, :child_2_birth_date, :child_2_ssn, :child_2_emancipation_date,
+      :child_3_first_name, :child_3_last_name, :child_3_birth_date, :child_3_ssn, :child_3_emancipation_date,
+      :child_4_first_name, :child_4_last_name, :child_4_birth_date, :child_4_ssn, :child_4_emancipation_date,
+      :child_5_first_name, :child_5_last_name, :child_5_birth_date, :child_5_ssn, :child_5_emancipation_date,
+      :mailing_city, :mailing_state, :mailing_zip, :mailing_country, :mailing_county, :court_order_modified,
+      :documentation_send_method, :interested_services, :interested_documents_to_generate,
+      :work_phone_number, :mailing_date)
     end
 
 end

@@ -21,3 +21,6 @@ Future:
 *prompt a client with a message when the client who already has the session tries to create a new application.
 *Server https
 
+
+how to whitelist hashes 
+how to update with contextual validations

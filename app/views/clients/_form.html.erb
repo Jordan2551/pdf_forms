@@ -2,7 +2,6 @@
   <% if client.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
-
       <ul>
       <% client.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,54 +10,9 @@
     </div>
   <% end %>
 
-  <div class="container">
-
-    <div class="jumbotron">
-
-      <div class="form-group">
-        <%= form.label :case_number, class: "form-label" %>
-        <%= form.text_field :case_number, id: :client_case_number, class: "form-control" %>
-      </div> s
-
-      <div class="form-group">
-        <%= form.label :petitioner, class: "form-label" %>
-        <%= form.text_field :petitioner, id: :client_petitioner, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= form.label :respondent, class: "form-label" %>
-        <%= form.text_field :respondent, id: :client_respondent, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= form.label :garnishee, class: "form-label" %>
-        <%= form.text_field :garnishee, id: :client_garnishee, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= form.label :name, class: "form-label" %>
-        <%= form.text_field :name, id: :client_name, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= form.label :address, class: "form-label" %>
-        <%= form.text_field :address, id: :client_address, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= form.label :bank_name, class: "form-label" %>
-        <%= form.text_field :bank_name, id: :client_bank_name, class: "form-control" %>
-      </div>
-
-
-      <div class="form-group">
-        <%= form.label :bank_address, class: "form-label" %>
-        <%= form.text_field :bank_address, id: :client_bank_address, class: "form-control" %>
-      </div>
-
-      <%= form.submit "Create Application", class:"button hvr-underline-from-center header-photo-btn" %>
-
-    </div>
-  </div>
+  <%= render 'step_1', form: form, client: @client %>
+  <%= render 'step_2', form: form, client: @client %>
+  <%= render 'step_4', form: form, client: @client %>
+  <div class="container"><%= form.submit class:"button hvr-underline-from-center header-photo-btn" %></div>
 
 <% end %>

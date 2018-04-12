@@ -11,9 +11,6 @@ keyyaml
 Why step 4 male always gets selected
 
 Fields:
-* is client middle name required?
-* Is client side reuqired enough or let it fall through nil exception controller?
-*params require to make it look better?
 *The race invalid validation not checked (minor)
 
 
@@ -22,5 +19,18 @@ Future:
 *Server https
 
 
-how to whitelist hashes 
+
+
 how to update with contextual validations
+how to fix the check box with races
+
+
+
+<label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "white", checked: @client.owes_money_race == 'white' %>    White/Caucasian</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "black", checked: @client.owes_money_race == 'black' %>    Black/African-American</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "hispanic", checked: @client.owes_money_race == 'hispanic' %>    Hispanic</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "asian", checked: @client.owes_money_race == 'asian' %>    Asian/Pacific Islander</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "indian", checked: @client.owes_money_race == 'indian' %>    American Indian/Alaskan</label>
+
+
+

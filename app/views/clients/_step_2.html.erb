@@ -22,11 +22,19 @@
       </div>
       <div class="form-group">
       <%= form.label :mailing_country, value: "Country", class: "form-label" %>
-      <%= form.select :mailing_country, options_for_select(countries), {}, { class:"form-control", id: "countries"} %>
+      <% if @client.mailing_country %>
+        <%= form.select :mailing_country, options_for_select(countries, @client.mailing_country), {}, { class:"form-control", id: "countries"} %>
+      <% else %>
+        <%= form.select :mailing_country, options_for_select(countries, "United States"), {}, { class:"form-control", id: "countries"} %>
+      <% end %>
       </div>
       <div class="form-group">
       <%= form.label :mailing_state, value: "State / Province / Region", class: "form-label" %>
-      <%= form.select :mailing_state, options_for_select(us_states), {}, { class:"form-control", id: "states"} %>
+      <% if @client.mailing_state %>
+        <%= form.select :mailing_state, options_for_select(us_states, @client.mailing_state), {}, { class:"form-control", id: "states"} %>
+      <% else %>
+        <%= form.select :mailing_state, options_for_select(us_states, "Florida"), {}, { class:"form-control", id: "states"} %>
+      <% end %>
       </div>
       <div class="form-group">
       <%= form.label :mailing_county, "County", class: "form-label" %>
@@ -72,7 +80,11 @@
 
       <div class="form-group">
         <%= form.label :alimony_child_support_state, value: "In which state was your child support or alimony order entered?", class: "form-label" %>
-        <%= form.select :alimony_child_support_state, options_for_select(us_states), {}, { class:"form-control"} %>
+        <% if @client.alimony_child_support_state %>
+          <%= form.select :alimony_child_support_state, options_for_select(us_states, @client.alimony_child_support_state), {}, { class:"form-control", id: "states"} %>
+        <% else %>
+          <%= form.select :alimony_child_support_state, options_for_select(us_states, "Florida"), {}, { class:"form-control", id: "states"} %>
+        <% end %>
       </div>
 
       <div class="form-group">

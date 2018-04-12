@@ -77,7 +77,8 @@ module Helpers
       ['Saskatchewan', 'SK'],
       ['Northwest Territories', 'NT'],
       ['Nunavut', 'NU'],
-      ['Yukon Territory', 'YT']
+      ['Yukon Territory', 'YT'],
+      ['', '']
     ]
   end
 
@@ -134,7 +135,8 @@ module Helpers
     ['WASHINGTON', 'WA'],
     ['WEST VIRGINIA', 'WV'],
     ['WISCONSIN', 'WI'],
-    ['WYOMING', 'WY']
+    ['WYOMING', 'WY'],
+    ['','']
     ]
   end
 

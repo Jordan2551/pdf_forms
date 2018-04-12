@@ -56,12 +56,17 @@
   <div id="owes_money_race_div" class="form-group">
     <%= form.label :owes_money_race, value: "Race of other party who owes you money?", class: "form-label margin-sm" %>
     <%= form.hidden_field :owes_money_race, id: :owes_money_race  %>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "white" %>    White/Caucasian</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "black" %>    Black/African-American</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "hispanic" %>    Hispanic</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "asian" %>    Asian/Pacific Islander</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button :owes_money_race_rb, "indian" %>    American Indian/Alaskan</label>
-    <label class="form-check-label margin-sm" for="client_owes_money_race">Other (race not specified above) <input type="text" id="client_owes_money_race_other_text" class="form-control" value="" > </label>
+    <!-- TODO: Why is this still checked? -->
+    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="white", checked="<%= @client.owes_money_race == 'white' %>">    White/Caucasian</label>
+    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="black", checked="<%= @client.owes_money_race == 'black' %>">    Black/African-American</label>
+    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="hispanic", checked="<%= @client.owes_money_race == 'hispanic' %>">    Hispanic</label>
+    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="asian", checked="<%= @client.owes_money_race == 'asian' %>">    Asian/Pacific Islander</label>
+    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="indian", checked="<%= @client.owes_money_race == 'indian' %>">    American Indian/Alaskan</label>
+    <% if @client.owes_money_race != "white" && @client.owes_money_race != "black" && @client.owes_money_race != "hispanic" && @client.owes_money_race != "asian" && @client.owes_money_race != "indian" %>
+      <label class="form-check-label margin-sm" for="client_owes_money_race">Other (race not specified above) <input type="text" id="client_owes_money_race_other_text" class="form-control" value="<%= @client.owes_money_race %>" > </label>
+    <% else %>
+      <label class="form-check-label margin-sm" for="client_owes_money_race">Other (race not specified above) <input type="text" id="client_owes_money_race_other_text" class="form-control" value="" > </label>
+    <% end %>
   </div>
 
   <div class="form-group margin-md">
@@ -105,11 +110,19 @@
   </div>
   <div class="form-group">
     <%= form.label :owes_money_country, value: "Country", class: "form-label" %>
-    <%= form.select :owes_money_country, options_for_select(countries), {}, { class:"form-control", id: "countries"} %>
+    <% if @client.owes_money_country %>
+      <%= form.select :owes_money_country, options_for_select(countries, @client.owes_money_country), {}, { class:"form-control", id: "countries"} %>
+    <% else %>
+      <%= form.select :owes_money_country, options_for_select(countries, "United States"), {}, { class:"form-control", id: "countries"} %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_state, value: "State / Provice / Region", class: "form-label" %>
-    <%= form.select :owes_money_state, options_for_select(us_states), {}, { class:"form-control", id: "states"} %>
+    <% if @client.owes_money_state %>
+      <%= form.select :owes_money_state, options_for_select(us_states, @client.owes_money_state), {}, { class:"form-control", id: "states"} %>
+    <% else %>
+      <%= form.select :owes_money_state, options_for_select(us_states, "Florida"), {}, { class:"form-control", id: "states"} %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_zip, value: "Zip (optional)", class: "form-label" %>
@@ -126,7 +139,11 @@
   </div>
   <div class="form-group">
     <%= form.label :owes_money_work_state, value: "State / Province / Region", class: "form-label" %>
-    <%= form.select :owes_money_work_state, options_for_select(us_states), {}, { class:"form-control", id: "states"} %>
+    <% if @client.owes_money_work_state %>
+      <%= form.select :owes_money_work_state, options_for_select(us_states, @client.owes_money_work_state), {}, { class:"form-control", id: "states"} %>
+    <% else %>
+      <%= form.select :owes_money_work_state, options_for_select(us_states, "Florida"), {}, { class:"form-control", id: "states"} %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_work_zip, value: "Zip / Postal Code", class: "form-label" %>
@@ -165,14 +182,14 @@
     <% if @client.owes_money_papers %>
       <% @client.owes_money_papers.each do |symbol, value| %>
         <% if value == "1" %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", checked: true, class: "form-control" %></p>
+            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers][#{symbol}", checked: true, class: "form-control" %></p>
         <% else %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", checked: false, class: "form-control" %></p>
+            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers][#{symbol}", checked: false, class: "form-control" %></p>
         <% end %>
       <% end %>
     <% else %>
       <% owes_money_papers.each do |option, symbol| %>
-        <p><%= form.label option, class: "form-label" %><%= form.check_box "owes_money_papers[#{symbol}]", class: "form-control" %></p>
+        <p><%= form.label option, class: "form-label" %><%= form.check_box "owes_money_papers][#{symbol}", class: "form-control" %></p>
       <% end %>
     <% end %>
   </div>
@@ -218,7 +235,11 @@
   </div>
   <div class="form-group">
     <%= form.label :court_order_state, value: "Court order state", class: "form-label" %>
-    <%= form.select :court_order_state, options_for_select(us_states), {}, { class:"form-control"} %>
+    <% if @client.court_order_state %>
+      <%= form.select :court_order_state, options_for_select(us_states, @client.court_order_state), {}, { class:"form-control", id: "states"} %>
+    <% else %>
+      <%= form.select :court_order_state, options_for_select(us_states, "Florida"), {}, { class:"form-control", id: "states"} %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= form.label :court_order_county, value: "Court order county", class: "form-label" %>

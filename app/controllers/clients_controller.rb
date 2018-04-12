@@ -106,7 +106,7 @@ class ClientsController < ApplicationController
   # PATCH/PUT /clients/1
   # PATCH/PUT /clients/1.json
   def update
-    debugger
+    set_hstore_params
     respond_to do |format|
       if @client.update(update_client_params)
         format.html { redirect_to clients_path, notice: 'Application was successfully updated.' }
@@ -153,6 +153,16 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_client
       @client = Client.find(params[:id])
+    end
+
+    # Rails doesn't support pg hashes very well so we have to set them and delete them manually from params to not get unpermitted params error
+    def set_hstore_params
+      @client.owes_money_papers = params[:client][:owes_money_papers]
+      @client.interested_services = params[:client][:interested_services]
+      @client.interested_documents_to_generate = params[:client][:interested_documents_to_generate]
+      params[:client].delete :owes_money_papers
+      params[:client].delete :interested_services
+      params[:client].delete :interested_documents_to_generate
     end
 
     def register_step_1_params

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load',function() {
 
   var usStates = [
     { name: 'ALABAMA', abbreviation: 'AL'},
@@ -59,7 +59,8 @@ $(document).ready(function() {
     { name: 'WASHINGTON', abbreviation: 'WA'},
     { name: 'WEST VIRGINIA', abbreviation: 'WV'},
     { name: 'WISCONSIN', abbreviation: 'WI'},
-    { name: 'WYOMING', abbreviation: 'WY' }
+    { name: 'WYOMING', abbreviation: 'WY' },
+    { name: '', abbreviation: ''}
     ];
 
   var canadianProvinces = [
@@ -76,28 +77,31 @@ $(document).ready(function() {
     { name: 'Quebec', abbreviation: 'QC'},
     { name: 'Saskatchewan', abbreviation: 'SK'},
     { name: 'Yukon Territory', abbreviation: 'YT'},
+    { name: '', abbreviation: ''}
   ];
 
   var countries = $("#countries");
   var states = $("#states");
 
   countries.on('change', function(){
-
     if(countries.val() == "United States"){
       states.html('');
       for(var i = 0; i < usStates.length; i++){
         states.append('<option value=' + usStates[i].abbreviation + '>' + usStates[i].name + '</option>');
+        states[0].selected = true;
       }
     }
     else if(countries.val() == "Canada"){
       states.html('');
       for(var i = 0; i < canadianProvinces.length; i++){
         states.append('<option value=' + canadianProvinces[i].abbreviation + '>' + canadianProvinces[i].name + '</option>');
+        // states[0].selected = true;
       }
     }
     else{
       states.html('');
       states.append('<option></option>');
+      states[0].selected = true;
     }
 
   });

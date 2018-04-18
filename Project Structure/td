@@ -2,7 +2,7 @@
 prod:
 keyyaml
 
-*--encrypt ss--
+
 *logging in while in client app causes error page?
 *playing with different browsers with sessions
 *logging in while in client app causes error page?
@@ -10,27 +10,12 @@ keyyaml
 --Minor--
 Why step 4 male always gets selected
 
-Fields:
-*The race invalid validation not checked (minor)
-
 
 Future:
 *prompt a client with a message when the client who already has the session tries to create a new application.
 *Server https
+*how to update with contextual validations
 
-
-
-
-how to update with contextual validations
-how to fix the check box with races
-
-
-
-<label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "white", checked: @client.owes_money_race == 'white' %>    White/Caucasian</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "black", checked: @client.owes_money_race == 'black' %>    Black/African-American</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "hispanic", checked: @client.owes_money_race == 'hispanic' %>    Hispanic</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "asian", checked: @client.owes_money_race == 'asian' %>    Asian/Pacific Islander</label>
-    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "indian", checked: @client.owes_money_race == 'indian' %>    American Indian/Alaskan</label>
 
 
 

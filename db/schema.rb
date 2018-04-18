@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412032542) do
+ActiveRecord::Schema.define(version: 20180418042115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,52 @@ ActiveRecord::Schema.define(version: 20180412032542) do
     t.date "child_4_emancipation_date"
     t.string "child_5_ssn"
     t.date "child_5_emancipation_date"
+    t.boolean "dissolution_of_marriage"
+    t.string "circuit"
+    t.string "division"
+    t.string "judge_name"
+    t.string "judge_address"
+    t.string "judge_phone_number"
+    t.string "judge_email"
+    t.string "judge_courtroom"
+    t.string "owes_money_drivers_license_number"
+    t.string "owes_money_employer_address"
+    t.string "owes_money_employer_phone_number"
+    t.string "owes_money_professional_license"
+    t.boolean "owes_money_represented_by_council"
+    t.string "owes_money_assets"
+    t.string "owes_money_real_proprty"
+    t.string "folio_or_parcel_number"
+    t.string "physical_address"
+    t.string "owes_money_interest_in_property"
+    t.decimal "monthly_cs_bi_monthly_amount"
+    t.decimal "monthly_cs_bi_weekly_amount"
+    t.decimal "monthly_cs_weekly_amount"
+    t.integer "monthly_cs_number_of_months_delinquent_child_support"
+    t.date "monthly_cs_date_of_last_child_support_payment"
+    t.decimal "monthly_cs_amount_of_last_child_support_payment"
+    t.date "monthly_cs_averages_owed_as_of"
+    t.decimal "monthly_cs_averages_owed"
+    t.decimal "monthly_alimony_bi_monthly_amount"
+    t.decimal "monthly_alimony_bi_weekly_amount"
+    t.decimal "monthly_alimony_weekly_amount"
+    t.integer "monthly_alimony_number_of_months_delinquent_child_support"
+    t.date "monthly_alimony_date_of_last_child_support_payment"
+    t.decimal "monthly_alimony_amount_of_last_child_support_payment"
+    t.date "monthly_alimony_averages_owed_as_of"
+    t.decimal "monthly_alimony_averages_owed"
+    t.date "monthly_alimony_cs_averages_owed_as_of"
+    t.decimal "monthly_alimony_cs_averages_owed"
+    t.decimal "attorney_fees_owed_amount"
+    t.date "written_settlement_agreement_date_signed"
+    t.string "prevailing_party_clause"
+    t.date "written_parenting_plan_date_signed"
+    t.date "income_withholding_order_date_signed"
+    t.string "central_depository_address"
+    t.string "fips_code"
+    t.boolean "remittance_identifier"
+    t.string "employer_ein"
+    t.boolean "legal_description"
     t.index ["interested_documents_to_generate"], name: "index_clients_on_interested_documents_to_generate", using: :gin
     t.index ["interested_services"], name: "index_clients_on_interested_services", using: :gin
     t.index ["owes_money_papers"], name: "index_clients_on_owes_money_papers", using: :gin

@@ -1,0 +1,103 @@
+<div class="container">
+  <h2>Additional Fields</h2>
+  <div class="jumbotron">
+    <div class="form-group">
+      <%= form.label :dissolution_of_marriage, "Dissolution of marriage or paternity", class: "form-label" %>
+      <%= form.text_field :dissolution_of_marriage, id: :dissolution_of_marriage, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :circuit, "Circuit", class: "form-label" %>
+        <%= form.text_field :circuit, id: :circuit, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :division, "Division", class: "form-label" %>
+        <%= form.text_field :division, id: :division, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_name, "Judge's Name", class: "form-label" %>
+        <%= form.text_field :judge_name, id: :judge_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_address, "Judge's Address", class: "form-label" %>
+        <%= form.text_field :judge_address, id: :judge_address, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_email, "Judge's Email", class: "form-label" %>
+        <%= form.text_field :judge_email, id: :judge_email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
+        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :owes_money_drivers_license_number, "Drivers license number of Payor", class: "form-label" %>
+        <%= form.text_field :owes_money_drivers_license_number, id: :owes_money_drivers_license_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_professional_license, "Payor professional license", class: "form-label" %>
+        <%= form.text_field :owes_money_professional_license, id: :owes_money_professional_license, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_employer_address, "Payor employer address", class: "form-label" %>
+        <%= form.text_field :owes_money_employer_address, id: :owes_money_employer_address, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_employer_phone_number, "Payor telephone number", class: "form-label" %>
+        <%= form.text_field :owes_money_employer_phone_number, id: :owes_money_employer_phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :owes_money_represented_by_council, "Payor represented by council?", class: "form-label" %>
+        <%= form.check_box :owes_money_represented_by_council, id: :owes_money_represented_by_council, class: "form-control" %>
+      </div>
+      <div class="form-group margin-md">
+        <p>Does payor own any assets?</p>
+        <%= form.label :owes_money_assets, "If so, describe below", class: "form-label" %>
+        <%= form.text_area :owes_money_assets, id: :owes_money_assets, class: "form-control", rows: 5 %>
+      </div>
+      <div class="form-group margin-md">
+        <p>Does payor own real property?</p>
+        <%= form.label :owes_money_real_proprty, "If so, describe below", class: "form-label" %>
+        <%= form.text_area :owes_money_real_proprty, id: :owes_money_real_proprty, class: "form-control", rows: 5 %>
+      </div>
+      <div class="form-group">
+        <%= form.label :legal_description, "Legal description", class: "form-label" %>
+        <%= form.text_field :legal_description, id: :legal_description, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :folio_or_parcel_number, "Folio or parcel number", class: "form-label" %>
+        <%= form.text_field :folio_or_parcel_number, id: :folio_or_parcel_number, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
+        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
+        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
+        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
+        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
+        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
+        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
+      </div>
+
+      <div id="cannot_assist_msg_div" class="error" hidden="true">
+        <p>Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
+      </div>
+
+
+  </div>
+</div>

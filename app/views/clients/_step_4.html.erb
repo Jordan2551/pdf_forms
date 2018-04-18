@@ -42,26 +42,25 @@
 <div class="jumbotron">
   <div class="form-group">
     <%= form.label :owes_money_birth_date, value: "Date of birth", class: "form-label" %>
-    <%= form.date_field :owes_money_birth_date, id: :client_owes_money_birth_date, class: "form-control" %>
+    <%= form.date_field :owes_money_birth_date, id: :client_owes_money_birth_date, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_gender, "Gender", class: "form-label" %>
     <label class="radio-inline" for="client_gender">
-      <%= form.radio_button :owes_money_gender, "male", id: :client_owes_money_gender %> Male
+      <%= form.radio_button :owes_money_gender, "male", required: true, id: :client_owes_money_gender %> Male
     </label>
     <label class="radio-inline" for="client_gender">
-      <%= form.radio_button :owes_money_gender, "female", id: :client_gender %> Female
+      <%= form.radio_button :owes_money_gender, "female", required: true, id: :client_gender %> Female
     </label>
   </div>
   <div id="owes_money_race_div" class="form-group">
     <%= form.label :owes_money_race, value: "Race of other party who owes you money?", class: "form-label margin-sm" %>
     <%= form.hidden_field :owes_money_race, id: :owes_money_race  %>
-    <!-- TODO: Why is this still checked? -->
-    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="white", checked="<%= @client.owes_money_race == 'white' %>">    White/Caucasian</label>
-    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="black", checked="<%= @client.owes_money_race == 'black' %>">    Black/African-American</label>
-    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="hispanic", checked="<%= @client.owes_money_race == 'hispanic' %>">    Hispanic</label>
-    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="asian", checked="<%= @client.owes_money_race == 'asian' %>">    Asian/Pacific Islander</label>
-    <label class="form-check-label" for="client_owes_money_race"><input type="radio" value="indian", checked="<%= @client.owes_money_race == 'indian' %>">    American Indian/Alaskan</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "white", checked: @client.owes_money_race == 'white' %>    White/Caucasian</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "black", checked: @client.owes_money_race == 'black' %>    Black/African-American</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "hispanic", checked: @client.owes_money_race == 'hispanic' %>    Hispanic</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "asian", checked: @client.owes_money_race == 'asian' %>    Asian/Pacific Islander</label>
+    <label class="form-check-label" for="client_owes_money_race"><%= form.radio_button ":owes_money_race_rb", "indian", checked: @client.owes_money_race == 'indian' %>    American Indian/Alaskan</label>
     <% if @client.owes_money_race != "white" && @client.owes_money_race != "black" && @client.owes_money_race != "hispanic" && @client.owes_money_race != "asian" && @client.owes_money_race != "indian" %>
       <label class="form-check-label margin-sm" for="client_owes_money_race">Other (race not specified above) <input type="text" id="client_owes_money_race_other_text" class="form-control" value="<%= @client.owes_money_race %>" > </label>
     <% else %>
@@ -72,7 +71,7 @@
   <div class="form-group margin-md">
     <h3>What is the FULL NAME of the person who owes you money?</h3>
     <%= form.label :owes_money_first_name, value: "First name", class: "form-label" %>
-    <%= form.text_field :owes_money_first_name, id: :client_owes_money_first_name, class: "form-control" %>
+    <%= form.text_field :owes_money_first_name, id: :client_owes_money_first_name, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_middle_name, value: "Middle name (optional)", class: "form-label" %>
@@ -80,7 +79,7 @@
   </div>
   <div class="form-group">
     <%= form.label :owes_money_last_name, value: "Last name", class: "form-label" %>
-    <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, class: "form-control" %>
+    <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <h3>Does the person who owes you money have any aliases / nicknames?</h3>
@@ -94,7 +93,7 @@
   <div class="form-group margin-md">
     <h3>What is their home address?</h3>
     <%= form.label :owes_money_address, value: "Address", class: "form-label" %>
-    <%= form.text_field :owes_money_address, id: :client_owes_money_address, class: "form-control" %>
+    <%= form.text_field :owes_money_address, id: :client_owes_money_address, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_apt, value: "Apartment", class: "form-label" %>
@@ -102,7 +101,7 @@
   </div>
   <div class="form-group">
     <%= form.label :owes_money_city, value: "City", class: "form-label" %>
-    <%= form.text_field :owes_money_city, id: :client_owes_money_city, class: "form-control" %>
+    <%= form.text_field :owes_money_city, id: :client_owes_money_city, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_county, value: "County (optional)", class: "form-label" %>
@@ -160,20 +159,20 @@
   <div class="form-group margin-md">
     <h3>Occupation, Social Securtiy</h3>
     <%= form.label :owes_money_occupation, value: "Occupation of the person who owes you money" , class: "form-label" %>
-    <%= form.text_field :owes_money_occupation, id: :client_owes_money_occupation, class: "form-control" %>
+    <%= form.text_field :owes_money_occupation, id: :client_owes_money_occupation, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :owes_money_ssn, value: "Social security number" , class: "form-label" %>
     <p class="margin-sm">Please enter the SSN of the person who owes you money. If you cannot locate the SSN of the person that owes you money, try to locate old joint tax returns or other documents where that information could be found.</p>
-    <%= form.text_field :owes_money_ssn, id: :client_owes_money_ssn, class: "form-control" %>
+    <%= form.text_field :owes_money_ssn, id: :client_owes_money_ssn, required: true, class: "form-control" %>
   </div>
   <div class="form-group margin-sm">
     <%= form.label :owes_money_is_in_jail, value: "To your knowledge, is the person who owes presently in jail or prison?", class: "form-label" %>
     <label class="radio-inline" for="client_owes_money_is_in_jail">
-      <%= form.radio_button :owes_money_is_in_jail, true, id: :client_owes_money_is_in_jail %> Yes
+      <%= form.radio_button :owes_money_is_in_jail, true, id: :client_owes_money_is_in_jail, required: true %> Yes
     </label>
     <label class="radio-inline" for="client_owes_money_is_in_jail">
-      <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail %> No
+      <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail, required: true %> No
     </label>
   </div>
 
@@ -219,19 +218,19 @@
   <div class="form-group">
     <%= form.label :ssn, value: "Social securtiy number (SSN)", class: "form-label" %>
     <p class="margin-sm">Enter your social security number. Your social security number is necessary because Support Solutions will be legally representing you in this child support case. We take the utmost precautions to protect your personal information and only ask for information that is necessary for us to conduct our business. We understand this information is sensitive and we are legally responsible to protect your privacy. Please read our privacy-link policy.</p>
-    <%= form.text_field :ssn, id: :client_ssn, class: "form-control" %>
+    <%= form.text_field :ssn, id: :client_ssn, required: true, class: "form-control" %>
   </div>
   <div class="form-group margin-sm">
     <%= form.label :mother_full_name, value: "Enter your mother's full name (First & Last) for added security", class: "form-label" %>
-    <%= form.text_field :mother_full_name, id: :client_mother_full_name, class: "form-control" %>
+    <%= form.text_field :mother_full_name, id: :client_mother_full_name, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :mother_maiden_name, value: "Mother's maiden name", class: "form-label" %>
-    <%= form.text_field :mother_maiden_name, id: :client_mother_maiden_name, class: "form-control" %>
+    <%= form.text_field :mother_maiden_name, id: :client_mother_maiden_name, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :case_number, value: "Case number", class: "form-label" %>
-    <%= form.text_field :case_number, id: :client_case_number, class: "form-control" %>
+    <%= form.text_field :case_number, id: :client_case_number, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :court_order_state, value: "Court order state", class: "form-label" %>
@@ -242,12 +241,12 @@
     <% end %>
   </div>
   <div class="form-group">
-    <%= form.label :court_order_county, value: "Court order county", class: "form-label" %>
+    <%= form.label :court_order_county, value: "Court order county", required: true, class: "form-label" %>
     <%= form.text_field :court_order_county, id: :client_court_order_county, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :final_judgment_obtained_date, value: "Date final judgment was obtained", class: "form-label" %>
-    <%= form.date_field :final_judgment_obtained_date, id: :client_final_judgment_obtained_date, class: "form-control" %>
+    <%= form.date_field :final_judgment_obtained_date, id: :client_final_judgment_obtained_date, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :court_case_filed_name, value: "Name of court where the case was filed (example: Circuit Court, Miami)", class: "form-label" %>
@@ -258,15 +257,15 @@
     <h3>Children involved in case</h3>
     <p>Child 1</p>
     <%= form.label :child_1_first_name, value: "First", class: "form-label" %>
-    <%= form.text_field :child_1_first_name, id: :client_child_1_first_name,  class: "form-control" %>
+    <%= form.text_field :child_1_first_name, id: :client_child_1_first_name, required: true, class: "form-control" %>
     <%= form.label :child_1_last_name, value: "Last", class: "form-label margin-sm" %>
-    <%= form.text_field :child_1_last_name, id: :client_child_1_last_name,  class: "form-control" %>
+    <%= form.text_field :child_1_last_name, id: :client_child_1_last_name, required: true, class: "form-control" %>
     <%= form.label :child_1_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-    <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date,  class: "form-control" %>
+    <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date, required: true, class: "form-control" %>
     <%= form.label :child_1_ssn, value: "Social Security Number", class: "form-label margin-sm" %>
-    <%= form.text_field :child_1_ssn, id: :client_child_1_ssn,  class: "form-control" %>
+    <%= form.text_field :child_1_ssn, id: :client_child_1_ssn, required: true, class: "form-control" %>
     <%= form.label :child_1_emancipation_date, value: "Date of Emancipation", class: "form-label margin-sm" %>
-    <%= form.date_field :child_1_emancipation_date, id: :client_child_1_emancipation_date,  class: "form-control" %>
+    <%= form.date_field :child_1_emancipation_date, id: :client_child_1_emancipation_date, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <p>Child 2</p>
@@ -366,26 +365,26 @@
   </div>
   <div class="form-group margin-sm">
     <%= form.label :liquidated_damages_amount, class: "form-label" %>
-    <%= form.number_field :liquidated_damages_amount, id: :client_liquidated_damages_amount, class: "form-control" %>
+    <%= form.number_field :liquidated_damages_amount, id: :client_liquidated_damages_amount, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :prejudgment_interest_amount, class: "form-label" %>
-    <%= form.number_field :prejudgment_interest_amount, id: :client_prejudgment_interest_amount, class: "form-control" %>
+    <%= form.number_field :prejudgment_interest_amount, id: :client_prejudgment_interest_amount, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :taxable_court_costs_amount, class: "form-label" %>
-    <%= form.number_field :taxable_court_costs_amount, id: :client_taxable_court_costs_amount, class: "form-control" %>
+    <%= form.number_field :taxable_court_costs_amount, id: :client_taxable_court_costs_amount, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :first_class_mailing_receipt_number, value: "First Class Mailing Receipt #", class: "form-label" %>
-    <%= form.text_field :first_class_mailing_receipt_number, id: :client_first_class_mailing_receipt_number, class: "form-control" %>
+    <%= form.text_field :first_class_mailing_receipt_number, id: :client_first_class_mailing_receipt_number, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :certified_mailing_receipt_number, value: "Certified Mailing Receipt #", class: "form-label" %>
-    <%= form.text_field :certified_mailing_receipt_number, id: :client_certified_mailing_receipt_number, class: "form-control" %>
+    <%= form.text_field :certified_mailing_receipt_number, id: :client_certified_mailing_receipt_number, required: true, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label :mailing_date, class: "form-label" %>
-    <%= form.date_field :mailing_date, id: :client_mailing_date, class: "form-control" %>
+    <%= form.date_field :mailing_date, id: :client_mailing_date, required: true, class: "form-control" %>
   </div>
 </div>

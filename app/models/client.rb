@@ -36,7 +36,6 @@ class Client < ApplicationRecord
   validates :owes_money_apt, presence: true, on: :register_step_4
   validates :owes_money_city, presence: true, on: :register_step_4
   validates :owes_money_occupation, presence: true, on: :register_step_4
-  validates :owes_money_race, presence: true, on: :register_step_4
   validates :owes_money_state, presence: true, on: :register_step_4
   validates :owes_money_ssn, presence: true, on: :register_step_4
   validates :owes_money_is_in_jail, presence: true, on: :register_step_4

@@ -31,6 +31,10 @@ module Helpers
     end
   end
 
+  def get_settings
+    Setting.find(1)
+  end
+
   def owes_money_papers
     [
       ['Financial Affidavit', "financial_affidavit"],

@@ -6,8 +6,7 @@ class PdfsController < ApplicationController
     client = Client.find(params[:client_id])
     pdf_id = params[:pdf_id]
     inline = params[:inline]
-    settings = Setting.find(1)
-    #TODO: add the line above in helpers.rb
+    settings = get_settings
 
     #Creates the appropriate pdf according to the pdf_id supplied
     pdf = Pdf.create_pdf(pdf_id, client, settings)

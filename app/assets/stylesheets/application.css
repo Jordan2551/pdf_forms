@@ -34,10 +34,10 @@
 
   .fancy-title{
     font-size:45px;
-    border-bottom: 2px solid indigo;
     text-align:center;
     margin-bottom:50px;
-  } to be paid to secure your representation and begin an immediate investigation.</p>
+    color: #17874a;
+  }
 
   .fancy-title-h2{
     font-size:25px;
@@ -53,7 +53,7 @@
   }
 
   .button{
-    background: #3b54a1;
+    background: #17874a;
     color: #fff;
     font-size: 17px;
     padding: 15px;
@@ -105,10 +105,6 @@
     font-size:15px;
   }
 
-  input[type=checkbox]{
-    transform: scale(1.5);
-  }
-
   .error{
     color:red;
     font-weight:bold;
@@ -126,5 +122,220 @@
   }
 
   .margin-md{
-    margin-top:40px;
+    margin-top:35px;
   }
+
+  .margin-b-sm{
+    margin-bottom:20px;
+  }
+
+  .margin-b-md{
+    margin-bottom:35px;
+  }
+
+  input[type=text]{
+    color:grey;
+    border-radius: 0px,0px,0px,0px !important;
+    width: 100%;
+    height:35px;
+    border-color:black !important;
+  }
+
+  input:focus {
+    outline: none !important;
+    box-shadow: 0 0 3px #17874a;
+  }
+
+  label{
+    color:grey;
+    margin-top:15px;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: grey !important;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: grey !important;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: grey !important;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: grey !important;
+  }
+
+  @media(max-width:768px){
+    .section-title{
+      font-size: 28px;
+      color: #17874a;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .section-sub-title{
+      font-size:15px !important;
+      color: grey;
+      text-align: center;
+    }
+  }
+
+  @media(min-width:768px){
+    .section-title{
+      font-size: 39px;
+      color: #17874a;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .section-sub-title{
+      font-size:18px;
+      color: grey;
+      text-align: center;
+    }
+  }
+
+  .w3-container{
+    padding:40px !important;
+  }
+
+  .w3-field-padding{
+    padding-left:15px !important;
+    padding-right:15px !important;
+  }
+
+  /*ERROR STYLING*/
+  .field_with_errors{
+    background-color:#f44336;
+    display:block;
+  }
+
+
+  /*CUSTOM CHECKBOX*/
+  /* Base for label styling */
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 1.95em;
+    cursor: pointer;
+  }
+
+  /* checkbox aspect */
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 1.25em; height: 1.25em;
+    border: 2px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+  }
+  /* checked mark aspect */
+  [type="checkbox"]:not(:checked) + label:after,
+  [type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: .2em; left: .275em;
+    font-size: 1.4em;
+    line-height: 0.8;
+    color: #09ad7e;
+    transition: all .2s;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  /* checked mark aspect changes */
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* disabled checkbox */
+  [type="checkbox"]:disabled:not(:checked) + label:before,
+  [type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+  }
+  [type="checkbox"]:disabled:checked + label:after {
+    color: #999;
+  }
+  [type="checkbox"]:disabled + label {
+    color: #aaa;
+  }
+  /* accessibility */
+  [type="checkbox"]:checked:focus + label:before,
+  [type="checkbox"]:not(:checked):focus + label:before {
+    border: 2px dotted #17874a;
+  }
+
+  /* hover style just for information */
+  label:hover:before {
+    border: 2px solid #4778d9!important;
+  }
+
+  /*CUSTOM CHECKBOX*/
+
+  /*CUSTOM RADIO BUTTON*/
+
+  [type="radio"]:checked,
+  [type="radio"]:not(:checked) {
+      position: absolute;
+      left: -9999px;
+  }
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label
+  {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: #666;
+      margin-top:-15px !important;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #ddd;
+      border-radius: 100%;
+      background: #fff;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #17874a;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+  }
+
+  [type="radio"]:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+  }
+
+  /*CUSTOM RADIO BUTTON*/

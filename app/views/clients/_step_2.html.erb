@@ -1,12 +1,18 @@
-<ul>
-  <% if flash[:step_2_errors] %>
+
+<% if flash[:step_2_errors] %>
+  <div class="w3-panel w3-red">
+    <h3>Please correct the following fields to continue with the application</h3>
     <% flash[:step_2_errors].each do |message| %>
-      <li class="error"><%= message %></li>
+      <p><i class="fa fa-exclamation-circle"></i>         <%= message %></</p>
     <% end %>
-  <% elsif flash[:step_1_success] %>
-    <li class="success"><%= flash[:step_1_success] %></li>
-  <% end %>
-</ul>
+  </div>
+<% elsif flash[:step_1_success] %>
+  <div class="w3-panel w3-green">
+    <h3>Good Job!</h3>
+    <p><i class="fa fa-check-circle"></i>        <%= flash[:step_1_success]%></p>
+  </div>
+<% end %>
+
 <div class="container">
   <h2>Step 2 - Additional Information</h2>
   <div class="jumbotron">

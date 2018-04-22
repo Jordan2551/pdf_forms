@@ -60,7 +60,7 @@ class ClientsController < ApplicationController
       if @client.save(context: :register_step_1)
         session[:client_id] = @client.id # We need the client id to persist through multiple registration actions
         # flash[:errors] = nil # Reset error messages from previous requests
-        flash[:step_1_success] = "You have successfully completed step 1. Good job!"
+        flash[:step_1_success] = "You have successfully completed step 1"
         render step_2_path
       else
         flash[:step_1_errors] = @client.errors.full_messages

@@ -89,6 +89,7 @@ class ClientsController < ApplicationController
   end
 
   def register_step_4
+    debugger
     validate_registration_stage(3)
     @client = Client.find(session[:client_id])
     set_register_step_4

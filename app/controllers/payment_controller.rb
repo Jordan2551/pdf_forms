@@ -20,7 +20,7 @@ class PaymentController < ActionController::API
     charge = gateway.charge(amount, :method => params[:token_id], :account_id => ap_account_id, :type => 'card')
     if charge.errors.empty?
       Client.find(session[:client_id]).update(:registration_step => 3)
-      flash[:step_3_success] = "Payment successful!"
+      flash[:step_3_success] = "Payment successful! You have made it to the final step!"
       redirect_to step_4_path
     else
       flash[:step_3_errors] = charge.errors

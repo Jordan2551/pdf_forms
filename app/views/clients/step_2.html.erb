@@ -1,6 +1,9 @@
-<h1 class="fancy-title">New Client Application</h1>
 
-<%= form_with(model: @client, url: register_step_2_path, local: true, method: :post) do |form| %>
-  <%= render 'step_2', form: form, client: @client %>
-  <div class="container"><%= form.submit "Complete Step 2", class:"button hvr-underline-from-center header-photo-btn" %></div>
-<% end %>
+<div class="w3-container w3-card-4">
+  <%= form_with(model: @client, url: register_step_2_path, local: true, method: :post) do |form| %>
+    <%= render 'step_2', form: form, client: @client %>
+    <div class="w3-row-padding w3-field-padding">
+      <%= form.submit "Complete Step 2", class:"button margin-sm" %>
+    </div>
+  <% end %>
+</div>

@@ -125,12 +125,20 @@
     margin-top:35px;
   }
 
+  .margin-lg{
+    margin-top:50px;
+  }
+
   .margin-b-sm{
     margin-bottom:20px;
   }
 
   .margin-b-md{
     margin-bottom:35px;
+  }
+
+  .margin-b-lg{
+    margin-bottom:50px;
   }
 
   input[type=text]{
@@ -166,31 +174,61 @@
 
   @media(max-width:768px){
     .section-title{
-      font-size: 28px;
+      font-size: 22px !important;
       color: #17874a;
       text-align: center;
       margin-bottom: 15px;
     }
-
     .section-sub-title{
-      font-size:15px !important;
+      font-size:13px !important;
       color: grey;
       text-align: center;
+    }
+    .section-sub-title-left{
+      font-size:13px !important;
+      color: grey;
+      text-align: left;
+    }
+    .field-explanation-title{
+      font-size: 20px !important;
+      color: #17874a;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    .field-explanation-sub-title{
+      font-size:13px !important;
+      color: grey;
+      text-align: left;
     }
   }
 
   @media(min-width:768px){
     .section-title{
-      font-size: 39px;
+      font-size: 39px !important;
       color: #17874a;
       text-align: center;
       margin-bottom: 15px;
     }
-
     .section-sub-title{
-      font-size:18px;
+      font-size:18px !important;
       color: grey;
       text-align: center;
+    }
+    .section-sub-title-left{
+      font-size:18px !important;
+      color: grey;
+      text-align: left;
+    }
+    .field-explanation-title{
+      font-size: 25px !important;
+      color: #17874a;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    .field-explanation-sub-title{
+      font-size:15px !important;
+      color: grey;
+      text-align: left;
     }
   }
 
@@ -202,6 +240,26 @@
     padding-left:15px !important;
     padding-right:15px !important;
   }
+
+  /*W3 PANEL*/
+
+  .w3-panel-padding{
+    padding:10px !important;
+  }
+
+  @media(min-width:768px){
+    .w3-panel{
+      font-size:17px !important;
+    }
+  }
+
+  @media(max-width:768px){
+    .w3-panel{
+      font-size:14px !important;
+    }
+  }
+
+  /*W3 PANEL*/
 
   /*ERROR STYLING*/
   .field_with_errors{

@@ -13,92 +13,92 @@
   </div>
 <% end %>
 
-<div class="w3-row w3-field-padding">
-  <h2 class="section-title">Step 2 - Additional Information</h2>
-  <p class="section-sub-title margin-b-md">This is some more information needed for the application.</p>
-  <h3 class="field-explanation-title">Your Mailing Address</h3>
-  <p class="field-explanation-sub-title margin-b-md">Enter the street address of your current mailing address. This is the location to which we will send any child support payments we collect for you. Enter the Apartment / Building / Floor / Suite of your current mailing address. This is the location to which we will send any child support payments we collect for you. Enter the / locality of your current mailing address. This is the location to which we will send any child support payments we collect for you. Select the state / region of your current mailing address. This is the location to which we will send any child support payments we collect for you.</p>
-  <label>Address</label>
-  <%= form.text_field :mailing_address, id: :client_mailing_address, required: true, class: "w3-input w3-border" %>
-</div>
-<div class="w3-row-padding">
-  <div class="w3-third">
-    <label>City</label>
-    <%= form.text_field :mailing_city, id: :client_mailing_city, required: true, class: "w3-input w3-border" %>
+<div class="w3-container w3-card-4">
+  <div class="w3-row w3-field-padding">
+    <h2 class="section-title">Step 2 - Additional Information</h2>
+    <p class="section-sub-title margin-b-md">This is some more information needed for the application.</p>
+    <h3 class="field-explanation-title">Your Mailing Address</h3>
+    <p class="field-explanation-sub-title margin-b-md">Enter the street address of your current mailing address. This is the location to which we will send any child support payments we collect for you. Enter the Apartment / Building / Floor / Suite of your current mailing address. This is the location to which we will send any child support payments we collect for you. Enter the / locality of your current mailing address. This is the location to which we will send any child support payments we collect for you. Select the state / region of your current mailing address. This is the location to which we will send any child support payments we collect for you.</p>
+    <label>Address</label>
+    <%= form.text_field :mailing_address, id: :client_mailing_address, required: true, class: "w3-input w3-border" %>
   </div>
-  <div class="w3-third">
-    <label>Country</label>
-    <% if @client.mailing_country %>
-      <%= form.select :mailing_country, options_for_select(countries, @client.mailing_country), {}, { class:"w3-input w3-border", id: "countries"} %>
-    <% else %>
-      <%= form.select :mailing_country, options_for_select(countries, "United States"), {}, { class:"w3-input w3-border", id: "countries"} %>
-    <% end %>
-  </div>
-  <div class="w3-third">
-    <label>State / Province / Region</label>
-    <% if @client.mailing_state %>
-      <%= form.select :mailing_state, options_for_select(us_states, @client.mailing_state), {}, { class:"w3-input w3-border", id: "states"} %>
-    <% else %>
-      <%= form.select :mailing_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
-    <% end %>
-  </div>
-</div>
-
-<div class="w3-row w3-field-padding">
-  <label>County</label>
-  <%= form.text_field :mailing_county, id: :client_mailing_county, class: "w3-input w3-border" %>
-  <p>
-    <%= form.check_box :alimony_child_support_required, id: :client_alimony_child_support_required, required: true, checked: true, class: "w3-input w3-border" %>
-    <label for="client_alimony_child_support_required" class="field-explanation-sub-title">Do you have a final judgment or court order requiring someone to pay you alimony and / or child support?</label>
-  </p>
-  <div id="cannot_assist_msg_div" hidden="true">
-    <div class="w3-panel w3-red w3-panel-padding">
-      <p><i class="fa fa-exclamation-circle"></i>       Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
-    </div>
-  </div>
-</div>
-
-<div id="alimony_fields">
   <div class="w3-row-padding">
-    <div class="w3-half">
-      <label>Home Phone Number</label>
-      <%= form.text_field :home_phone_number, id: :client_home_phone_number, required: true, class: "w3-input w3-border" %>
+    <div class="w3-third">
+      <label>City</label>
+      <%= form.text_field :mailing_city, id: :client_mailing_city, required: true, class: "w3-input w3-border" %>
     </div>
-    <div class="w3-half">
-      <label>Work Phone Number</label>
-      <%= form.text_field :work_phone_number, id: :client_work_phone_number, class: "w3-input w3-border" %>
+    <div class="w3-third">
+      <label>Country</label>
+      <% if @client.mailing_country %>
+        <%= form.select :mailing_country, options_for_select(countries, @client.mailing_country), {}, { class:"w3-input w3-border", id: "countries"} %>
+      <% else %>
+        <%= form.select :mailing_country, options_for_select(countries, "United States"), {}, { class:"w3-input w3-border", id: "countries"} %>
+      <% end %>
+    </div>
+    <div class="w3-third">
+      <label>State / Province / Region</label>
+      <% if @client.mailing_state %>
+        <%= form.select :mailing_state, options_for_select(us_states, @client.mailing_state), {}, { class:"w3-input w3-border", id: "states"} %>
+      <% else %>
+        <%= form.select :mailing_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
+      <% end %>
     </div>
   </div>
-  <div class="w3-row-padding w3-field-padding">
-    <label>What would you like us to collect for you?</label>
-    <select name="client[what_to_collect]", required="true" class="w3-input w3-border">
-      <option value="Alimony">Alimony</option>
-      <option value="Child Support">Child Support</option>
-      <option value="Alimony &amp; Child Support">Alimony &amp; Child Support</option>
-    </select>
-    <label>How Much Money are you Owed? (Example: 10000)</label>
-    <%= form.number_field :how_much_money_owed, id: :client_how_much_money_owed, required: true, class: "w3-input w3-border" %>
-    <div id="min_amount_msg_div" class="error" hidden="true">
+
+  <div class="w3-row w3-field-padding">
+    <label>County</label>
+    <%= form.text_field :mailing_county, id: :client_mailing_county, class: "w3-input w3-border" %>
+    <p>
+      <%= form.check_box :alimony_child_support_required, id: :client_alimony_child_support_required, required: true, checked: true, class: "w3-input w3-border" %>
+      <label for="client_alimony_child_support_required" class="field-explanation-sub-title">Do you have a final judgment or court order requiring someone to pay you alimony and / or child support?</label>
+    </p>
+    <div id="cannot_assist_msg_div" hidden="true">
       <div class="w3-panel w3-red w3-panel-padding">
-        <p id="min_amount_msg"><i class="fa fa-exclamation-circle"></i>       Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
+        <p><i class="fa fa-exclamation-circle"></i>       Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
       </div>
     </div>
-    <label>In which state was your child support or alimony order entered?</label>
-    <% if @client.alimony_child_support_state %>
-      <%= form.select :alimony_child_support_state, options_for_select(us_states, @client.alimony_child_support_state), {}, { class:"w3-input w3-border", id: "states"} %>
-    <% else %>
-      <%= form.select :alimony_child_support_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
-    <% end %>
-    <p>
-      <%= form.check_box :receiving_payments, id: :client_receiving_payments, checked: false, class: "w3-input w3-border" %>
-      <label for="client_receiving_payments" class="field-explanation-sub-title">Are you Currently Receiving Payments?</label>
-    </p>
-    <p>
-      <%= form.check_box :receiving_public_assistance, id: :client_receiving_public_assistance, checked: false, class: "w3-input w3-border" %>
-      <label for="client_receiving_public_assistance" class="field-explanation-sub-title">Are you Receiving any Form of Public Assistance?</label>
-    </p>
-    <div id="public_assistance_fields" class="form-group" hidden="true">
-      <label>Please describe what type of public assisting you are receiving</label>
+  </div>
+
+  <div id="alimony_fields">
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>Home Phone Number</label>
+        <%= form.text_field :home_phone_number, id: :client_home_phone_number, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Work Phone Number</label>
+        <%= form.text_field :work_phone_number, id: :client_work_phone_number, class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row-padding w3-field-padding">
+      <label>What would you like us to collect for you?</label>
+      <% if @client.what_to_collect %>
+        <%= form.select :what_to_collect, options_for_select(["Alimony", "Child Support", "Alimony & Child Support"], @client.what_to_collect), {}, { class:"w3-input w3-border"} %>
+      <% else %>
+        <%= form.select :what_to_collect, options_for_select(["Alimony", "Child Support", "Alimony & Child Support"]), {}, { class:"w3-input w3-border"} %>
+      <% end %>
+      <label>How Much Money are you Owed? (Example: 10000)</label>
+      <%= form.number_field :how_much_money_owed, id: :client_how_much_money_owed, required: true, class: "w3-input w3-border" %>
+      <div id="min_amount_msg_div" class="error" hidden="true">
+        <div class="w3-panel w3-red w3-panel-padding">
+          <p id="min_amount_msg"><i class="fa fa-exclamation-circle"></i>       Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
+        </div>
+      </div>
+      <label>In which state was your child support or alimony order entered?</label>
+      <% if @client.alimony_child_support_state %>
+        <%= form.select :alimony_child_support_state, options_for_select(us_states, @client.alimony_child_support_state), {}, { class:"w3-input w3-border", id: "states"} %>
+      <% else %>
+        <%= form.select :alimony_child_support_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
+      <% end %>
+      <p>
+        <%= form.check_box :receiving_payments, id: :client_receiving_payments, class: "w3-input w3-border" %>
+        <label for="client_receiving_payments" class="field-explanation-sub-title">Are you Currently Receiving Payments?</label>
+      </p>
+      <p>
+        <%= form.check_box :receiving_public_assistance, id: :client_receiving_public_assistance, class: "w3-input w3-border" %>
+        <label for="client_receiving_public_assistance" class="field-explanation-sub-title">Are you Receiving any Form of Public Assistance?</label>
+      </p>
+      <label>If so, Please Describe what type of Public Assisting you are Receiving</label>
       <%= form.text_field :receiving_public_assistance_description, id: :client_receiving_public_assistance_description, class: "w3-input w3-border" %>
     </div>
   </div>

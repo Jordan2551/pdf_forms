@@ -1,207 +1,113 @@
-<div class="container">
-  <h2>Additional Fields</h2>
-  <div class="jumbotron">
-    <div class="form-group">
-      <%= form.label :dissolution_of_marriage, "Dissolution of marriage or paternity", class: "form-label" %>
-      <%= form.check_box :dissolution_of_marriage, id: :dissolution_of_marriage, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :circuit, "Circuit", class: "form-label" %>
-        <%= form.text_field :circuit, id: :circuit, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :division, "Division", class: "form-label" %>
-        <%= form.text_field :division, id: :division, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :judge_name, "Judge's Name", class: "form-label" %>
-        <%= form.text_field :judge_name, id: :judge_name, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :judge_address, "Judge's Address", class: "form-label" %>
-        <%= form.text_field :judge_address, id: :judge_address, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :judge_phone_number, "Judge's Phone Number", class: "form-label" %>
-        <%= form.text_field :judge_phone_number, id: :judge_phone_number, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :judge_email, "Judge's Email", class: "form-label" %>
-        <%= form.text_field :judge_email, id: :judge_email, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :judge_courtroom, "Circuit", class: "form-label" %>
-        <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "form-control" %>
-      </div>
 
-      <div class="form-group">
-        <%= form.label :owes_money_drivers_license_number, "Drivers license number of Payor", class: "form-label" %>
-        <%= form.text_field :owes_money_drivers_license_number, id: :owes_money_drivers_license_number, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_professional_license, "Payor's professional license", class: "form-label" %>
-        <%= form.text_field :owes_money_professional_license, id: :owes_money_professional_license, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_employer_address, "Payor's employer address", class: "form-label" %>
-        <%= form.text_field :owes_money_employer_address, id: :owes_money_employer_address, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_employer_phone_number, "Payor's employer phone number", class: "form-label" %>
-        <%= form.text_field :owes_money_employer_phone_number, id: :owes_money_employer_phone_number, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :employer_ein, "Employer's EIN", class: "form-label" %>
-        <%= form.text_field :employer_ein, id: :employer_ein, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_represented_by_council, "Payor represented by council?", class: "form-label" %>
-        <%= form.check_box :owes_money_represented_by_council, id: :owes_money_represented_by_council, class: "form-control" %>
-      </div>
-      <div class="form-group margin-md">
-        <p>Does payor own any assets?</p>
-        <%= form.label :owes_money_assets, "If so, describe below", class: "form-label" %>
-        <%= form.text_area :owes_money_assets, id: :owes_money_assets, class: "form-control", rows: 5 %>
-      </div>
-      <div class="form-group margin-md">
-        <p>Does payor own real property?</p>
-        <%= form.label :owes_money_real_proprty, "If so, describe below", class: "form-label" %>
-        <%= form.text_area :owes_money_real_proprty, id: :owes_money_real_proprty, class: "form-control", rows: 5 %>
-      </div>
-      <div class="form-group">
-        <%= form.label :legal_description, "Legal description", class: "form-label" %>
-        <%= form.text_field :legal_description, id: :legal_description, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :folio_or_parcel_number, "Folio or parcel number", class: "form-label" %>
-        <%= form.text_field :folio_or_parcel_number, id: :folio_or_parcel_number, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= form.label :physical_address, "Physical Address", class: "form-label" %>
-        <%= form.text_field :physical_address, id: :physical_address, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :owes_money_interest_in_property, "Payor's interest in the property?", class: "form-label" %>
-        <%= form.text_area :owes_money_interest_in_property, id: :owes_money_interest_in_property, class: "form-control", rows: 3 %>
-      </div>
-      <div class="form-group margin-md">
-        <p>Monthly child support Obligation?</p>
-        <%= form.label :monthly_cs_bi_monthly_amount, "Bi-monthly amount?", class: "form-label" %>
-        <%= form.number_field :monthly_cs_bi_monthly_amount, id: :monthly_cs_bi_monthly_amount, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_cs_bi_weekly_amount, "Bi-weekly amount?", class: "form-label" %>
-        <%= form.number_field :monthly_cs_bi_weekly_amount, id: :monthly_cs_bi_weekly_amount, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_cs_weekly_amount, "Weekly amount?", class: "form-label" %>
-        <%= form.number_field :monthly_cs_weekly_amount, id: :monthly_cs_weekly_amount, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_cs_number_of_months_delinquent_child_support, "Total number of months delinquent child support?", class: "form-label" %>
-        <%= form.number_field :monthly_cs_number_of_months_delinquent_child_support, id: :monthly_cs_number_of_months_delinquent_child_support, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_cs_date_of_last_child_support_payment, "Date of last child support payment", class: "form-label" %>
-        <%= form.date_field :monthly_cs_date_of_last_child_support_payment, id: :monthly_cs_date_of_last_child_support_payment, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_cs_amount_of_last_child_support_payment, "Amount of last child support payment", class: "form-label" %>
-        <%= form.number_field :monthly_cs_amount_of_last_child_support_payment, id: :monthly_cs_amount_of_last_child_support_payment, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_cs_averages_owed_as_of, "Total child support averages owes as of", class: "form-label" %>
-        <%= form.date_field :monthly_cs_averages_owed_as_of, id: :monthly_cs_averages_owed_as_of, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_cs_averages_owed, "Is $", class: "form-label" %>
-        <%= form.number_field :monthly_cs_averages_owed, id: :monthly_cs_averages_owed, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_cs_averages_owed_as_of, "Total alimony and child support averages owed as of", class: "form-label" %>
-        <%= form.date_field :monthly_alimony_cs_averages_owed_as_of, id: :monthly_alimony_cs_averages_owed_as_of, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_cs_averages_owed, "Is $", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_cs_averages_owed, id: :monthly_alimony_cs_averages_owed, class: "form-control" %>
-      </div>
-      <div class="form-group margin-md">
-        <p>Monthly alimony obligation?</p>
-        <%= form.label :monthly_alimony_bi_monthly_amount, "Bi-monthly amount?", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_bi_monthly_amount, id: :monthly_alimony_bi_monthly_amount, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_bi_weekly_amount, "Bi-weekly amount?", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_bi_weekly_amount, id: :monthly_alimony_bi_weekly_amount, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_weekly_amount, "Weekly amount?", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_weekly_amount, id: :monthly_alimony_weekly_amount, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_number_of_months_delinquent_child_support, "Total number of months delinquent alimony?", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_number_of_months_delinquent_child_support, id: :monthly_alimony_number_of_months_delinquent_child_support, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_date_of_last_child_support_payment, "Date of last alimony payment", class: "form-label" %>
-        <%= form.date_field :monthly_alimony_date_of_last_child_support_payment, id: :monthly_alimony_date_of_last_child_support_payment, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_amount_of_last_child_support_payment, "Amount of last alimony payment", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_amount_of_last_child_support_payment, id: :monthly_alimony_amount_of_last_child_support_payment, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_averages_owed_as_of, "Total alimony averages owes as of", class: "form-label" %>
-        <%= form.date_field :monthly_alimony_averages_owed_as_of, id: :monthly_alimony_averages_owed_as_of, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_averages_owed, "Is $", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_averages_owed, id: :monthly_alimony_averages_owed, class: "form-control" %>
-      </div>
-      <div class="form-group margin-md">
-        <%= form.label :monthly_alimony_cs_averages_owed_as_of, "Total alimony and child support averages owed as of", class: "form-label" %>
-        <%= form.date_field :monthly_alimony_cs_averages_owed_as_of, id: :monthly_alimony_cs_averages_owed_as_of, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :monthly_alimony_cs_averages_owed, "Is $", class: "form-label" %>
-        <%= form.number_field :monthly_alimony_cs_averages_owed, id: :monthly_alimony_cs_averages_owed, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :attorney_fees_owed_amount, "Attorney fees owed amount", class: "form-label" %>
-        <%= form.number_field :attorney_fees_owed_amount, id: :attorney_fees_owed_amount, class: "form-control" %>
-      </div>
-      <div class="form-group margin-sm">
-        <%= form.label :written_settlement_agreement_date_signed, "Written settlement agreement sign date", class: "form-label" %>
-        <%= form.date_field :written_settlement_agreement_date_signed, id: :written_settlement_agreement_date_signed, class: "form-control" %>
-      </div>
-      <div class="form-group margin-sm">
-        <p>Is there a prevailing party clause in any agreement, judgment or order?</p>
-        <%= form.label :prevailing_party_clause, "If so, describe", class: "form-label" %>
-        <%= form.text_area :prevailing_party_clause, id: :prevailing_party_clause, class: "form-control", rows:5 %>
-      </div>
-      <div class="form-group margin-sm">
-        <%= form.label :written_parenting_plan_date_signed, "Written parenting plan sign date", class: "form-label" %>
-        <%= form.date_field :written_parenting_plan_date_signed, id: :written_parenting_plan_date_signed, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :income_withholding_order_date_signed, "Income withholding or income deduction order sign date", class: "form-label" %>
-        <%= form.date_field :income_withholding_order_date_signed, id: :income_withholding_order_date_signed, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :central_depository_address, "Central depository address", class: "form-label" %>
-        <%= form.text_field :central_depository_address, id: :central_depository_address, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :fips_code, "FIPS Code", class: "form-label" %>
-        <%= form.text_field :fips_code, id: :fips_code, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :remittance_identifier, "Remittance Identifier?", class: "form-label" %>
-        <%= form.check_box :remittance_identifier, id: :remittance_identifier, class: "form-control" %>
-      </div>
-      <div id="cannot_assist_msg_div" class="error" hidden="true">
-        <p>Unfortunately, Support Solution cannot assist you this time. You need to get a court order or final judgment from the court awarding you alimony and / or child support. Feel free to contact us for further information.</p>
-      </div>
+<div class="w3-container w3-card-4">
+  <div class="w3-row w3-field-padding">
+    <h2 class="section-title">Additional Fields</h2>
+    <p>
+      <%= form.check_box :dissolution_of_marriage, id: :client_dissolution_of_marriage, class: "w3-input w3-border" %>
+      <label for="client_dissolution_of_marriage">Dissolution of Marriage?</label>
+    </p>
+    <label>Circuit</label>
+    <%= form.text_field :circuit, id: :circuit, class: "w3-input w3-border" %>
+    <label>Division</label>
+    <%= form.text_field :division, id: :division, class: "w3-input w3-border" %>
+    <label>Judge's Name</label>
+    <%= form.text_field :judge_name, id: :judge_name, class: "w3-input w3-border" %>
+    <label>Judge's Address</label>
+    <%= form.text_field :judge_address, id: :judge_address, class: "w3-input w3-border" %>
+    <label>Judge's Phone Number</label>
+    <%= form.text_field :judge_phone_number, id: :judge_phone_number, class: "w3-input w3-border" %>
+    <label>Judge's Email</label>
+    <%= form.text_field :judge_email, id: :judge_email, class: "w3-input w3-border" %>
+    <label>Judge's Courtroom</label>
+    <%= form.text_field :judge_courtroom, id: :judge_courtroom, class: "w3-input w3-border" %>
+    <label>Drivers License Number of Payor</label>
+    <%= form.text_field :owes_money_drivers_license_number, id: :owes_money_drivers_license_number, class: "w3-input w3-border" %>
+    <label>Professional License of Payor</label>
+    <%= form.text_field :owes_money_professional_license, id: :owes_money_professional_license, class: "w3-input w3-border" %>
+    <label>Address of Payor's Employer</label>
+    <%= form.text_field :owes_money_employer_address, id: :owes_money_employer_address, class: "w3-input w3-border" %>
+    <label>Phone Number of Payor's Employer</label>
+    <%= form.text_field :owes_money_employer_phone_number, id: :owes_money_employer_phone_number, class: "w3-input w3-border" %>
+    <label>Employer's EIN</label>
+    <%= form.text_field :employer_ein, id: :employer_ein, class: "w3-input w3-border" %>
+    <p>
+      <%= form.check_box :owes_money_represented_by_council, id: :client_owes_money_represented_by_council, class: "w3-input w3-border" %>
+      <label for="client_owes_money_represented_by_council" class="field-explanation-sub-title">Is Payor Represented By Council?</label>
+    </p>
+    <p class="field-explanation-sub-title margin-md">Does Payor Own any Assets?</p>
+    <label>If so, Please Describe</label>
+    <%= form.text_area :owes_money_assets, id: :owes_money_assets, class: "w3-input w3-border", rows: 5 %>
+    <p class="field-explanation-sub-title margin-md">Does Payor Own any Real Property?</p>
+    <label>If so, Please Describe</label>
+    <%= form.text_area :owes_money_real_proprty, id: :owes_money_real_proprty, class: "w3-input w3-border", rows: 5 %>
+    <label>Legal Description</label>
+    <%= form.text_field :legal_description, id: :legal_description, class: "w3-input w3-border" %>
+    <label>Folio / Parcel Number</label>
+    <%= form.text_field :folio_or_parcel_number, id: :folio_or_parcel_number, class: "w3-input w3-border" %>
+    <label>Physical Address</label>
+    <%= form.text_field :physical_address, id: :physical_address, class: "w3-input w3-border" %>
+    <label>Payor's Interest in the Property?</label>
+    <%= form.text_area :owes_money_interest_in_property, id: :owes_money_interest_in_property, class: "w3-input w3-border", rows: 3 %>
+    <p class="field-explanation-sub-title margin-md">Monthly Child Support Obligation</p>
+    <label>Bi-Monthly Amount</label>
+    <%= form.number_field :monthly_cs_bi_monthly_amount, id: :monthly_cs_bi_monthly_amount, class: "w3-input w3-border" %>
+    <label>Bi-Wkeekly Amount</label>
+    <%= form.number_field :monthly_cs_bi_weekly_amount, id: :monthly_cs_bi_weekly_amount, class: "w3-input w3-border" %>
+    <label>Weekly Amount</label>
+    <%= form.number_field :monthly_cs_weekly_amount, id: :monthly_cs_weekly_amount, class: "w3-input w3-border" %>
+    <label>Total Number of Months Delinquent Child Support</label>
+    <%= form.number_field :monthly_cs_number_of_months_delinquent_child_support, id: :monthly_cs_number_of_months_delinquent_child_support, class: "w3-input w3-border" %>
+    <label>Date of Last Child Support Payment</label>
+    <%= form.date_field :monthly_cs_date_of_last_child_support_payment, id: :monthly_cs_date_of_last_child_support_payment, class: "w3-input w3-border" %>
+    <label>Amount of Last Child Support Payment</label>
+    <%= form.number_field :monthly_cs_amount_of_last_child_support_payment, id: :monthly_cs_amount_of_last_child_support_payment, class: "w3-input w3-border" %>
+    <label>Total Child Support Averages Owes as of</label>
+    <%= form.date_field :monthly_cs_averages_owed_as_of, id: :monthly_cs_averages_owed_as_of, class: "w3-input w3-border" %>
+    <label>Is $</label>
+    <%= form.number_field :monthly_cs_averages_owed, id: :monthly_cs_averages_owed, class: "w3-input w3-border" %>
+    <label>Total Alimony and Child Support Averages Owed as of</label>
+    <%= form.date_field :monthly_alimony_cs_averages_owed_as_of, id: :monthly_alimony_cs_averages_owed_as_of, class: "w3-input w3-border" %>
+    <label>Is $</label>
+    <%= form.number_field :monthly_alimony_cs_averages_owed, id: :monthly_alimony_cs_averages_owed, class: "w3-input w3-border" %>
+    <p class="field-explanation-sub-title margin-md">Monthly Alimony Obligation</p>
+    <label>Bi-Monthly Amount</label>
+    <%= form.number_field :monthly_alimony_bi_monthly_amount, id: :monthly_alimony_bi_monthly_amount, class: "w3-input w3-border" %>
+    <label>Bi-Weekly Amount</label>
+    <%= form.number_field :monthly_alimony_bi_weekly_amount, id: :monthly_alimony_bi_weekly_amount, class: "w3-input w3-border" %>
+    <label>Weekly Amount</label>
+    <%= form.number_field :monthly_alimony_weekly_amount, id: :monthly_alimony_weekly_amount, class: "w3-input w3-border" %>
+    <label>Total Number of Months Delinquent Alimony</label>
+    <%= form.number_field :monthly_alimony_number_of_months_delinquent_child_support, id: :monthly_alimony_number_of_months_delinquent_child_support, class: "w3-input w3-border" %>
+    <label>Date of Last Alimony Payment</label>
+    <%= form.date_field :monthly_alimony_date_of_last_child_support_payment, id: :monthly_alimony_date_of_last_child_support_payment, class: "w3-input w3-border" %>
+    <label>Amount of Last Alimony Payment</label>
+    <%= form.number_field :monthly_alimony_amount_of_last_child_support_payment, id: :monthly_alimony_amount_of_last_child_support_payment, class: "w3-input w3-border" %>
+    <label>Total Alimony Averages Owes as of</label>
+    <%= form.date_field :monthly_alimony_averages_owed_as_of, id: :monthly_alimony_averages_owed_as_of, class: "w3-input w3-border" %>
+    <label>Is $</label>
+    <%= form.number_field :monthly_alimony_averages_owed, id: :monthly_alimony_averages_owed, class: "w3-input w3-border" %>
+    <label>Total Alimony and Child Support Averages Owed as of</label>
+    <%= form.date_field :monthly_alimony_cs_averages_owed_as_of, id: :monthly_alimony_cs_averages_owed_as_of, class: "w3-input w3-border" %>
+    <label>Is $</label>
+    <%= form.number_field :monthly_alimony_cs_averages_owed, id: :monthly_alimony_cs_averages_owed, class: "w3-input w3-border" %>
+    <label>Attorney Fees Owed Amount</label>
+    <%= form.number_field :attorney_fees_owed_amount, id: :attorney_fees_owed_amount, class: "w3-input w3-border" %>
+    <label>Written Settlement Agreement Sign Date</label>
+    <%= form.date_field :written_settlement_agreement_date_signed, id: :written_settlement_agreement_date_signed, class: "w3-input w3-border" %>
+    <p class="field-explanation-sub-title margin-md">Is there a prevailing party clause in any agreement, judgment or order?</p>
+    <label>If so, Please Describe</label>
+    <%= form.text_area :prevailing_party_clause, id: :prevailing_party_clause, class: "w3-input w3-border", rows:5 %>
+    <label>Written Parenting Plan Sign Date</label>
+    <%= form.date_field :written_parenting_plan_date_signed, id: :written_parenting_plan_date_signed, class: "w3-input w3-border" %>
+    <label>Income Withholding or Income Deduction Order Sign Date</label>
+    <%= form.date_field :income_withholding_order_date_signed, id: :income_withholding_order_date_signed, class: "w3-input w3-border" %>
+    <label>Central Depository Address</label>
+    <%= form.text_field :central_depository_address, id: :central_depository_address, class: "w3-input w3-border" %>
+    <label>FIPS Code</label>
+    <%= form.text_field :fips_code, id: :fips_code, class: "w3-input w3-border" %>
+    <p>
+      <%= form.check_box :remittance_identifier, id: :client_remittance_identifier, class: "w3-input w3-border" %>
+      <label for="client_remittance_identifier" class="field-explanation-sub-title">Remittance Identifier</label>
+    </p>
   </div>
 </div>

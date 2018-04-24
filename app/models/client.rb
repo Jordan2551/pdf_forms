@@ -38,7 +38,6 @@ class Client < ApplicationRecord
   validates :owes_money_occupation, presence: true, on: :register_step_4
   validates :owes_money_state, presence: true, on: :register_step_4
   validates :owes_money_ssn, presence: true, on: :register_step_4
-  validates :owes_money_is_in_jail, presence: true, on: :register_step_4
   validates :mother_full_name, presence: true, on: :register_step_4
   validates :mother_maiden_name, presence: true, on: :register_step_4
   validates :case_number, presence: true, on: :register_step_4

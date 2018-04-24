@@ -14,413 +14,479 @@
 <% end %>
 
 <div class="w3-container w3-card-4">
-  <div class="w3-row w3-field-padding">
-    <h2 class="section-title">Step 4 - Post Payment</h2>
-    <p class="section-sub-title margin-b-md">Here we gather the rest of the information to begin to process your application.</p>
-    <h3 class="field-explanation-title margin-lg">Alternate Contact (Optional)</h3>
-    <p class="field-explanation-sub-title margin-b-md">In case we are not able to reach you is there someone else we can contact?</p>
-    <label>Full Name</label>
-    <%= form.text_field :alternate_contact_name, id: :client_alternate_contact_name, class: "w3-input w3-border" %>
-    <label>Phone Number</label>
-    <%= form.text_field :alternate_contact_phone_number, id: :client_alternate_contact_phone_number, class: "w3-input w3-border" %>
-    <label>Email</label>
-    <%= form.text_field :alternate_contact_email, id: :client_alternate_contact_email, class: "w3-input w3-border" %>
-    <p class="section-sub-title-left margin-md margin-b-sm">Best Method to Contact This Person</p>
-    <p>
-      <%= form.radio_button :alternate_contact_best_method, "phone", id: :client_alternate_contact_best_method_phone %>
-      <label for="client_alternate_contact_best_method_phone">Phone</label>
-    </p>
-    <p>
-      <%= form.radio_button :alternate_contact_best_method, "email", id: :client_alternate_contact_best_method_email %>
-      <label for="client_alternate_contact_best_method_email">Email</label>
-    </p>
-    <p>
-      <%= form.radio_button :alternate_contact_best_method, "both", id: :client_alternate_contact_best_method_both %>
-      <label for="client_alternate_contact_best_method_both">Both</label>
-    </p>
+    <div class="w3-row w3-field-padding">
+      <h2 class="section-title">Step 4 - Post Payment</h2>
+      <p class="section-sub-title margin-b-md">Here we gather the rest of the information to begin to process your application.</p>
+      <h3 class="field-explanation-title margin-lg">Alternate Contact (Optional)</h3>
+      <p class="field-explanation-sub-title margin-b-md">In case we are not able to reach you is there someone else we can contact?</p>
+      <label>Full Name</label>
+      <%= form.text_field :alternate_contact_name, id: :client_alternate_contact_name, class: "w3-input w3-border" %>
+      <label>Phone Number</label>
+      <%= form.text_field :alternate_contact_phone_number, id: :client_alternate_contact_phone_number, class: "w3-input w3-border" %>
+      <label>Email</label>
+      <%= form.text_field :alternate_contact_email, id: :client_alternate_contact_email, class: "w3-input w3-border" %>
+      <p class="section-sub-title-left margin-md margin-b-sm">Best Method to Contact This Person</p>
+      <p>
+        <%= form.radio_button :alternate_contact_best_method, "phone", id: :client_alternate_contact_best_method_phone %>
+        <label for="client_alternate_contact_best_method_phone">Phone</label>
+      </p>
+      <p>
+        <%= form.radio_button :alternate_contact_best_method, "email", id: :client_alternate_contact_best_method_email %>
+        <label for="client_alternate_contact_best_method_email">Email</label>
+      </p>
+      <p>
+        <%= form.radio_button :alternate_contact_best_method, "both", id: :client_alternate_contact_best_method_both %>
+        <label for="client_alternate_contact_best_method_both">Both</label>
+      </p>
+    </div>
   </div>
-</div>
 
-<div class="w3-container w3-card-4 margin-lg">
-  <div class="w3-row w3-field-padding">
-    <h3 class="field-explanation-title">The Person who Owes you Money</h3>
-    <label>Date of Birth</label>
-    <%= form.date_field :owes_money_birth_date, id: :client_owes_money_birth_date, required: true, class: "w3-input w3-border" %>
-    <p class="section-sub-title-left margin-md margin-b-sm">Gender</p>
-    <p>
-      <%= form.radio_button :owes_money_gender, "male", required: true, id: :client_owes_money_gender_male %>
-      <label for="client_owes_money_gender_male">Male</label>
-    </p>
-    <p>
-      <%= form.radio_button :owes_money_gender, "female", required: true, id: :client_owes_money_gender_female %>
-      <label for="client_owes_money_gender_female">Female</label>
-    </p>
-    <div id="owes_money_race_div" class="margin-md">
-      <p class="section-sub-title-left margin-md margin-b-sm">Race of Person who Owes you Money?</p>
-      <%= form.hidden_field :owes_money_race, id: :owes_money_race  %>
-      <p class="margin-sm">
-        <%= form.radio_button :owes_money_race_rb, "white", id: :client_owes_money_race_white, checked: @client.owes_money_race == 'white' %>
-        <label for="client_owes_money_race_white">White/Caucasian</label>
+  <div class="w3-container w3-card-4 margin-lg">
+    <div class="w3-row w3-field-padding">
+      <h3 class="field-explanation-title">The Person who Owes you Money</h3>
+      <label>Date of Birth</label>
+      <%= form.date_field :owes_money_birth_date, id: :client_owes_money_birth_date, required: true, class: "w3-input w3-border" %>
+      <p class="section-sub-title-left margin-md margin-b-sm">Gender</p>
+      <p>
+        <%= form.radio_button :owes_money_gender, "male", required: true, id: :client_owes_money_gender_male %>
+        <label for="client_owes_money_gender_male">Male</label>
       </p>
-      <p class="margin-sm">
-        <%= form.radio_button :owes_money_race_rb, "black", id: :client_owes_money_race_black, checked: @client.owes_money_race == 'black' %>
-        <label for="client_owes_money_race_black">Black/African-American</label>
+      <p>
+        <%= form.radio_button :owes_money_gender, "female", required: true, id: :client_owes_money_gender_female %>
+        <label for="client_owes_money_gender_female">Female</label>
       </p>
-      <p class="margin-sm">
-        <%= form.radio_button :owes_money_race_rb, "hispanic", id: :client_owes_money_race_hispanic, checked: @client.owes_money_race == 'hispanic' %>
-        <label for="client_owes_money_race_hispanic">Hispanic</label>
-      </p>
-      <p class="margin-sm">
-        <%= form.radio_button :owes_money_race_rb, "asian", id: :client_owes_money_race_asian, checked: @client.owes_money_race == 'asian' %>
-        <label for="client_owes_money_race_asian">Asian/Pacific Islander</label>
-      </p>
-      <p class="margin-sm">
-        <%= form.radio_button :owes_money_race_rb, "indian", id: :client_owes_money_race_indian, checked: @client.owes_money_race == 'indian' %>
-        <label for="client_owes_money_race_indian">American Indian/Alaskan</label>
-      </p>
-      <p class="margin-sm">
-        <label>Other</label>
-        <% if @client.owes_money_race != "white" && @client.owes_money_race != "black" && @client.owes_money_race != "hispanic" && @client.owes_money_race != "asian" && @client.owes_money_race != "indian" %>
-          <%= form.text_field :owes_money_race_other_text, id: :client_owes_money_race_other_text, value:@client.owes_money_race, class: "w3-input w3-border" %>
+      <div id="owes_money_race_div" class="margin-md">
+        <p class="section-sub-title-left margin-md margin-b-sm">Race of Person who Owes you Money?</p>
+        <%= form.hidden_field :owes_money_race, id: :owes_money_race  %>
+        <p class="margin-sm">
+          <%= form.radio_button :owes_money_race_rb, "white", id: :client_owes_money_race_white, checked: @client.owes_money_race == 'white' %>
+          <label for="client_owes_money_race_white">White/Caucasian</label>
+        </p>
+        <p class="margin-sm">
+          <%= form.radio_button :owes_money_race_rb, "black", id: :client_owes_money_race_black, checked: @client.owes_money_race == 'black' %>
+          <label for="client_owes_money_race_black">Black/African-American</label>
+        </p>
+        <p class="margin-sm">
+          <%= form.radio_button :owes_money_race_rb, "hispanic", id: :client_owes_money_race_hispanic, checked: @client.owes_money_race == 'hispanic' %>
+          <label for="client_owes_money_race_hispanic">Hispanic</label>
+        </p>
+        <p class="margin-sm">
+          <%= form.radio_button :owes_money_race_rb, "asian", id: :client_owes_money_race_asian, checked: @client.owes_money_race == 'asian' %>
+          <label for="client_owes_money_race_asian">Asian/Pacific Islander</label>
+        </p>
+        <p class="margin-sm">
+          <%= form.radio_button :owes_money_race_rb, "indian", id: :client_owes_money_race_indian, checked: @client.owes_money_race == 'indian' %>
+          <label for="client_owes_money_race_indian">American Indian/Alaskan</label>
+        </p>
+        <p class="margin-sm">
+          <label>Other</label>
+          <% if @client.owes_money_race != "white" && @client.owes_money_race != "black" && @client.owes_money_race != "hispanic" && @client.owes_money_race != "asian" && @client.owes_money_race != "indian" %>
+            <%= form.text_field :owes_money_race_other_text, id: :client_owes_money_race_other_text, value:@client.owes_money_race, class: "w3-input w3-border" %>
+          <% else %>
+          <%= form.text_field :owes_money_race_other_text, id: :client_owes_money_race_other_text, class: "w3-input w3-border" %>
+          <% end %>
+        </p>
+      </div>
+      <p class="section-sub-title-left margin-md">Full Name of the Person who Owes you Money</p>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>First Name</label>
+        <%= form.text_field :owes_money_first_name, id: :client_owes_money_first_name, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Middle Name</label>
+        <%= form.text_field :owes_money_middle_name, id: :client_owes_money_middle_name, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Last Name</label>
+        <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, required: true, class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding">
+      <p class="section-sub-title-left margin-md">Nicknames / Aliases of the Person who Owes you Money (Optional)</p>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>First</label>
+        <%= form.text_field :owes_money_first_nickname, id: :client_owes_money_first_nickname, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Last</label>
+        <%= form.text_field :owes_money_last_nickname, id: :client_owes_money_last_nickname, class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding">
+      <p class="section-sub-title-left margin-md">Home Address of the Person who Owes you Money</p>
+      <label>Address</label>
+      <%= form.text_field :owes_money_address, id: :client_owes_money_address, required: true, class: "w3-input w3-border" %>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>City</label>
+        <%= form.text_field :owes_money_city, id: :client_owes_money_city, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Country</label>
+        <% if @client.owes_money_country %>
+          <%= form.select :owes_money_country, options_for_select(countries, @client.owes_money_country), {}, { class:"w3-input w3-border", id: "countries"} %>
         <% else %>
-        <%= form.text_field :owes_money_race_other_text, id: :client_owes_money_race_other_text, class: "w3-input w3-border" %>
+          <%= form.select :owes_money_country, options_for_select(countries, "United States"), {}, { class:"w3-input w3-border", id: "countries"} %>
         <% end %>
+      </div>
+      <div class="w3-third">
+        <label>State / Province / Region</label>
+        <% if @client.owes_money_state %>
+          <%= form.select :owes_money_state, options_for_select(us_states, @client.owes_money_state), {}, { class:"w3-input w3-border", id: "states"} %>
+        <% else %>
+          <%= form.select :owes_money_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>Zip</label>
+        <%= form.text_field :owes_money_zip, id: :client_owes_money_zip, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Apartment</label>
+        <%= form.text_field :owes_money_apt, id: :client_owes_money_apt, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>County</label>
+        <%= form.text_field :owes_money_county, id: :client_owes_money_county, class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding">
+      <p class="section-sub-title-left margin-md">Work Address of the Person who Owes you Money</p>
+      <label>Address</label>
+      <%= form.text_field :owes_money_work_address, id: :client_owes_money_work_address, class: "w3-input w3-border" %>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>City</label>
+        <%= form.text_field :owes_money_work_city, id: :client_owes_money_work_city, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>State / Province / Region</label>
+        <% if @client.owes_money_work_state %>
+          <%= form.select :owes_money_work_state, options_for_select(us_states, @client.owes_money_work_state), {}, { class:"w3-input w3-border", id: "states"} %>
+        <% else %>
+          <%= form.select :owes_money_work_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
+        <% end %>
+      </div>
+      <div class="w3-third">
+        <label>Zip</label>
+        <%= form.text_field :owes_money_work_zip, id: :client_owes_money_work_zip, class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding">
+      <label>Work Phone Number</label>
+      <%= form.text_field :owes_money_phone_number, id: :client_owes_money_phone_number, class: "w3-input w3-border" %>
+      <label>Work Email</label>
+      <%= form.text_field :owes_money_email, id: :client_owes_money_email, class: "w3-input w3-border" %>
+    </div>
+  </div>
+  <div class="w3-container w3-card-4 margin-lg">
+    <div class="w3-row w3-field-padding">
+      <h3 class="field-explanation-title">Occupation, Social Securtiy</h3>
+      <label>Occupation of the Person who Owes you Money</label>
+      <%= form.text_field :owes_money_occupation, id: :client_owes_money_occupation, required: true, class: "w3-input w3-border" %>
+      <p class="field-explanation-sub-title margin-sm">Please enter the SSN of the person who owes you money. If you cannot locate the SSN of the person that owes you money, try to locate old joint tax returns or other documents where that information could be found.</p>
+      <label>Social Security Number</label>
+      <%= form.text_field :owes_money_ssn, id: :client_owes_money_ssn, required: true, class: "w3-input w3-border" %>
+      <label class="margin-sm">Is the Person who Owes you Money Presently in Jail or Prison?</label>
+      <p class="margin-sm">
+        <%= form.radio_button :owes_money_is_in_jail, true, id: :client_owes_money_is_in_jail_yes, required: true %>
+        <label for="client_owes_money_is_in_jail_yes">Yes</label>
       </p>
+      <p class="margin-sm">
+        <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail_no, required: true %>
+        <label for="client_owes_money_is_in_jail_no">No</label>
+      </p>
+      <label class="margin-sm">If you have any of the following papers from the person who owes you money, please mark below all that apply.</label>
+        <% if @client.owes_money_papers %>
+          <% @client.owes_money_papers.each do |symbol, value| %>
+            <% if value == "1" %>
+            <p>
+              <%= form.check_box "owes_money_papers[#{symbol}]", id: "client_owes_money_papers[#{symbol}]", checked: true, class: "w3-input w3-border" %>
+              <label for="client_owes_money_papers[<%= symbol %>]"><%= symbol.humanize %></label>
+            </p>
+            <% else %>
+            <p>
+              <%= form.check_box "owes_money_papers[#{symbol}]", id: "client_owes_money_papers[#{symbol}]", checked: false, class: "w3-input w3-border" %>
+              <label for="client_owes_money_papers[<%= symbol %>]"><%= symbol.humanize %></label>
+            </p>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% owes_money_papers.each do |option, symbol| %>
+          <p>
+            <%= form.check_box "owes_money_papers[#{symbol}]", id: "client_owes_money_papers[#{symbol}]", class: "w3-input w3-border" %>
+            <label for="client_owes_money_papers[<%= symbol %>]"><%= symbol.humanize %></label>
+          </p>
+          <% end %>
+        <% end %>
+        <label class="margin-md">Has this final judgment or court order been modified?</label>
+        <% if @client.court_order_modified %>
+          <%= form.select :court_order_modified, options_for_select(["Yes", "No", "Not Sure"], @client.court_order_modified), {}, { class: "w3-input w3-border"} %>
+        <% else %>
+        <%= form.select :court_order_modified, options_for_select(["Yes", "No", "Not Sure"]), {}, { class: "w3-input w3-border"} %>
+        <% end %>
+        <label>How would you like to send us a copy of documentation?</label>
+        <% if @client.documentation_send_method %>
+          <%= form.select :documentation_send_method, options_for_select(["US Mail", "Fax"], @client.documentation_send_method), {}, { class: "w3-input w3-border"} %>
+        <% else %>
+        <%= form.select :documentation_send_method, options_for_select(["US Mail", "Fax"]), {}, { class: "w3-input w3-border"} %>
+        <% end %>
+        <h3 class="field-explanation-title margin-md">Who do they Bank With? (Optional)</h3>
+        <label>Occupation of the Person who Owes you Money</label>
     </div>
-    <p class="section-sub-title-left margin-md">Full Name of the Person who Owes you Money</p>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>Bank Name</label>
+        <%= form.text_field :owes_money_bank_name, id: :client_owes_money_bank_name, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Account Number</label>
+        <%= form.text_field :owes_money_account_number, id: :client_owes_money_account_number, class: "w3-input w3-border" %>
+      </div>
+    </div>
   </div>
-  <div class="w3-row-padding">
-    <div class="w3-third">
-      <label>First Name</label>
-      <%= form.text_field :owes_money_first_name, id: :client_owes_money_first_name, required: true, class: "w3-input w3-border" %>
-    </div>
-    <div class="w3-third">
-      <label>Middle Name</label>
-      <%= form.text_field :owes_money_middle_name, id: :client_owes_money_middle_name, class: "w3-input w3-border" %>
-    </div>
-    <div class="w3-third">
-      <label>Last Name</label>
-      <%= form.text_field :owes_money_last_name, id: :client_owes_money_last_name, required: true, class: "w3-input w3-border" %>
-    </div>
-  </div>
-  <div class="w3-row w3-field-padding">
-    <p class="section-sub-title-left margin-md">Nicknames / Aliases of the Person who Owes you Money (Optional)</p>
-  </div>
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <label>First</label>
-      <%= form.text_field :owes_money_first_nickname, id: :client_owes_money_first_nickname, class: "w3-input w3-border" %>
-    </div>
-    <div class="w3-half">
-      <label>Last</label>
-      <%= form.text_field :owes_money_last_nickname, id: :client_owes_money_last_nickname, class: "w3-input w3-border" %>
-    </div>
-  </div>
-  <div class="w3-row w3-field-padding">
-    <p class="section-sub-title-left margin-md">Home Address of the Person who Owes you Money</p>
-    <label>Address</label>
-    <%= form.text_field :owes_money_address, id: :client_owes_money_address, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="w3-row-padding">
-    <div class="w3-third">
-      <label>City</label>
-      <%= form.text_field :owes_money_city, id: :client_owes_money_city, required: true, class: "w3-input w3-border" %>
-    </div>
-    <div class="w3-third">
-      <label>Country</label>
-      <% if @client.owes_money_country %>
-        <%= form.select :owes_money_country, options_for_select(countries, @client.owes_money_country), {}, { class:"w3-input w3-border", id: "countries"} %>
+
+  <div class="w3-container w3-card-4 margin-lg">
+    <div class="w3-row w3-field-padding">
+      <h3 class="field-explanation-title">Security Section</h3>
+      <label>Social Security Number</label>
+      <%= form.text_field :ssn, id: :client_ssn, required: true, class: "w3-input w3-border" %>
+      <p class="section-sub-title-left margin-sm">Enter your social security number. Your social security number is necessary because Support Solutions will be legally representing you in this child support case. We take the utmost precautions to protect your personal information and only ask for information that is necessary for us to conduct our business. We understand this information is sensitive and we are legally responsible to protect your privacy. Please read our privacy-link policy.</p>
+      <p class="section-sub-title-left margin-sm">Enter your mother's full name (First & Last) for added security</p>
+      <label>Full Name</label>
+      <%= form.text_field :mother_full_name, id: :client_mother_full_name, required: true, class: "w3-input w3-border" %>
+      <label>Maiden Name</label>
+      <%= form.text_field :mother_maiden_name, id: :client_mother_maiden_name, required: true, class: "w3-input w3-border" %>
+      <label>Case Number</label>
+      <%= form.text_field :case_number, id: :client_case_number, required: true, class: "w3-input w3-border" %>
+      <label>State</label>
+      <% if @client.court_order_state %>
+        <%= form.select :court_order_state, options_for_select(us_states, @client.court_order_state), {}, { class:"w3-input w3-border", id: "states"} %>
       <% else %>
-        <%= form.select :owes_money_country, options_for_select(countries, "United States"), {}, { class:"w3-input w3-border", id: "countries"} %>
+        <%= form.select :court_order_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
       <% end %>
-    </div>
-    <div class="w3-third">
-      <label>State / Province / Region</label>
-      <% if @client.owes_money_state %>
-        <%= form.select :owes_money_state, options_for_select(us_states, @client.owes_money_state), {}, { class:"w3-input w3-border", id: "states"} %>
-      <% else %>
-        <%= form.select :owes_money_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
-      <% end %>
-    </div>
-  </div>
-  <div class="w3-row-padding">
-    <div class="w3-third">
-      <label>Zip</label>
-      <%= form.text_field :owes_money_zip, id: :client_owes_money_zip, class: "w3-input w3-border" %>
-    </div>
-    <div class="w3-third">
-      <label>Apartment</label>
-      <%= form.text_field :owes_money_apt, id: :client_owes_money_apt, class: "w3-input w3-border" %>
-    </div>
-    <div class="w3-third">
       <label>County</label>
-      <%= form.text_field :owes_money_county, id: :client_owes_money_county, class: "w3-input w3-border" %>
+      <%= form.text_field :court_order_county, id: :client_court_order_county, class: "w3-input w3-border" %>
+      <label>Date Final Judgment was Obtained</label>
+      <%= form.date_field :final_judgment_obtained_date, id: :client_final_judgment_obtained_date, required: true, class: "w3-input w3-border" %>
+      <label>Name of Court Where Case was Filed</label>
+      <%= form.text_field :court_case_filed_name, id: :client_court_case_filed_name, class: "w3-input w3-border" %>
     </div>
-  </div>
-  <div class="w3-row w3-field-padding">
-    <p class="section-sub-title-left margin-md">Work Address of the Person who Owes you Money</p>
-    <label>Address</label>
-    <%= form.text_field :owes_money_work_address, id: :client_owes_money_work_address, class: "w3-input w3-border" %>
-  </div>
-  <div class="w3-row-padding">
-    <div class="w3-third">
-      <label>City</label>
-      <%= form.text_field :owes_money_work_city, id: :client_owes_money_work_city, class: "w3-input w3-border" %>
+
+    <div class="w3-row w3-field-padding margin-md">
+      <h3 class="field-explanation-title">Children involved in case</h3>
+      <h3 class="section-sub-title-left margin-sm">Child 1</h3>
     </div>
-    <div class="w3-third">
-      <label>State / Province / Region</label>
-      <% if @client.owes_money_work_state %>
-        <%= form.select :owes_money_work_state, options_for_select(us_states, @client.owes_money_work_state), {}, { class:"w3-input w3-border", id: "states"} %>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>First Name</label>
+        <%= form.text_field :child_1_first_name, id: :client_child_1_first_name, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Last Name</label>
+        <%= form.text_field :child_1_last_name, id: :client_child_1_last_name, required: true, class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>Date of Birth</label>
+        <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Date of Emancipation</label>
+        <%= form.date_field :child_1_emancipation_date, id: :client_child_1_emancipation_date, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Social Security Number</label>
+        <%= form.text_field :child_1_ssn, id: :client_child_1_ssn, required: true, class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding margin-md">
+      <h3 class="section-sub-title-left margin-sm">Child 2</h3>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>First Name</label>
+        <%= form.text_field :child_2_first_name, id: :client_child_2_first_name,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Last Name</label>
+        <%= form.text_field :child_2_last_name, id: :client_child_2_last_name,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>Date of Birth</label>
+        <%= form.date_field :child_2_birth_date, id: :client_child_2_birth_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Date of Emancipation</label>
+        <%= form.date_field :child_2_emancipation_date, id: :client_child_2_emancipation_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Social Security Number</label>
+        <%= form.text_field :child_2_ssn, id: :client_child_2_ssn,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding margin-md">
+      <h3 class="section-sub-title-left margin-sm">Child 3</h3>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>First Name</label>
+        <%= form.text_field :child_3_first_name, id: :client_child_3_first_name,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Last Name</label>
+        <%= form.text_field :child_3_last_name, id: :client_child_3_last_name,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>Date of Birth</label>
+        <%= form.date_field :child_3_birth_date, id: :client_child_3_birth_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Date of Emancipation</label>
+        <%= form.date_field :child_3_emancipation_date, id: :client_child_3_emancipation_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Social Security Number</label>
+        <%= form.text_field :child_3_ssn, id: :client_child_3_ssn,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding margin-md">
+      <h3 class="section-sub-title-left margin-sm">Child 4</h3>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>First Name</label>
+        <%= form.text_field :child_4_first_name, id: :client_child_4_first_name,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Last Name</label>
+        <%= form.text_field :child_4_last_name, id: :client_child_4_last_name,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>Date of Birth</label>
+        <%= form.date_field :child_4_birth_date, id: :client_child_4_birth_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Date of Emancipation</label>
+        <%= form.date_field :child_4_emancipation_date, id: :client_child_4_emancipation_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Social Security Number</label>
+        <%= form.text_field :child_4_ssn, id: :client_child_4_ssn,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding margin-md">
+      <h3 class="section-sub-title-left margin-sm">Child 5</h3>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <label>First Name</label>
+        <%= form.text_field :child_5_first_name, id: :client_child_5_first_name,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-half">
+        <label>Last Name</label>
+        <%= form.text_field :child_5_last_name, id: :client_child_5_last_name,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <label>Date of Birth</label>
+        <%= form.date_field :child_5_birth_date, id: :client_child_5_birth_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Date of Emancipation</label>
+        <%= form.date_field :child_5_emancipation_date, id: :client_child_5_emancipation_date,  class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Social Security Number</label>
+        <%= form.text_field :child_5_ssn, id: :client_child_5_ssn,  class: "w3-input w3-border" %>
+      </div>
+    </div>
+    <div class="w3-row w3-field-padding margin-md">
+      <label>Does Each Child Above Live with You?</label>
+      <% if @client.children_living_with_you %>
+        <%= form.select :children_living_with_you, options_for_select(["Yes", "No"], @client.children_living_with_you), {}, { class: "w3-input w3-border"} %>
       <% else %>
-        <%= form.select :owes_money_work_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
+        <%= form.select :children_living_with_you, options_for_select(["Yes", "No"]), {}, { class: "w3-input w3-border"} %>
       <% end %>
-    </div>
-    <div class="w3-third">
-      <label>Zip</label>
-      <%= form.text_field :owes_money_work_zip, id: :client_owes_money_work_zip, class: "w3-input w3-border" %>
-    </div>
-  </div>
-  <div class="w3-row w3-field-padding">
-    <label>Work Phone Number</label>
-    <%= form.text_field :owes_money_phone_number, id: :client_owes_money_phone_number, class: "w3-input w3-border" %>
-    <label>Work Email</label>
-    <%= form.text_field :owes_money_email, id: :client_owes_money_email, class: "w3-input w3-border" %>
-  </div>
-</div>
-
-
-
-<div class="jumbotron">
-
-  <div class="form-group margin-md">
-    <h3>Occupation, Social Securtiy</h3>
-    <%= form.label :owes_money_occupation, value: "Occupation of the person who owes you money" , class: "form-label" %>
-    <%= form.text_field :owes_money_occupation, id: :client_owes_money_occupation, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :owes_money_ssn, value: "Social security number" , class: "form-label" %>
-    <p class="margin-sm">Please enter the SSN of the person who owes you money. If you cannot locate the SSN of the person that owes you money, try to locate old joint tax returns or other documents where that information could be found.</p>
-    <%= form.text_field :owes_money_ssn, id: :client_owes_money_ssn, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group margin-sm">
-    <%= form.label :owes_money_is_in_jail, value: "To your knowledge, is the person who owes presently in jail or prison?", class: "form-label" %>
-    <label class="radio-inline" for="client_owes_money_is_in_jail">
-      <%= form.radio_button :owes_money_is_in_jail, true, id: :client_owes_money_is_in_jail, required: true %> Yes
-    </label>
-    <label class="radio-inline" for="client_owes_money_is_in_jail">
-      <%= form.radio_button :owes_money_is_in_jail, false, id: :client_owes_money_is_in_jail, required: true %> No
-    </label>
-  </div>
-
-  <div class="form-group margin-md">
-    <h3 class="margin-sm">If you have any of the following papers from the person who owes you money, please mark below all that apply.</h3>
-    <% if @client.owes_money_papers %>
-      <% @client.owes_money_papers.each do |symbol, value| %>
-        <% if value == "1" %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers][#{symbol}", checked: true, class: "w3-input w3-border" %></p>
+      <label>If Not, Please Explain</label>
+      <%= form.text_area :children_not_living_with_you_explanation, id: :client_children_not_living_with_you_explanation, rows: 5, class: "w3-input w3-border" %>
+      <label class="margin-md">Please select any additional services that you are interested in.</label>
+        <% if @client.interested_services %>
+          <% @client.interested_services.each do |symbol, value| %>
+            <% if value == "1" %>
+            <p>
+              <%= form.check_box "interested_services[#{symbol}]", id: "client_interested_services[#{symbol}]", checked: true, class: "w3-input w3-border" %>
+              <label for="client_interested_services[<%= symbol %>]"><%= symbol.humanize %></label>
+            </p>
+            <% else %>
+            <p>
+              <%= form.check_box "interested_services[#{symbol}]", id: "client_interested_services[#{symbol}]", checked: false, class: "w3-input w3-border" %>
+              <label for="client_interested_services[<%= symbol %>]"><%= symbol.humanize %></label>
+            </p>
+            <% end %>
+          <% end %>
         <% else %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "owes_money_papers][#{symbol}", checked: false, class: "w3-input w3-border" %></p>
+          <% interested_services.each do |option, symbol| %>
+          <p>
+            <%= form.check_box "interested_services[#{symbol}]", id: "client_interested_services[#{symbol}]", class: "w3-input w3-border" %>
+            <label for="client_interested_services[<%= symbol %>]"><%= symbol.humanize %></label>
+          </p>
+          <% end %>
         <% end %>
-      <% end %>
-    <% else %>
-      <% owes_money_papers.each do |option, symbol| %>
-        <p><%= form.label option, class: "form-label" %><%= form.check_box "owes_money_papers][#{symbol}", class: "w3-input w3-border" %></p>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="form-group margin-md">
-    <%= form.label :court_order_modified, value: "Has this final judgment or court order been modified?" , class: "form-label" %>
-    <%= form.select :court_order_modified, options_for_select(["Yes", "No", "Not Sure"]), {}, { class:"w3-input w3-border", id: "countries"} %>
-  </div>
-
-  <div class="form-group margin-md">
-    <%= form.label :documentation_send_method, value: "How would you like to send us a copy of documentation?" , class: "form-label" %>
-    <%= form.select :documentation_send_method, options_for_select([["US Mail", "mail"],["Fax", "fax"]]), {}, { class:"w3-input w3-border", id: "countries"} %>
-  </div>
-  <div class="form-group margin-md">
-    <h3>Who do they bank with? (optional)</h3>
-    <%= form.label :owes_money_bank_name, value: "Bank Name (Example: Bank Of America, Chase, Wells Fargo)", class: "form-label" %>
-    <%= form.text_field :owes_money_bank_name, id: :client_owes_money_bank_name, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :owes_money_account_number, value: "Account Number", class: "form-label" %>
-    <%= form.text_field :owes_money_account_number, id: :client_owes_money_account_number, class: "w3-input w3-border" %>
-  </div>
-</div>
-
-<h2 class="margin-md">Security Section</h2>
-<div class="jumbotron">
-  <div class="form-group">
-    <%= form.label :ssn, value: "Social securtiy number (SSN)", class: "form-label" %>
-    <p class="margin-sm">Enter your social security number. Your social security number is necessary because Support Solutions will be legally representing you in this child support case. We take the utmost precautions to protect your personal information and only ask for information that is necessary for us to conduct our business. We understand this information is sensitive and we are legally responsible to protect your privacy. Please read our privacy-link policy.</p>
-    <%= form.text_field :ssn, id: :client_ssn, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group margin-sm">
-    <%= form.label :mother_full_name, value: "Enter your mother's full name (First & Last) for added security", class: "form-label" %>
-    <%= form.text_field :mother_full_name, id: :client_mother_full_name, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :mother_maiden_name, value: "Mother's maiden name", class: "form-label" %>
-    <%= form.text_field :mother_maiden_name, id: :client_mother_maiden_name, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :case_number, value: "Case number", class: "form-label" %>
-    <%= form.text_field :case_number, id: :client_case_number, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :court_order_state, value: "Court order state", class: "form-label" %>
-    <% if @client.court_order_state %>
-      <%= form.select :court_order_state, options_for_select(us_states, @client.court_order_state), {}, { class:"w3-input w3-border", id: "states"} %>
-    <% else %>
-      <%= form.select :court_order_state, options_for_select(us_states, "Florida"), {}, { class:"w3-input w3-border", id: "states"} %>
-    <% end %>
-  </div>
-  <div class="form-group">
-    <%= form.label :court_order_county, value: "Court order county", required: true, class: "form-label" %>
-    <%= form.text_field :court_order_county, id: :client_court_order_county, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :final_judgment_obtained_date, value: "Date final judgment was obtained", class: "form-label" %>
-    <%= form.date_field :final_judgment_obtained_date, id: :client_final_judgment_obtained_date, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :court_case_filed_name, value: "Name of court where the case was filed (example: Circuit Court, Miami)", class: "form-label" %>
-    <%= form.text_field :court_case_filed_name, id: :client_court_case_filed_name, class: "w3-input w3-border" %>
-  </div>
-
-  <div class="form-group">
-    <h3>Children involved in case</h3>
-    <p>Child 1</p>
-    <%= form.label :child_1_first_name, value: "First", class: "form-label" %>
-    <%= form.text_field :child_1_first_name, id: :client_child_1_first_name, required: true, class: "w3-input w3-border" %>
-    <%= form.label :child_1_last_name, value: "Last", class: "form-label margin-sm" %>
-    <%= form.text_field :child_1_last_name, id: :client_child_1_last_name, required: true, class: "w3-input w3-border" %>
-    <%= form.label :child_1_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-    <%= form.date_field :child_1_birth_date, id: :client_child_1_birth_date, required: true, class: "w3-input w3-border" %>
-    <%= form.label :child_1_ssn, value: "Social Security Number", class: "form-label margin-sm" %>
-    <%= form.text_field :child_1_ssn, id: :client_child_1_ssn, required: true, class: "w3-input w3-border" %>
-    <%= form.label :child_1_emancipation_date, value: "Date of Emancipation", class: "form-label margin-sm" %>
-    <%= form.date_field :child_1_emancipation_date, id: :client_child_1_emancipation_date, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <p>Child 2</p>
-    <%= form.label :child_2_first_name, value: "First", class: "form-label" %>
-    <%= form.text_field :child_2_first_name, id: :client_child_2_first_name, class: "w3-input w3-border" %>
-    <%= form.label :child_2_last_name, value: "Last", class: "form-label margin-sm" %>
-    <%= form.text_field :child_2_last_name, id: :client_child_2_last_name, class: "w3-input w3-border" %>
-    <%= form.label :child_2_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-    <%= form.date_field :child_2_birth_date, id: :client_child_2_birth_date, class: "w3-input w3-border" %>
-    <%= form.label :child_2_ssn, value: "Social Security Number", class: "form-label margin-sm" %>
-    <%= form.text_field :child_2_ssn, id: :client_child_2_ssn,  class: "w3-input w3-border" %>
-    <%= form.label :child_2_emancipation_date, value: "Date of Emancipation", class: "form-label margin-sm" %>
-    <%= form.date_field :child_2_emancipation_date, id: :client_child_2_emancipation_date,  class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <p>Child 3</p>
-    <%= form.label :child_3_first_name, value: "First", class: "form-label" %>
-    <%= form.text_field :child_3_first_name, id: :client_child_3_first_name, class: "w3-input w3-border" %>
-    <%= form.label :child_3_last_name, value: "Last", class: "form-label margin-sm" %>
-    <%= form.text_field :child_3_last_name, id: :client_child_3_last_name, class: "w3-input w3-border" %>
-    <%= form.label :child_3_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-    <%= form.date_field :child_3_birth_date, id: :client_child_3_birth_date, class: "w3-input w3-border" %>
-    <%= form.label :child_3_ssn, value: "Social Security Number", class: "form-label margin-sm" %>
-    <%= form.text_field :child_3_ssn, id: :client_child_3_ssn,  class: "w3-input w3-border" %>
-    <%= form.label :child_3_emancipation_date, value: "Date of Emancipation", class: "form-label margin-sm" %>
-    <%= form.date_field :child_3_emancipation_date, id: :client_child_3_emancipation_date,  class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <p>Child 4</p>
-    <%= form.label :child_4_first_name, value: "First", class: "form-label" %>
-    <%= form.text_field :child_4_first_name, id: :client_child_4_first_name, class: "w3-input w3-border" %>
-    <%= form.label :child_4_last_name, value: "Last", class: "form-label margin-sm" %>
-    <%= form.text_field :child_4_last_name, id: :client_child_4_last_name, class: "w3-input w3-border" %>
-    <%= form.label :child_4_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-    <%= form.date_field :child_4_birth_date, id: :client_child_4_birth_date, class: "w3-input w3-border" %>
-    <%= form.label :child_4_ssn, value: "Social Security Number", class: "form-label margin-sm" %>
-    <%= form.text_field :child_4_ssn, id: :client_child_4_ssn,  class: "w3-input w3-border" %>
-    <%= form.label :child_4_emancipation_date, value: "Date of Emancipation", class: "form-label margin-sm" %>
-    <%= form.date_field :child_4_emancipation_date, id: :client_child_4_emancipation_date,  class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <p>Child 5</p>
-    <%= form.label :child_5_first_name, value: "First", class: "form-label" %>
-    <%= form.text_field :child_5_first_name, id: :client_child_5_first_name, class: "w3-input w3-border" %>
-    <%= form.label :child_5_last_name, value: "Last", class: "form-label margin-sm" %>
-    <%= form.text_field :child_5_last_name, id: :client_child_5_last_name, class: "w3-input w3-border" %>
-    <%= form.label :child_5_birth_date, value: "Date of Birth", class: "form-label margin-sm" %>
-    <%= form.date_field :child_5_birth_date, id: :client_child_5_birth_date, class: "w3-input w3-border" %>
-    <%= form.label :child_5_ssn, value: "Social Security Number", class: "form-label margin-sm" %>
-    <%= form.text_field :child_5_ssn, id: :client_child_5_ssn,  class: "w3-input w3-border" %>
-    <%= form.label :child_5_emancipation_date, value: "Date of Emancipation", class: "form-label margin-sm" %>
-    <%= form.date_field :child_5_emancipation_date, id: :client_child_5_emancipation_date,  class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :children_living_with_you, value: "Does each child above live with you?" , class: "form-label" %>
-    <%= form.select :children_living_with_you, options_for_select(["Yes", "No"]), {}, { class:"w3-input w3-border", id: "countries"} %>
-  </div>
-  <div class="form-group">
-    <%= form.label :children_not_living_with_you_explanation, value: "If not, please explain", class: "form-label" %>
-    <%= form.text_area :children_not_living_with_you_explanation, id: :client_children_not_living_with_you_explanation, rows: 5, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group margin-md">
-    <h3 class="margin-md">Please select any additional services that you are interested in</h3>
-    <% if @client.interested_services %>
-      <% @client.interested_services.each do |symbol, value| %>
-        <% if value == "1" %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", checked: true, class: "w3-input w3-border" %></p>
-        <% else %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", checked: false, class: "w3-input w3-border" %></p>
+        <label class="margin-md">Briefly Explain the Details of any Additional Service(s) you Selected.</label>
+        <%= form.text_area :interested_services_details, id: :client_interested_services_details, rows: 5, class: "w3-input w3-border" %>
+        <label class="margin-md">Please select the document(s) you would like to generate</label>
+        <% if @client.interested_documents_to_generate %>
+            <% @client.interested_documents_to_generate.each do |symbol, value| %>
+              <% if value == "1" %>
+                <p>
+                  <%= form.check_box "interested_documents_to_generate[#{symbol}]", id: "client_interested_documents_to_generate[#{symbol}]", checked: true, class: "w3-input w3-border" %>
+                  <label for="client_interested_documents_to_generate[<%= symbol %>]"><%= symbol.humanize %></label>
+                </p>
+              <% else %>
+                <p>
+                  <%= form.check_box "interested_documents_to_generate[#{symbol}]", id: "client_interested_documents_to_generate[#{symbol}]", checked: false, class: "w3-input w3-border" %>
+                  <label for="client_interested_documents_to_generate[<%= symbol %>]"><%= symbol.humanize %></label>
+                </p>
+              <% end %>
+            <% end %>
+          <% else %>
+          <% interested_documents_to_generate.each do |option, symbol| %>
+            <p>
+              <%= form.check_box "interested_documents_to_generate[#{symbol}]", id: "client_interested_documents_to_generate[#{symbol}]", class: "w3-input w3-border" %>
+              <label for="client_interested_documents_to_generate[<%= symbol %>]"><%= symbol.humanize %></label>
+            </p>
+          <% end %>
         <% end %>
-      <% end %>
-    <% else %>
-      <% interested_services.each do |option, symbol| %>
-        <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_services[#{symbol}]", class: "w3-input w3-border" %></p>
-      <% end %>
-    <% end %>
+        <label class="margin-md">Liquidated Damages Amount</label>
+        <%= form.number_field :liquidated_damages_amount, id: :client_liquidated_damages_amount, required: true, class: "w3-input w3-border" %>
+        <label>Prejudgment Interest Amount</label>
+        <%= form.number_field :prejudgment_interest_amount, id: :client_prejudgment_interest_amount, required: true, class: "w3-input w3-border" %>
+        <label>Taxable Court Costs Amount</label>
+        <%= form.number_field :taxable_court_costs_amount, id: :client_taxable_court_costs_amount, required: true, class: "w3-input w3-border" %>
+        <label>First Class Mailing Receipt Number</label>
+        <%= form.text_field :first_class_mailing_receipt_number, id: :client_first_class_mailing_receipt_number, required: true, class: "w3-input w3-border" %>
+        <label>Certified Mailing Receipt Number</label>
+        <%= form.text_field :certified_mailing_receipt_number, id: :client_certified_mailing_receipt_number, required: true, class: "w3-input w3-border" %>
+        <label>Mailing Date</label>
+        <%= form.date_field :mailing_date, id: :client_mailing_date, required: true, class: "w3-input w3-border" %>
+    </div
   </div>
-  <div class="form-group margin-sm">
-    <%= form.label :interested_services_details, value: "Briefly explain the details of any additional service(s) you selected.", class: "form-label" %>
-    <%= form.text_area :interested_services_details, id: :client_interested_services_details, rows: 5, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group margin-md">
-    <h3>Please select the document(s) you would like to generate</h3>
-    <% if @client.interested_documents_to_generate %>
-      <% @client.interested_documents_to_generate.each do |symbol, value| %>
-        <% if value == "1" %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", checked: true, class: "w3-input w3-border" %></p>
-        <% else %>
-            <p><%= form.label symbol, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", checked: false, class: "w3-input w3-border" %></p>
-        <% end %>
-      <% end %>
-    <% else %>
-      <% interested_documents_to_generate.each do |option, symbol| %>
-        <p><%= form.label option, class: "form-label" %><%= form.check_box "interested_documents_to_generate[#{symbol}]", class: "w3-input w3-border" %></p>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group margin-sm">
-    <%= form.label :liquidated_damages_amount, class: "form-label" %>
-    <%= form.number_field :liquidated_damages_amount, id: :client_liquidated_damages_amount, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :prejudgment_interest_amount, class: "form-label" %>
-    <%= form.number_field :prejudgment_interest_amount, id: :client_prejudgment_interest_amount, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :taxable_court_costs_amount, class: "form-label" %>
-    <%= form.number_field :taxable_court_costs_amount, id: :client_taxable_court_costs_amount, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :first_class_mailing_receipt_number, value: "First Class Mailing Receipt #", class: "form-label" %>
-    <%= form.text_field :first_class_mailing_receipt_number, id: :client_first_class_mailing_receipt_number, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :certified_mailing_receipt_number, value: "Certified Mailing Receipt #", class: "form-label" %>
-    <%= form.text_field :certified_mailing_receipt_number, id: :client_certified_mailing_receipt_number, required: true, class: "w3-input w3-border" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :mailing_date, class: "form-label" %>
-    <%= form.date_field :mailing_date, id: :client_mailing_date, required: true, class: "w3-input w3-border" %>
-  </div>
+
 </div>

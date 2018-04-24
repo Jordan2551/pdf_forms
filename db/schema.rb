@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418042115) do
+ActiveRecord::Schema.define(version: 20180424032253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20180418042115) do
     t.string "work_phone_number"
     t.boolean "alimony_child_support_required"
     t.string "alimony_child_support_state"
-    t.integer "what_to_collect"
     t.decimal "how_much_money_owed"
     t.boolean "receiving_payments"
     t.boolean "receiving_public_assistance"
@@ -170,7 +169,8 @@ ActiveRecord::Schema.define(version: 20180418042115) do
     t.string "fips_code"
     t.boolean "remittance_identifier"
     t.string "employer_ein"
-    t.boolean "legal_description"
+    t.string "what_to_collect"
+    t.string "legal_description"
     t.index ["interested_documents_to_generate"], name: "index_clients_on_interested_documents_to_generate", using: :gin
     t.index ["interested_services"], name: "index_clients_on_interested_services", using: :gin
     t.index ["owes_money_papers"], name: "index_clients_on_owes_money_papers", using: :gin

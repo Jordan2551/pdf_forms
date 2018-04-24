@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("turbolinks:load", function(){
   $("#client_alimony_child_support_required").on("click", function(){
     if(this.checked){
       $("#alimony_fields").show();
@@ -29,11 +29,5 @@ $(document).ready(function(){
       }
   });
 
-  $("#client_receiving_public_assistance").on("click", function(){
-    if(this.checked)
-      $("#public_assistance_fields").show();
-    else
-      $("#public_assistance_fields").hide();
-  })
 
 });

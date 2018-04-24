@@ -1,9 +1,7 @@
 
-<div class="w3-container w3-card-4">
-   <%= form_with(model: @client, url: register_step_1_path, local: true, method: :post) do |form| %>
-      <%= render 'step_1', form: form, client: @client %>
-      <div class="w3-row-padding w3-field-padding">
-        <%= form.submit "Complete Step 1", class:"button margin-sm" %>
-      </div>
-   <% end %>
- </div>
+  <%= form_with(model: @client, url: register_step_1_path, local: true, method: :post) do |form| %>
+    <%= render 'step_1', form: form, client: @client %>
+    <div class="w3-container w3-card">
+      <%= form.submit "Complete Step 1", class:"button btn-block margin-sm" %>
+    </div>
+  <% end %>

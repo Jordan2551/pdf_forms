@@ -89,12 +89,11 @@ class ClientsController < ApplicationController
   end
 
   def register_step_4
-    debugger
     validate_registration_stage(3)
     @client = Client.find(session[:client_id])
     set_register_step_4
     if @client.save(context: :register_step_4)
-        flash[:msg] = "You have completed the application!"
+        flash[:msg] = "You have completed the application! Please be patient while we process your application."
         redirect_to home_path
     else
         flash[:step_4_errors] = @client.errors.full_messages
@@ -174,9 +173,11 @@ class ClientsController < ApplicationController
       @client.mailing_address = params[:client][:mailing_address]
       @client.mailing_city = params[:client][:mailing_city]
       @client.mailing_country = params[:client][:mailing_country]
+      @client.mailing_state = params[:client][:mailing_state]
       @client.mailing_county = params[:client][:mailing_county]
       @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
       @client.home_phone_number = params[:client][:home_phone_number]
+      @client.work_phone_number = params[:client][:work_phone_number]
       @client.what_to_collect = params[:client][:what_to_collect]
       @client.how_much_money_owed = params[:client][:how_much_money_owed]
       @client.alimony_child_support_state = params[:client][:alimony_child_support_state]

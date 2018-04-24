@@ -7,27 +7,33 @@
     </div>
   <% end %>
 
-  <div class="w3-row-padding">
-    <h2 class="section-title">Step 1 - Basic Information</h2>
-    <p class="section-sub-title margin-b-md">This is some basic information in order to get started.</p>
-    <div class="w3-third">
-      <label>First Name</label>
-      <%= form.text_field :first_name, id: :client_first_name, required: true, class: "w3-input w3-border" %>
+  <div class="w3-container w3-card-4">
+    <div class="w3-row-padding">
+      <h2 class="section-title">Step 1 - Basic Information</h2>
+      <p class="section-sub-title margin-b-md">This is some basic information in order to get started.</p>
+      <div class="w3-third">
+        <label>First Name</label>
+        <%= form.text_field :first_name, id: :client_first_name, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Middle Name</label>
+        <%= form.text_field :middle_name, id: :client_middle_name, required: true, class: "w3-input w3-border" %>
+      </div>
+      <div class="w3-third">
+        <label>Last Name</label>
+        <%= form.text_field :last_name, id: :client_last_name, required: true, class: "w3-input w3-border" %>
+      </div>
     </div>
-    <div class="w3-third">
-      <label>Middle Name</label>
-      <%= form.text_field :middle_name, id: :client_middle_name, required: true, class: "w3-input w3-border" %>
+    <div class="w3-row-padding w3-field-padding">
+      <label>Suffix</label>
+      <% if @client.suffix %>
+        <%= form.select :suffix, options_for_select(suffixes, @client.suffix), {}, { class: "w3-input w3-border"} %>
+      <% else %>
+        <%= form.select :suffix, options_for_select(suffixes), {}, { class: "w3-input w3-border"} %>
+      <% end %>
+      <label>Phone Number</label>
+      <%= form.text_field :phone_number, id: :client_phone_number, required: true, class: "w3-input w3-border" %>
+      <label>Email</label>
+      <%= form.text_field :email, id: :client_name, required: true, class: "w3-input w3-border" %>
     </div>
-    <div class="w3-third">
-      <label>Last Name</label>
-      <%= form.text_field :last_name, id: :client_last_name, required: true, class: "w3-input w3-border" %>
-    </div>
-  </div>
-  <div class="w3-row-padding w3-field-padding">
-    <label>Suffix</label>
-    <%= form.select :suffix, options_for_select(suffixes), {}, { class: "w3-input w3-border"} %>
-    <label>Phone Number</label>
-    <%= form.text_field :phone_number, id: :client_phone_number, required: true, class: "w3-input w3-border" %>
-    <label>Email</label>
-    <%= form.text_field :email, id: :client_name, required: true, class: "w3-input w3-border" %>
   </div>

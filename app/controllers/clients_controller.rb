@@ -166,7 +166,7 @@ class ClientsController < ApplicationController
     end
 
     def register_step_1_params
-      params.require(:client).permit(:first_name, :middle_name, :last_name, :suffix, :phone_number, :email)
+      params.require(:client).permit(:first_name, :middle_name, :last_name, :suffix, :birth_date, :phone_number, :email)
     end
 
     def set_register_step_2
@@ -190,7 +190,6 @@ class ClientsController < ApplicationController
     def set_register_step_4
       @client.alternate_contact_name = params[:client][:alternate_contact_name]
       @client.alternate_contact_phone_number = params[:client][:alternate_contact_phone_number]
-      @client.birth_date = params[:client][:birth_date]
       @client.owes_money_race = params[:client][:owes_money_race]
       @client.owes_money_first_name = params[:client][:owes_money_first_name]
       @client.owes_money_last_name = params[:client][:owes_money_last_name]
@@ -245,19 +244,19 @@ class ClientsController < ApplicationController
       @client.child_2_birth_date = params[:client][:child_2_birth_date]
       @client.child_2_ssn = params[:client][:child_2_ssn]
       @client.child_2_emancipation_date = params[:client][:child_2_emancipation_date]
-      @client.child_3_last_name = params[:client][:child_3_first_name]
+      @client.child_3_first_name = params[:client][:child_3_first_name]
       @client.child_3_last_name = params[:client][:child_3_last_name]
-      @client.child_3_last_name = params[:client][:child_3_birth_date]
+      @client.child_3_birth_date = params[:client][:child_3_birth_date]
       @client.child_3_ssn = params[:client][:child_3_ssn]
       @client.child_3_emancipation_date = params[:client][:child_3_emancipation_date]
-      @client.child_4_last_name = params[:client][:child_4_first_name]
+      @client.child_4_first_name = params[:client][:child_4_first_name]
       @client.child_4_last_name = params[:client][:child_4_last_name]
-      @client.child_4_last_name = params[:client][:child_4_birth_date]
+      @client.child_4_birth_date = params[:client][:child_4_birth_date]
       @client.child_4_ssn = params[:client][:child_4_ssn]
       @client.child_4_emancipation_date = params[:client][:child_4_emancipation_date]
-      @client.child_5_last_name = params[:client][:child_5_first_name]
+      @client.child_5_first_name = params[:client][:child_5_first_name]
       @client.child_5_last_name = params[:client][:child_5_last_name]
-      @client.child_5_last_name = params[:client][:child_5_birth_date]
+      @client.child_5_birth_date = params[:client][:child_5_birth_date]
       @client.child_5_ssn = params[:client][:child_5_ssn]
       @client.child_5_emancipation_date = params[:client][:child_5_emancipation_date]
       @client.mailing_city = params[:client][:mailing_city]

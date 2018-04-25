@@ -23,9 +23,63 @@
     font-size:17px !important;
   }
 
-  .navbar{
-    margin-top:-80px !important;
+  /*NAVBAR*/
+
+  .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color:#4c4f55 !important;
   }
+
+  .navbar-brand{
+    height:110px !important;
+    width:230px !important;
+  }
+
+  .navbar-default {
+    color: black !important;
+    border-bottom:#fefefe;
+    height:130px;
+    background-color: white;
+    font-size:20px !important;
+  }
+
+  .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color:black !important;
+    background-color:none;
+  }
+
+  .navbar-brand.navbar-link {
+    color:#fefefe;
+  }
+
+  .navbar-collapse{
+    width:100% !important;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-header{
+      height:60px;
+    }
+    .navbar-default .navbar-nav>li>a{
+      margin-top:0px;
+      text-align:left;
+      margin-left:20px;
+    }
+  }
+
+
+  @media (min-width: 768px) {
+    .navbar-header{
+      height:115px;
+    }
+    .navbar-default .navbar-nav>li>a{
+      margin-top:40px;
+      text-align:left;
+      margin-left:0px;
+    }
+  }
+
+  /*NAVBAR*/
+
 
   .form-label{
    font-size:15px;
@@ -93,10 +147,15 @@
   }
 
   a{
-    color:white !important;
+    color:#4c4f55 !important;
     text-decoration:none;
   }
-
+  a:hover{
+    color: #17874a !important;
+  }
+  ul{
+    font-size:17px;
+  }
   tr{
     font-size:17px;
   }

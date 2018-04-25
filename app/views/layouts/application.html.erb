@@ -15,20 +15,25 @@
   <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src="https://use.fontawesome.com/3df3601870.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 </head>
 <body>
-
   </script>
     <%= render partial: 'layouts/navigation' %>
-    <ul>
-      <% if flash[:errors] %>
-        <li class="error"><%= flash[:errors] %></li>
-      <% elsif flash[:success] %>
-        <li class="success"><%= flash[:success] %></li>
-      <% end %>
-    </ul>
+    <% if flash[:errors] %>
+      <div class="w3-panel w3-red">
+        <h3>Error!</h3>
+        <p><i class="fa fa-exclamation-cricle"></i>        <%= flash[:errors]%></p>
+      </div>
+    <% elsif flash[:success] %>
+    <div class="w3-panel w3-green">
+      <h3>Good Job!</h3>
+      <p><i class="fa fa-check-circle"></i>        <%= flash[:success]%></p>
+    </div>
+    <% end %>
     <%= yield %>
-  </div>
 </body>
 </html>

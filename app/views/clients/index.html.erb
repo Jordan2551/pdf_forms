@@ -1,21 +1,21 @@
 
-<h1 class="fancy-title">Clients</h1>
+<h1 class="fancy-title">Client Applications</h1>
 
 <div class="container-fluid table-responsive">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>id</th>
-        <th>Name</th>
+        <th>Id</th>
+        <th>Client Name</th>
         <th>Case Number</th>
         <th>Phone Number</th>
         <th>Email</th>
         <th>Date of Birth</th>
-        <th>Money Owed By</th>
-        <th>Money Owed Amount</th>
-        <th>Edit Application</th>
-        <th>Delete Application</th>
-        <th>Documents</th>
+        <th>Payor Name</th>
+        <th>Payor Owes Amount</th>
+        <th>Edit Client</th>
+        <th>Client Documents</th>
+        <th>Delete Client</th>
       </tr>
     </thead>
     <tbody>
@@ -30,12 +30,12 @@
           <td><%= "#{client.owes_money_first_name} #{client.owes_money_last_name}"%></td>
           <td><%= "$#{client.how_much_money_owed}" %></td>
           <td><a href="<%= edit_client_path(client) %>"><i class="fa fa-2x fa-edit" style="color:#2196F3"></i></a></td>
+          <td><a href="<%= client_pdfs_path(client_id: client.id) %>"><i class="fa fa-2x fa-file" style="color:#3F51B5"></i></a></td>
           <td>
             <%= link_to client, method: :delete, data: { confirm: 'Are you sure you want to delete the application?' }, remote: true do %>
               <i class="fa fa-2x fa-trash" style="color:#F44336"></i>
             <% end %>
           </td>
-          <td><a href="<%= client_pdfs_path(client_id: client.id) %>"><i class="fa fa-2x fa-file" style="color:#3F51B5"></i></a></td>
         </tr>
       <% end %>
     </tbody>

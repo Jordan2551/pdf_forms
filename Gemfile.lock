@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/affinipay/chargeio-gem
+  revision: 487d545f2690486dac0c92ae3c9646862db512db
+  specs:
+    chargeio (1.1.2)
+      activesupport
+      httparty
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -86,6 +94,8 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashery (2.1.2)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -116,6 +126,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -237,6 +248,7 @@ DEPENDENCIES
   bootstrap-will_paginate (~> 0.0.10)
   byebug
   capybara (~> 2.13)
+  chargeio!
   coffee-rails (~> 4.2)
   devise
   devise-bootstrap-views

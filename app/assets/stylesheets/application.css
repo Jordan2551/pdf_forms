@@ -188,6 +188,10 @@
     margin-top:50px;
   }
 
+  .margin-xl{
+    margin-top:95px;
+  }
+
   .margin-b-sm{
     margin-bottom:20px;
   }
@@ -198,6 +202,10 @@
 
   .margin-b-lg{
     margin-bottom:50px;
+  }
+
+  .margin-b-xl{
+    margin-bottom:95px;
   }
 
   input[type=text]{

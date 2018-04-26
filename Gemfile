@@ -29,11 +29,13 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 gem 'devise'
 
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'devise-bootstrap-views'
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

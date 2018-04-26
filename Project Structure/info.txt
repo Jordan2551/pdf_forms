@@ -10,4 +10,8 @@ Heroku
 omri@rossertdigital.com
 Omri@123!
 
+production admin
+admin@supportsolutions.com
+h!yttq!/@%^?
 
+The payment module needs to point to http://localhost to run locally

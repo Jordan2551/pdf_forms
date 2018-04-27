@@ -26,5 +26,8 @@
 /config/secrets.yml
 config/secrets.yml
 
+# Ignore project structure
+project_structure
+
 # Ignore encrypted secrets key file.
 config/secrets.yml.key

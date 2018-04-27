@@ -43,10 +43,6 @@ class ClientsController < ApplicationController
   #Client registration
 
   def step_1
-    # @ap_key = Rails.application.secrets.ap_key
-    # @ap_account_id = Rails.application.secrets.ap_account_id
-    @ap_key = ENV["AP_KEY"]
-    @ap_account_id = ENV["AP_ACCOUNT_ID"]
     @client = Client.new
   end
 

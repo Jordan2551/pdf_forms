@@ -29,6 +29,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 gem 'devise'
 
+gem "attr_encrypted", "~> 3.0.0"
+
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 
 gem 'twitter-bootstrap-rails'

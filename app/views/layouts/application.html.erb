@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/x-icon" href="<%= image_tag 'logo.png' %>">
-  <meta name="author" content="">
-  <title>Application - Support Solutions</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
-  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <script src="https://use.fontawesome.com/3df3601870.js"></script>
-
-</head>
-<body>
-  </script>
-    <%= render partial: 'layouts/navigation' %>
-    <% if flash[:errors] %>
-      <div class="w3-panel w3-red">
-        <h3>Error!</h3>
-        <p><i class="fa fa-exclamation-cricle"></i>        <%= flash[:errors]%></p>
+  <head>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="<%= image_tag 'logo.png' %>">
+    <title>Application - Support Solutions</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://use.fontawesome.com/3df3601870.js"></script>
+  </head>
+  <body>
+      <%= render partial: 'layouts/navigation' %>
+      <% if flash[:errors] %>
+        <div class="w3-panel w3-red">
+          <h3>Error!</h3>
+          <p><i class="fa fa-exclamation-cricle"></i>        <%= flash[:errors]%></p>
+        </div>
+      <% elsif flash[:success] %>
+      <div class="w3-panel w3-green">
+        <h3>Good Job!</h3>
+        <p><i class="fa fa-check-circle"></i>        <%= flash[:success]%></p>
       </div>
-    <% elsif flash[:success] %>
-    <div class="w3-panel w3-green">
-      <h3>Good Job!</h3>
-      <p><i class="fa fa-check-circle"></i>        <%= flash[:success]%></p>
-    </div>
-    <% end %>
-    <%= yield %>
-</body>
+      <% end %>
+      <%= yield %>
+  </body>
 </html>

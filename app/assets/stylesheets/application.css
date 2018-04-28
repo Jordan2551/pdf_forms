@@ -80,7 +80,6 @@
 
   /*NAVBAR*/
 
-
   .form-label{
    font-size:15px;
    color:black;
@@ -130,6 +129,11 @@
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+  }
+
+  a.button:link, a.button:hover, a.button:hover:link, a.button:visited{
+    background: #17874a !important;
+    color:white !important;
   }
 
   .button .button2, a:hover{

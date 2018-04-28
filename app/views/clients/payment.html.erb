@@ -197,7 +197,7 @@
              var amount = parseInt($('#total').text().replace(/\D/g,''));
              var paymentJson = ChargeIO.payment_params($('form'));
              ChargeIO.create_token(paymentJson, function(token) {
-               $.post('https://support-solutions.herokuapp.com/payment/pay', { 'amount': amount, 'token_id': token.id }).done(function(data) {
+               $.post('https://application.owedsupport.com/payment/pay', { 'amount': amount, 'token_id': token.id }).done(function(data) {
                  if (data.messages) {
                  }
                  else {

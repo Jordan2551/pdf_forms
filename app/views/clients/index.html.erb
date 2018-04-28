@@ -1,4 +1,11 @@
 
+<% if flash[:errors] %>
+  <div class="w3-panel w3-red">
+    <h3>Error!</h3>
+      <p><i class="fa fa-exclamation-circle"></i>         <%= flash[:errors] %></</p>
+  </div>
+<% end %>
+
 <h1 class="fancy-title">Client Applications</h1>
 
 <div class="container-fluid table-responsive">

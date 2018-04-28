@@ -1,14 +1,5 @@
 class Client < ApplicationRecord
 
-  # store_accessor :owes_money_papers, :financial_affidavit
-  # store_accessor :owes_money_papers, :loan_application
-  # store_accessor :owes_money_papers, :tax_returns
-  # store_accessor :owes_money_papers, :bank_statements_or_records
-  # store_accessor :owes_money_papers, :investment_account_statements_or_records
-  # store_accessor :owes_money_papers, :business_related_documents
-  # store_accessor :owes_money_papers, :documents_for_cars_boats_motorcycles_or_other_titled_assets
-  # store_accessor :owes_money_papers, :all_other_documents_related_to_income_money_or_assets
-
   #Step 1
   validates :first_name, presence: true, on: :register_step_1
   validates :middle_name, presence: true, on: :register_step_1

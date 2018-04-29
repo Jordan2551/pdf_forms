@@ -303,6 +303,12 @@
     }
   }
 
+  .notice-p{
+    font-size:14px !important;
+    color: grey;
+    text-align: left;
+  }
+
   .w3-container{
     padding:40px !important;
   }

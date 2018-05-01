@@ -12,7 +12,6 @@ class PdfsController < ApplicationController
     pdf = Pdf.create_pdf(pdf_id, client, settings)
 
     disposition = false
-
     if inline == "true"
       disposition = "inline"
     end
@@ -20,7 +19,7 @@ class PdfsController < ApplicationController
     respond_to do |format|
       format.pdf do
           send_data pdf.render,
-          filename: pdf.get_file_name,
+          filename: Pdf.get_pdf_file_name(Pdf::PDFS.keys[pdf_id.to_i], client),
           disposition: disposition
         end
       end

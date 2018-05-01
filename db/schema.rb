@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424032253) do
+ActiveRecord::Schema.define(version: 20180501184340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(version: 20180424032253) do
     t.date "child_4_emancipation_date"
     t.string "child_5_ssn"
     t.date "child_5_emancipation_date"
-    t.boolean "dissolution_of_marriage"
     t.string "circuit"
     t.string "division"
     t.string "judge_name"
@@ -171,6 +170,7 @@ ActiveRecord::Schema.define(version: 20180424032253) do
     t.string "employer_ein"
     t.string "what_to_collect"
     t.string "legal_description"
+    t.date "dissolution_of_marriage"
     t.index ["interested_documents_to_generate"], name: "index_clients_on_interested_documents_to_generate", using: :gin
     t.index ["interested_services"], name: "index_clients_on_interested_services", using: :gin
     t.index ["owes_money_papers"], name: "index_clients_on_owes_money_papers", using: :gin

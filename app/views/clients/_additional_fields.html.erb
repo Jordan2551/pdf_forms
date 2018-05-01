@@ -2,10 +2,9 @@
 <div class="w3-container w3-card-4">
   <div class="w3-row w3-field-padding">
     <h2 class="section-title">Additional Fields</h2>
-    <p>
-      <%= form.check_box :dissolution_of_marriage, id: :client_dissolution_of_marriage, class: "w3-input w3-border" %>
-      <label for="client_dissolution_of_marriage">Dissolution of Marriage?</label>
-    </p>
+    <label>Dissolution of Marriage</label>
+    <%= form.date_field :dissolution_of_marriage, id: :dissolution_of_marriage, class: "w3-input w3-border" %>
+    <label>Division</label>
     <label>Circuit</label>
     <%= form.text_field :circuit, id: :circuit, class: "w3-input w3-border" %>
     <label>Division</label>

@@ -41,8 +41,4 @@ class TestPdf < Prawn::Document
 
   end
 
-  def get_file_name()
-    return "#{PDF_NAME}#{@client.id}.pdf"
-  end
-
 end

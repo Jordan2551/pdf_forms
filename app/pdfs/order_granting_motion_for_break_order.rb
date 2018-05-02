@@ -1,4 +1,4 @@
-class OrderGrantingExParteMnForWritOfExecution < Prawn::Document
+class OrderGrantingMotionForBreakOrder < Prawn::Document
 
   PDF_NAME = "Order Granting Motion for Break Order"
 

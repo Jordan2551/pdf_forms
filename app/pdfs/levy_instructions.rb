@@ -21,17 +21,6 @@ class LevyInstructions < Prawn::Document
       self.text_box(@settings.county_name, at:[153, 447], style: :bold)
       self.text_box(@client.court_order_county, at:[417, 391], style: :bold)
       self.draw_text("#{@client.owes_money_first_name} #{@client.owes_money_last_name}", at:[290,357], style: :bold)
-
-
-
-      #
-      # self.text_box(@client.dissolution_of_marriage.to_s, at:[189, 225], style: :bold)
-      # self.text_box(@client.monthly_cs_bi_monthly_amount.to_s, at:[433, 225], style: :bold)
-      # self.text_box(@client.monthly_cs_date_of_last_child_support_payment.to_s, at:[340, 205], style: :bold)
-      # self.text_box(@client.monthly_cs_averages_owed_as_of.to_s, at:[437, 205], style: :bold)
-      # self.text_box(@client.monthly_cs_number_of_months_delinquent_child_support.to_s, at:[127, 184], style: :bold)
-      # self.text_box((@client.monthly_cs_number_of_months_delinquent_child_support * @client.monthly_cs_bi_monthly_amount).to_s, at:[167, 163], style: :bold)
-      # self.text_box(Date.today.to_s, at:[145, 122], style: :bold)
     rescue
   end
 

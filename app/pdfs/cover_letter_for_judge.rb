@@ -13,9 +13,6 @@ class CoverLetterForJudge < Prawn::Document
     @settings = settings
 
     begin
-
-      # self.text_box("#{@client.first_name} #{@client.last_name}", at:[58, 557], style: :bold)
-      # self.draw_text("#{@client.owes_money_first_name} #{@client.owes_money_last_name}", at:[58,467], style: :bold)
       self.text_box(@client.judge_name, at:[111, 518], style: :bold)
       self.text_box(@client.judge_courtroom, at:[225, 503], style: :bold)
       self.text_box(@client.case_number, at:[329, 435], style: :bold)

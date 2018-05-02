@@ -14,7 +14,7 @@ class RequestToClerkOfCtToSendNotice < Prawn::Document
 
     begin
       self.text_box(@settings.jc_number, at:[282, 681], style: :bold)
-      self.text_box(@client.court_order_county, at:[197, 661], style: :bold)
+      self.text_box(@settings.county_name, at:[197, 661], style: :bold)
       self.text_box(@client.case_number, at:[408, 640], style: :bold)
       self.draw_text("#{@client.first_name} #{@client.last_name}", at:[56,570], style: :bold)
       self.draw_text("#{@client.owes_money_first_name} #{@client.owes_money_last_name}", at:[56,509], style: :bold)

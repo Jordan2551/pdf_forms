@@ -7,8 +7,14 @@ class Pdf
   PDF_COVER_LETTER_FOR_JUDGE = "1"
   NOTICE_OF_INTENT_TO_SUSPEND_DRIVERS_LICENSE_TO_OTHER_PARTY = "2"
   REQUEST_TO_CLERK_OF_CT_TO_SEND_NOTICE = "3"
+  LEVY_INSTRUCTIONS = "4"
+  ORDER_GRANTING_MOTION_FOR_BREAK_ORDER = "5"
+  ORDER_GRANTING_EX_PARTE_MN_FOR_WRIT_OF_EXECUTION = "6"
 
-  PDFS = {"Income Deduction and Wage Garnishment Judge Cover Letter" =>  PDF_INCOME_DEDUCTION_AND_WAGE_GARNISHMENT_JUDGE_COVER_LETTER, "Cover Letter for Judge" => PDF_COVER_LETTER_FOR_JUDGE, "Notice of Intent to Suspend Driver's License to other Party" => NOTICE_OF_INTENT_TO_SUSPEND_DRIVERS_LICENSE_TO_OTHER_PARTY, "Request to Clerk of ct to Send Notice" => REQUEST_TO_CLERK_OF_CT_TO_SEND_NOTICE}
+  PDFS = {"Income Deduction and Wage Garnishment Judge Cover Letter" =>  PDF_INCOME_DEDUCTION_AND_WAGE_GARNISHMENT_JUDGE_COVER_LETTER, "Cover Letter for Judge" => PDF_COVER_LETTER_FOR_JUDGE,
+    "Notice of Intent to Suspend Driver's License to other Party" => NOTICE_OF_INTENT_TO_SUSPEND_DRIVERS_LICENSE_TO_OTHER_PARTY,
+    "Request to Clerk of ct to Send Notice" => REQUEST_TO_CLERK_OF_CT_TO_SEND_NOTICE, "Levy Instructions --WIP--" => LEVY_INSTRUCTIONS,
+    "Order Granting Motion for Break Order" => ORDER_GRANTING_MOTION_FOR_BREAK_ORDER, "Order Granting Ex Parte Mn for Writ of Execution" => ORDER_GRANTING_EX_PARTE_MN_FOR_WRIT_OF_EXECUTION}
 
   def self.create_pdf(pdf_id, client, settings)
     if pdf_id == PDF_INCOME_DEDUCTION_AND_WAGE_GARNISHMENT_JUDGE_COVER_LETTER
@@ -19,6 +25,12 @@ class Pdf
       return NoticeOfIntentToSuspendDriversLicenseToOtherParty.new(client, settings)
     elsif pdf_id == REQUEST_TO_CLERK_OF_CT_TO_SEND_NOTICE
       return RequestToClerkOfCtToSendNotice.new(client, settings)
+    elsif pdf_id == LEVY_INSTRUCTIONS
+      return LevyInstructions.new(client, settings)
+    elsif pdf_id == ORDER_GRANTING_MOTION_FOR_BREAK_ORDER
+      return OrderGrantingMotionForBreakOrder.new(client, settings)
+    elsif pdf_id == ORDER_GRANTING_EX_PARTE_MN_FOR_WRIT_OF_EXECUTION
+      return OrderGrantingExParteMnForWritOfExecution.new(client, settings)
     end
   end
 

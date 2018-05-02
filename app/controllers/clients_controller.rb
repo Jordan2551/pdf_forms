@@ -304,7 +304,7 @@ class ClientsController < ApplicationController
       :monthly_alimony_cs_averages_owed, :monthly_alimony_bi_monthly_amount, :monthly_alimony_weekly_amount, :monthly_alimony_number_of_months_delinquent_child_support,
       :monthly_alimony_date_of_last_child_support_payment, :monthly_alimony_amount_of_last_child_support_payment, :monthly_alimony_averages_owed_as_of, :monthly_alimony_averages_owed,
       :monthly_alimony_cs_averages_owed_as_of, :monthly_alimony_cs_averages_owed, :attorney_fees_owed_amount, :written_settlement_agreement_date_signed, :prevailing_party_clause,
-      :written_parenting_plan_date_signed, :income_withholding_order_date_signed, :central_depository_address, :fips_code, :remittance_identifier, :employer_ein, :judge_phone_number)
+      :written_parenting_plan_date_signed, :income_withholding_order_date_signed, :central_depository_address, :fips_code, :remittance_identifier, :employer_ein, :judge_phone_number, :vin)
     end
 
 end

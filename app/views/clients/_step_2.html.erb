@@ -71,6 +71,8 @@
       </div>
     </div>
     <div class="w3-row-padding w3-field-padding">
+      <label>Birth Date</label>
+      <%= form.date_field :birth_date, id: :client_birth_date, required: true, class: "w3-input w3-border" %>
       <label>What would you like us to collect for you?</label>
       <% if @client.what_to_collect %>
         <%= form.select :what_to_collect, options_for_select(["Alimony", "Child Support", "Alimony & Child Support"], @client.what_to_collect), {}, { class:"w3-input w3-border"} %>

@@ -31,8 +31,6 @@
       <% else %>
         <%= form.select :suffix, options_for_select(suffixes), {}, { class: "w3-input w3-border"} %>
       <% end %>
-      <label>Birth Date</label>
-      <%= form.date_field :birth_date, id: :client_birth_date, required: true, class: "w3-input w3-border" %>
       <label>Phone Number</label>
       <%= form.text_field :phone_number, id: :client_phone_number, required: true, class: "w3-input w3-border" %>
       <label>Email</label>

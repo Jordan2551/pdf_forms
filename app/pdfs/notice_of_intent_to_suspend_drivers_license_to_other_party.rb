@@ -13,6 +13,7 @@ class NoticeOfIntentToSuspendDriversLicenseToOtherParty < Prawn::Document
     @settings = settings
 
     begin
+      self.text_box(Date.today.to_s, at:[55, 518], style: :bold)
       self.draw_text("#{@client.owes_money_first_name} #{@client.owes_money_last_name}", at:[125,482], style: :bold)
       self.draw_text("#{@client.owes_money_address}, #{@client.owes_money_city}, #{@client.owes_money_state}", at:[104,455], style: :bold)
       self.text_box(@client.case_number, at:[345, 379], style: :bold)

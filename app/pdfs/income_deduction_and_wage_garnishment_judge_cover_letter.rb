@@ -13,6 +13,7 @@ class IncomeDeductionAndWageGarnishmentJudgeCoverLetter < Prawn::Document
     @settings = settings
 
     begin
+      self.text_box(Date.today.to_s, at:[38, 545], style: :bold)
       self.text_box(@client.judge_name, at:[111, 517], style: :bold)
       self.text_box(@client.judge_courtroom, at:[225, 503], style: :bold)
       self.text_box(@client.case_number, at:[328, 434], style: :bold)

@@ -166,7 +166,7 @@ class ClientsController < ApplicationController
     end
 
     def register_step_1_params
-      params.require(:client).permit(:first_name, :middle_name, :last_name, :suffix, :birth_date, :phone_number, :email)
+      params.require(:client).permit(:first_name, :middle_name, :last_name, :suffix, :phone_number, :email)
     end
 
     def set_register_step_2
@@ -175,6 +175,7 @@ class ClientsController < ApplicationController
       @client.mailing_country = params[:client][:mailing_country]
       @client.mailing_state = params[:client][:mailing_state]
       @client.mailing_county = params[:client][:mailing_county]
+      @client.birth_date = params[:client][:birth_date]
       @client.alimony_child_support_required = params[:client][:alimony_child_support_required]
       @client.home_phone_number = params[:client][:home_phone_number]
       @client.work_phone_number = params[:client][:work_phone_number]

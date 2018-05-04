@@ -13,6 +13,7 @@ class CoverLetterForJudge < Prawn::Document
     @settings = settings
 
     begin
+      self.text_box(Date.today.to_s, at:[38, 545], style: :bold)
       self.text_box(@client.judge_name, at:[111, 518], style: :bold)
       self.text_box(@client.judge_courtroom, at:[225, 503], style: :bold)
       self.text_box(@client.case_number, at:[329, 435], style: :bold)

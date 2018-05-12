@@ -16,6 +16,9 @@ class Pdf
   NOTICE_OF_FILING_CERT_MAIL_RECEIPT = "10"
   MOTOR_VEHICLE_REGISTRATION_JUDGE_COVER_LETTER = "11"
   MOTOR_VEHICLE_REGISTRATION_NOTICE_OF_INTENT_TO_OTHER_PARTY = "12"
+  MOTOR_VEHICLE_REGISTRATION_REQUEST_CLERK_OF_COURT = "13"
+  MOTOR_VEHICLE_REGISTRATION_SUSPENSION_PROPOSED_ORDER = "14"
+  COVER_LETTER_TO_JUDGE_PROFESSIONAL_LICENSE = "15"
 
   PDFS = {"Income Deduction and Wage Garnishment Judge Cover Letter" =>  PDF_INCOME_DEDUCTION_AND_WAGE_GARNISHMENT_JUDGE_COVER_LETTER, "Cover Letter for Judge" => PDF_COVER_LETTER_FOR_JUDGE,
     "Notice of Intent to Suspend Driver's License to other Party" => NOTICE_OF_INTENT_TO_SUSPEND_DRIVERS_LICENSE_TO_OTHER_PARTY,
@@ -23,7 +26,9 @@ class Pdf
     "Order Granting Motion for Break Order" => ORDER_GRANTING_MOTION_FOR_BREAK_ORDER, "Order Granting Ex Parte Mn for Writ of Execution" => ORDER_GRANTING_EX_PARTE_MN_FOR_WRIT_OF_EXECUTION,
     "Notice of Filing Answer of Garnishee" => NOTICE_OF_FILING_ANSWER_OF_GARNISHEE,
     "Notice of Right Against Garnishment" => NOTICE_OF_RIGHT_AGAINST_GARNISHMENT, "Motion for Income Deduction Order" => MOTION_FOR_INCOME_DEDUCTION_ORDER, "Notice of Filing Cert Mail Receipt" => NOTICE_OF_FILING_CERT_MAIL_RECEIPT,
-    "Motor Vehicle Registration Judge Cover Letter" => MOTOR_VEHICLE_REGISTRATION_JUDGE_COVER_LETTER, "Motor Vehicle Registration Notice of Intent to Other Party" => MOTOR_VEHICLE_REGISTRATION_NOTICE_OF_INTENT_TO_OTHER_PARTY}
+    "Motor Vehicle Registration Judge Cover Letter" => MOTOR_VEHICLE_REGISTRATION_JUDGE_COVER_LETTER, "Motor Vehicle Registration Notice of Intent to Other Party" => MOTOR_VEHICLE_REGISTRATION_NOTICE_OF_INTENT_TO_OTHER_PARTY,
+    "Motor Vehicle Registration Request Clerk of Court" => MOTOR_VEHICLE_REGISTRATION_REQUEST_CLERK_OF_COURT, "Motor Vehicle Registration Suspension Proposed Order" => MOTOR_VEHICLE_REGISTRATION_SUSPENSION_PROPOSED_ORDER,
+    "Cover Letter to Judge Professional License" => COVER_LETTER_TO_JUDGE_PROFESSIONAL_LICENSE}
 
   def self.create_pdf(pdf_id, client, settings)
     if pdf_id == PDF_INCOME_DEDUCTION_AND_WAGE_GARNISHMENT_JUDGE_COVER_LETTER
@@ -52,6 +57,12 @@ class Pdf
       return MotorVehicleRegistrationJudgeCoverLetter.new(client, settings)
     elsif pdf_id == MOTOR_VEHICLE_REGISTRATION_NOTICE_OF_INTENT_TO_OTHER_PARTY
       return MotorVehicleRegistrationNoticeOfIntentToOtherParty.new(client, settings)
+    elsif pdf_id == MOTOR_VEHICLE_REGISTRATION_REQUEST_CLERK_OF_COURT
+      return MotorVehicleRegistrationRequestClerkOfCourt.new(client, settings)
+    elsif pdf_id == MOTOR_VEHICLE_REGISTRATION_SUSPENSION_PROPOSED_ORDER
+      return MotorVehicleRegistrationSuspensionProposedOrder.new(client, settings)
+    elsif pdf_id == COVER_LETTER_TO_JUDGE_PROFESSIONAL_LICENSE
+      return CoverLetterToJudgeProfessionalLicense.new(client, settings)
     end
   end
 

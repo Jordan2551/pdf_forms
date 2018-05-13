@@ -12,6 +12,4 @@ class ApplicationController < ActionController::Base
   helper_method :countries
   helper_method :suffixes
   helper_method :provinces
-
-
 end

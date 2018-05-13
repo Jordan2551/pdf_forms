@@ -19,7 +19,6 @@ class MotorVehicleRegistrationSuspensionProposedOrder < Prawn::Document
       self.draw_text("#{@client.first_name} #{@client.last_name}", at:[56,570], style: :bold)
       self.draw_text("#{@client.owes_money_first_name} #{@client.owes_money_last_name}", at:[56,508], style: :bold)
       self.draw_text("#{@client.first_name} #{@client.last_name}", at:[56,410], style: :bold)
-      self.text_box(@client.court_order_county, at:[294, 288])
       self.draw_text("#{@client.owes_money_first_name} #{@client.owes_money_last_name}", at:[179,224], style: :bold)
       self.text_box("What is this?", at:[125, 211], style: :bold)
       self.text_box("What is this?", at:[240, 211], style: :bold)

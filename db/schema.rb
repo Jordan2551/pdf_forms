@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502134136) do
+ActiveRecord::Schema.define(version: 20180513195837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,9 +81,6 @@ ActiveRecord::Schema.define(version: 20180502134136) do
     t.date "mailing_date"
     t.string "account_number"
     t.date "filing_date"
-    t.hstore "owes_money_papers"
-    t.hstore "interested_services"
-    t.hstore "interested_documents_to_generate"
     t.string "suffix"
     t.string "child_1_first_name"
     t.string "child_1_last_name"
@@ -172,9 +169,20 @@ ActiveRecord::Schema.define(version: 20180502134136) do
     t.string "legal_description"
     t.date "dissolution_of_marriage"
     t.string "vin"
+    t.hstore "owes_money_papers"
+    t.hstore "interested_services"
+    t.hstore "interested_documents_to_generate"
     t.index ["interested_documents_to_generate"], name: "index_clients_on_interested_documents_to_generate", using: :gin
     t.index ["interested_services"], name: "index_clients_on_interested_services", using: :gin
     t.index ["owes_money_papers"], name: "index_clients_on_owes_money_papers", using: :gin
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.hstore "color"
+    t.index ["color"], name: "index_people_on_color", using: :gin
   end
 
   create_table "settings", force: :cascade do |t|

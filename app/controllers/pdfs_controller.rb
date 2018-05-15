@@ -54,7 +54,7 @@ class PdfsController < ApplicationController
   end
 
   def generate_zip(client)
-    filename = "tmp/generated-pdfs/#{get_zip_folder_name(client)}"
+    filename = "#{Rails.root}/tmp/generated-pdfs/#{get_zip_folder_name(client)}"
     temp_file = Tempfile.new(filename)
     input_filenames = Dir.entries("#{Rails.root}/tmp/generated-pdfs/").select {|f| !File.directory? f}
     folder = "#{Rails.root}/tmp/generated-pdfs/"

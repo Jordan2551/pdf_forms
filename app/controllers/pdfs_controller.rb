@@ -26,7 +26,7 @@ class PdfsController < ApplicationController
       for i in 0..Pdf.get_pdf_file_count do
         pdf = Pdf.create_pdf(i.to_s, @client, @settings)
         pdf_file_name = Pdf.get_pdf_file_name(Pdf::PDFS.keys[i], @client)
-        pdf.render_file("#{Rails.root}/tmp/generated-pdfs/#{pdf_file_name}")
+        pdf.render_file("#{Rails.root}/app/assets/generated-pdfs/#{pdf_file_name}")
       end
       generate_zip(@client)
   end
@@ -54,10 +54,10 @@ class PdfsController < ApplicationController
   end
 
   def generate_zip(client)
-    filename = "#{Rails.root}/tmp/generated-pdfs/#{get_zip_folder_name(client)}"
+    filename = "#{Rails.root}/app/assests/generated-pdfs/#{get_zip_folder_name(client)}"
     temp_file = Tempfile.new(filename)
-    input_filenames = Dir.entries("#{Rails.root}/tmp/generated-pdfs/").select {|f| !File.directory? f}
-    folder = "#{Rails.root}/tmp/generated-pdfs/"
+    input_filenames = Dir.entries("#{Rails.root}/app/assets/generated-pdfs/").select {|f| !File.directory? f}
+    folder = "#{Rails.root}/app/assets/generated-pdfs/"
 
     begin
       #This is the tricky part
@@ -82,7 +82,7 @@ class PdfsController < ApplicationController
       #Close and delete the temp file
       temp_file.close
       temp_file.unlink
-      FileUtils.rm_rf(Dir.glob("#{Rails.root}/tmp/generated-pdfs/*"))
+      FileUtils.rm_rf(Dir.glob("#{Rails.root}/app/assets/generated-pdfs/*"))
     end
   end
 

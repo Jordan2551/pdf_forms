@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :clients do
     resources :pdfs
     post '/pdfs/:pdf_id/:inline', to:'pdfs#create', as: "create_pdf"
+    post '/pdfs/create_all', to:'pdfs#create_all', as: "create_all_pdfs"
   end
 
   patch '/clients/ua/:user_id', to:'clients#update_admin', as: "update_admin"

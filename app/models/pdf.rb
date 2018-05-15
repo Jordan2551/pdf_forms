@@ -2,6 +2,11 @@ class Pdf
 
   PDF_FONT_SIZE = 10
   PDF_FONT_SIZE_SMALLER = 8
+  @@PDF_FILE_COUNT = 18
+
+  def self.get_pdf_file_count
+    @@PDF_FILE_COUNT
+  end
 
   PDF_INCOME_DEDUCTION_AND_WAGE_GARNISHMENT_JUDGE_COVER_LETTER = "0"
   PDF_COVER_LETTER_FOR_JUDGE = "1"
@@ -74,10 +79,6 @@ class Pdf
     elsif pdf_id == PROPOSED_ORDER_SUSPENDING_PROFESSIONAL_LICENSE
       return ProposedOrderSuspendingProfessionalLicense.new(client, settings)
     end
-  end
-
-  #Creates all possible pdf files for the client
-  def self.create_pdfs
   end
 
   def self.get_pdf_file_name(pdf_name, client)

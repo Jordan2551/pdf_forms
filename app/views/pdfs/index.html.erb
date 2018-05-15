@@ -1,5 +1,9 @@
 
-<h1 class="fancy-title"><%= "#{@client.first_name} #{@client.last_name}'s Documents"  %></h1>
+<h1 class="fancy-title"><%= "#{@client.first_name} #{@client.last_name}'s Documents"  %>
+  <%= link_to client_create_all_pdfs_path(client_id:@client.id, format: "pdf"),title: "Quickly download all of the client's signed documents into a folder.", method: :post do %>
+    <i class="fa fa-bolt" aria-hidden="true" style="color:#ffc107"></i>
+  <% end %>
+</h1>
 <p class="notice-p margin-b-md"><i class="fa fa-flag"></i>          Please note that uncompleted applications may display unfilled pdfs</p>
 <div class="container table-responsive">
   <table class="table table-hover">
@@ -15,12 +19,12 @@
         <tr>
           <td><%= key %></td>
           <td>
-            <%= link_to client_create_pdf_path(client_id:@client.id, pdf_id:value, inline: :true, format: "pdf"), method: :post do %>
+            <%= link_to client_create_pdf_path(client_id:@client.id, pdf_id:value, inline: :true, format: "pdf"), title: "Display the client's document within the browser window.", method: :post do %>
             <i class="fa fa-2x fa-eye" aria-hidden="true" style="color:#3F51B5"></i>
             <% end %>
           </td>
           <td>
-            <%= link_to client_create_pdf_path(client_id:@client.id, pdf_id:value, inline: :false, format: "pdf"), method: :post do %>
+            <%= link_to client_create_pdf_path(client_id:@client.id, pdf_id:value, inline: :false, format: "pdf"), title: "Download the client's document to your computer.", method: :post do %>
               <i class="fa fa-2x fa-file-pdf-o" aria-hidden="true" style="color:#F44336"></i>
             <% end %>
           </td>

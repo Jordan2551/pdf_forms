@@ -25,6 +25,8 @@ gem 'prawn'
 
 gem 'prawn-templates', '~> 0.0.4'
 
+gem 'rubyzip', '~> 1.2'
+
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 gem 'devise'

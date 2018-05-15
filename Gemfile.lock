@@ -260,6 +260,7 @@ DEPENDENCIES
   prawn-templates (~> 0.0.4)
   puma (~> 3.7)
   rails (~> 5.1.4)
+  rubyzip (~> 1.2)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

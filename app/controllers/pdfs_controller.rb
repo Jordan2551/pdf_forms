@@ -1,4 +1,4 @@
-class PdfsController < ApplicationController
+uclass PdfsController < ApplicationController
   require 'zip'
   before_action :create_common, only: [:create, :create_all]
 

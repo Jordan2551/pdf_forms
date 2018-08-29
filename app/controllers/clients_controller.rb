@@ -63,7 +63,7 @@ class ClientsController < ApplicationController
         flash[:step_1_success] = "You have successfully completed step 1"
         #Send register step 1 email
         RegisterMailer.register_step_1_email(@client, "david@owedsupport.com").deliver_later
-        RegisterMailer.register_step_1_email(@client, "jordan1158@gmail.com").deliver_later
+        RegisterMailer.register_step_1_email(@client, "lawrence@owedsupport.com").deliver_later
         render step_2_path
       else
         flash[:step_1_errors] = @client.errors.full_messages

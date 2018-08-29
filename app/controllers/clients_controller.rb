@@ -62,7 +62,7 @@ class ClientsController < ApplicationController
         # flash[:errors] = nil # Reset error messages from previous requests
         flash[:step_1_success] = "You have successfully completed step 1"
         #Send register step 1 email
-        # RegisterMailer.register_step_1_email(@client).deliver_later
+        RegisterMailer.register_step_1_email(@client).deliver_later
         render step_2_path
       else
         flash[:step_1_errors] = @client.errors.full_messages
